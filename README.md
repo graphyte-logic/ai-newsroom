@@ -21,6 +21,12 @@ Outputs:
 - 🔗 Direct links to full articles
 - 📰 Source attribution
 
+## Demo Video
+
+[![AI Newsroom Demo](https://img.youtube.com/vi/u7h4ycIYW28/maxresdefault.jpg)](https://youtu.be/u7h4ycIYW28)
+
+**[Watch the full demo](https://youtu.be/u7h4ycIYW28)** — Complete walkthrough of architecture, live Discord demo, and scalability.
+
 ## Architecture
 HackerNews + RSS Feeds
 ↓
