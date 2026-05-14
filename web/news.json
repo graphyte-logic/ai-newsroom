@@ -1,0 +1,50 @@
+[
+    {
+        "title": "Claude for Small Business",
+        "url": "https://www.anthropic.com/news/claude-for-small-business",
+        "source": "HackerNews",
+        "summary": "I'm unable to provide a meaningful summary because the article content is empty — only a title (\"Claude for Small Business\") and source (HackerNews) were provided. Please share the actual article text so I can summarize it."
+    },
+    {
+        "title": "Arena AI Model ELO History",
+        "url": "https://mayerwin.github.io/AI-Arena-History/",
+        "source": "HackerNews",
+        "summary": "Arena AI tracks LLM ELO ratings over time. Helps devs benchmark model performance trends. Use it to inform model selection for your stack."
+    },
+    {
+        "title": "How Agentic AI Is Transforming Customer Service and Contact Centers",
+        "url": "https://medium.com/@worktual/how-agentic-ai-is-transforming-customer-service-and-contact-centers-2124ce455427?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "Agentic AI is automating customer service workflows in contact centers. Developers should explore building autonomous AI agents for support pipelines. Key takeaway: integrate agentic patterns early."
+    },
+    {
+        "title": "The IBM Study And The S&P 500 Are Lying To You About AI",
+        "url": "https://ninza7.medium.com/the-ibm-study-and-the-s-p-500-are-lying-to-you-about-ai-a8b19bb5b7fd?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "The article challenges hype around AI adoption studies and S&P 500 AI narratives, arguing they overstate real-world impact. Developers should validate AI ROI claims independently."
+    },
+    {
+        "title": "Difference Between OEM, Retail, and Volume Licenses",
+        "url": "https://medium.com/@william_62331/difference-between-oem-retail-and-volume-licenses-9de32fbc0bcb?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "This article explains differences between OEM, Retail, and Volume Microsoft licenses. Developers should choose licenses matching deployment needs. Volume licenses offer best flexibility for dev environments."
+    },
+    {
+        "title": "AI Didn’t Kill Creativity. It Exposed Weak Thinking.",
+        "url": "https://thecreationx.medium.com/ai-didnt-kill-creativity-it-exposed-weak-thinking-fb5c105a343d?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "The article argues AI reveals rather than replaces shallow thinking. Developers who rely on rote patterns are most exposed. Invest in critical thinking and problem-framing skills."
+    },
+    {
+        "title": "Why Scalable Web Applications Fail Without Proper Architecture",
+        "url": "https://medium.com/@ripenapps-technologies/why-scalable-web-applications-fail-without-proper-architecture-806b2d2687bc?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "Article discusses how scalable web apps fail due to poor architecture choices. Matters because devs often scale prematurely or skip foundational design. **Key takeaway:** Invest in architecture patterns early—refactoring at scale is costly."
+    },
+    {
+        "title": "How to Never Miss an Important WhatsApp Message Again (Even in Groups With 500+ Members)",
+        "url": "https://medium.com/@gistgem/how-to-never-miss-an-important-whatsapp-message-again-even-in-groups-with-500-members-9c708ceba208?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "The article promotes a tool/method to filter important WhatsApp messages in large groups. Limited developer relevance—possibly involves WhatsApp API or automation. Actionable: explore WhatsApp Business API for message filtering solutions."
+    }
+]
