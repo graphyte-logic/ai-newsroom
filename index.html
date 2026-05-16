@@ -2,35 +2,116 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Graphyte Logic - AI Newsroom</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphyte Logic - AI Intelligence Hub</title>
     <style>
-        body { font-family: sans-serif; background: #1a1a1a; color: white; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: #2a2a2a; padding: 20px; border-left: 5px solid #00ffff; border-radius: 8px; }
-        .btn { display: inline-block; margin-top: 10px; color: #00ffff; text-decoration: none; font-weight: bold; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #111111;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header img {
+            margin-bottom: 15px;
+            border-radius: 50%;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            background: linear-gradient(45deg, #00ffff, #88a6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header p {
+            color: #888;
+            font-size: 1.1rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 800px;
+        }
+        .hub-card {
+            background: #1c1c1c;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .hub-card:hover {
+            transform: translateY(-5px);
+            border-color: #00ffff;
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.1);
+        }
+        .hub-card.legal:hover {
+            border-color: #ffaa00;
+            box-shadow: 0 10px 20px rgba(255, 170, 0, 0.1);
+        }
+        .hub-card h2 {
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+        .hub-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            background: #2a2a2a;
+            color: #00ffff;
+            display: inline-block;
+        }
+        .legal .btn {
+            color: #ffaa00;
+        }
     </style>
 </head>
 <body>
-    <img src="https://github.com/graphyte-logic.png" width="100" alt="Logo">
-    <h1>Graphyte AI Newsroom</h1>
-    <div id="news-container" class="grid">Caricamento notizie...</div>
 
-    <script>
-        async function fetchNews() {
-            try {
-                const res = await fetch('news.json');
-                const data = await res.json();
-                const container = document.getElementById('news-container');
-                container.innerHTML = data.map(n => `
-                    <div class="card">
-                        <h3>${n.title}</h3>
-                        <p>${n.summary.substring(0, 150)}...</p>
-                        <a href="${n.url}" target="_blank" class="btn">Leggi di più →</a>
-                    </div>
-                `).join('');
-            } catch (e) { console.error("Errore nel caricamento news:", e); }
-        }
-        fetchNews();
-    </script>
+    <div class="header">
+        <img src="https://github.com/graphyte-logic.png" width="90" alt="Graphyte Logo">
+        <h1>Graphyte AI Intelligence Hub</h1>
+        <p>Seleziona un canale verticale di rassegna stampa autonoma</p>
+    </div>
+
+    <div class="grid">
+        <a href="tech.html" class="hub-card">
+            <div>
+                <h2>🌐 Tech & AI News</h2>
+                <p>Monitoraggio continuo su intelligenza artificiale, sviluppo software, innovazioni di frontiera e trend tecnologici globali.</p>
+            </div>
+            <div class="btn">Accedi al Canale →</div>
+        </a>
+
+        <a href="legal.html" class="hub-card legal">
+            <div>
+                <h2>⚖️ Legal & Diritto</h2>
+                <p>Aggiornamenti normativi, sentenze rilevanti, diritto digitale, privacy e legislazione applicata alle nuove tecnologie.</p>
+            </div>
+            <div class="btn">Accedi al Canale →</div>
+        </a>
+    </div>
+
 </body>
 </html>

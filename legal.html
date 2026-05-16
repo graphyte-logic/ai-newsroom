@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphyte Intelligence - Legal & Diritto</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #141414; 
+            color: #e0e0e0; 
+            padding: 30px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #ffaa00;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .nav-back:hover {
+            color: #ffcc66;
+        }
+        .header {
+            border-bottom: 2px solid #332200;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .header h1 { 
+            margin: 0; 
+            font-size: 2.2rem;
+            color: #ffaa00;
+        }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+            gap: 25px; 
+        }
+        .card { 
+            background: #1e1e1e; 
+            padding: 25px; 
+            border-left: 5px solid #ffaa00; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #ffffff;
+            font-size: 1.25rem;
+            line-height: 1.4;
+        }
+        .card p {
+            color: #aaaaaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        .meta-info {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #2d2d2d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #777777;
+        }
+        .btn { 
+            color: #ffaa00; 
+            text-decoration: none; 
+            font-weight: bold; 
+        }
+        .btn:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="nav-back">← Torna all'Hub Principale</a>
+        
+        <div class="header">
+            <span style="font-size: 2.5rem;">⚖️</span>
+            <div>
+                <h1>Legal & Diritto Intelligence</h1>
+                <p style="margin: 5px 0 0 0; color: #888;">Rassegna autonoma su normative, sentenze e diritto digitale</p>
+            </div>
+        </div>
+
+        <div id="news-container" class="grid">Caricamento notizie legali in corso...</div>
+    </div>
+
+    <script>
+        async function fetchLegalNews() {
+            try {
+                // Legge il file specifico per il ramo legal
+                const res = await fetch('legal_news.json');
+                const data = await res.json();
+                const container = document.getElementById('news-container');
+                
+                if (!data || data.length === 0) {
+                    container.innerHTML = "<p>Nessun aggiornamento disponibile al momento.</p>";
+                    return;
+                }
+
+                container.innerHTML = data.map(n => `
+                    <div class="card">
+                        <div>
+                            <h3>${n.title}</h3>
+                            <p>${n.summary.substring(0, 180)}...</p>
+                        </div>
+                        <div class="meta-info">
+                            <span>📰 ${n.source || 'Fonte Legal'}</span>
+                            <a href="${n.url}" target="_blank" class="btn">Leggi di più →</a>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (e) { 
+                console.error("Errore nel caricamento delle news legali:", e); 
+                document.getElementById('news-container').innerHTML = "<p style='color: #ff4444;'>Nessun dato legal rilevato. Invia il comando !legal su Discord per generare il primo report.</p>";
+            }
+        }
+        fetchLegalNews();
+    </script>
+</body>
+</html>
