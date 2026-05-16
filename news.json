@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Moving away from Tailwind, and learning to structure my CSS",
+        "url": "https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/",
+        "source": "HackerNews",
+        "summary": "A developer shares their journey moving from Tailwind CSS back to vanilla CSS, learning proper CSS architecture. Matters as it highlights tradeoffs between utility-first frameworks and structured CSS. Takeaway: invest in learning CSS fundamentals before relying on abstractions."
+    },
+    {
+        "title": "SANA-WM, a 2.6B open-source world model for 1-minute 720p video",
+        "url": "https://nvlabs.github.io/Sana/WM/",
+        "source": "HackerNews",
+        "summary": "SANA-WM is a 2.6B param open-source world model generating 1-min 720p videos. Matters for devs building video gen/simulation apps. Try it for prototyping."
+    },
+    {
+        "title": "Δ-Mem: Efficient Online Memory for Large Language Models",
+        "url": "https://arxiv.org/abs/2605.12357",
+        "source": "HackerNews",
+        "summary": "A paper introduces Δ-Mem, a method for efficiently augmenting LLMs with updatable external memory without fine-tuning. Matters for devs building RAG or long-context apps needing dynamic knowledge. Actionable: evaluate Δ-Mem as a lightweight alternative to retrieval-augmented generation pipelines."
+    },
+    {
+        "title": "DeepSeek-V4-Flash means LLM steering is interesting again",
+        "url": "https://www.seangoedecke.com/steering-vectors/",
+        "source": "HackerNews",
+        "summary": "DeepSeek-V4-Flash enables effective LLM steering techniques. Matters for devs: fine-grained control over model behavior without fine-tuning. Try prompt-based steering on latest models."
+    },
+    {
+        "title": "US Is Starting to See Heavy Job Losses in Roles Exposed to AI",
+        "url": "https://www.bloomberg.com/news/articles/2026-05-15/us-is-starting-to-see-heavy-job-losses-in-roles-exposed-to-ai",
+        "source": "HackerNews",
+        "summary": "The US is experiencing significant job losses in AI-exposed roles. Developers should upskill in AI/ML to stay relevant. Automate before you're automated."
+    },
+    {
+        "title": "Memory Palace Feature Explanation:\nMemory Palace is VoxtrynAI’s advanced long-term memory system…",
+        "url": "https://medium.com/@voxtrynai/memory-palace-feature-explanation-memory-palace-is-voxtrynais-advanced-long-term-memory-system-b28d164ab01d?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "VoxtrynAI launched \"Memory Palace,\" a long-term memory system for AI agents. Developers can build stateful, context-aware apps. Worth evaluating for persistent conversation use cases."
+    },
+    {
+        "title": "Why MCP? The Story of How AI Finally Got Its Act Together",
+        "url": "https://medium.com/@nikitacbudholiya/why-mcp-the-story-of-how-ai-finally-got-its-act-together-813f01548084?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "MCP (Model Context Protocol) standardizes how AI models connect to external tools/data. Developers get a unified integration layer instead of custom adapters. Adopt MCP to future-proof your AI toolchain."
+    }
+]

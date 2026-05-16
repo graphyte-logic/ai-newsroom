@@ -2,111 +2,116 @@ import discord
 from discord.ext import commands, tasks
 from datetime import datetime
 from agents.orchestrator import news_graph
-from config import DISCORD_TOKEN, MORNING_HOUR, EVENING_HOUR
+from config import DISCORD_TOKEN, MORNING_HOUR, EVENING_HOUR, LEGAL_CHANNEL_ID, FONTI_LEGAL
 from discord import Embed, Color
 import json
-import os
+import subprocess
 
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-# ID del canale configurato correttamente
+# Id del canale Discord per le news Tech
 NEWS_CHANNEL_ID = 1497874759893913620
+
+def auto_push_to_github(filename):
+    """Invia automaticamente il file modificato (json) su GitHub Pages"""
+    try:
+        subprocess.run(["git", "add", filename], check=True)
+        subprocess.run(["git", "commit", "-m", f"⚡ Auto-update {filename}: {datetime.now().strftime('%H:%M:%S')}"], check=True)
+        subprocess.run(["git", "push", "origin", "master"], check=True)
+        print(f"🚀 [GitHub] {filename} pubblicato con successo nella Root!")
+    except Exception as e:
+        print(f"⚠️ [Git Error] Impossibile aggiornare GitHub per {filename}: {e}")
+
+def save_news_for_web(summaries, filename):
+    """Salva il file JSON specificato nella cartella principale e avvia il push"""
+    try:
+        with open(filename, "w", encoding="utf-8") as f:
+            json.dump(summaries, f, ensure_ascii=False, indent=4)
+        
+        print(f"✅ Database web aggiornato: {filename}")
+        auto_push_to_github(filename)
+    except Exception as e:
+        print(f"❌ Errore salvataggio file web ({filename}): {e}")
 
 @bot.event
 async def on_ready():
+    print(f"Starting AI Newsroom Multi-Ramo...")
     print(f"{bot.user} is now running!")
-    if not generate_digest_task.is_running():
-        generate_digest_task.start()
 
-def save_news_for_web(summaries):
-    """Salva le ultime notizie in un file JSON per la landing page"""
-    try:
-        web_folder = "web"
-        if not os.path.exists(web_folder):
-            os.makedirs(web_folder)
-        
-        file_path = os.path.join(web_folder, "news.json")
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(summaries, f, ensure_ascii=False, indent=4)
-        print(f"✅ Database web aggiornato: {file_path}")
-    except Exception as e:
-        print(f"❌ Errore nel salvataggio web: {e}")
-
-async def create_professional_embed(summaries):
-    """Crea un unico Embed compatto e professionale per tutte le news"""
-    embed = Embed(
-        title="⚡ Graphyte Tech & AI Digest",
-        description=f"Le notizie più rilevanti selezionate per te.\n*{datetime.now().strftime('%A %d %B %Y')}*",
-        color=Color.from_rgb(0, 255, 255)  # Ciano Graphyte
-    )
-    
-    for i, summary in enumerate(summaries[:8], 1):
-        # Tronca il riassunto se troppo lungo
-        clean_summary = summary['summary'][:300] + "..." if len(summary['summary']) > 300 else summary['summary']
-        
-        field_value = f"{clean_summary}\n🔗 [Leggi di più]({summary['url']})"
-        embed.add_field(
-            name=f"{i}. {summary['title'][:256]}",
-            value=field_value,
-            inline=False
-        )
-    
-    # Brand identity nel footer
-    embed.set_footer(
-        text="Powered by Graphyte Logic • AI Newsroom", 
-        icon_url="https://github.com/graphyte-logic.png"
-    )
-    return embed
-
-@tasks.loop(hours=1)
-async def generate_digest_task():
-    """Check automatico per l'invio programmato"""
-    if NEWS_CHANNEL_ID is None:
-        return
-    
-    now = datetime.now().hour
-    if now == MORNING_HOUR or now == EVENING_HOUR:
-        try:
-            print(f"Generating scheduled digest at {datetime.now()}")
-            state = {"articles": [], "summaries": [], "digest": ""}
-            result = news_graph.invoke(state)
-            summaries = result.get("summaries", [])
-            
-            channel = bot.get_channel(NEWS_CHANNEL_ID)
-            if channel and summaries:
-                # Salva per il web prima di inviare
-                save_news_for_web(summaries)
-                
-                embed = await create_professional_embed(summaries)
-                await channel.send(embed=embed)
-                print("Scheduled digest posted!")
-        except Exception as e:
-            print(f"Error in scheduled digest: {e}")
-
+# --- COMANDO TECH (GIA' ESISTENTE) ---
 @bot.command()
 async def digest(ctx):
-    """Comando manuale !digest per attivare il bot"""
+    """Trigger manuale per il ramo tecnologico"""
     try:
-        await ctx.send("🔍 Recupero e riassumo le ultime notizie tech...")
+        await ctx.send("🔍 Analisi del web in corso per Graphyte Tech...")
         
-        state = {"articles": [], "summaries": [], "digest": ""}
+        # Facciamo partire il grafo passandogli nel contesto che vogliamo news Tech
+        state = {"articles": [], "summaries": [], "digest": "", "category": "tech"}
         result = news_graph.invoke(state)
         summaries = result.get("summaries", [])
         
-        if not summaries:
-            return await ctx.send("📭 Nessuna notizia rilevante trovata al momento.")
-
-        # Aggiorna il file JSON per il sito web
-        save_news_for_web(summaries)
-
-        # Invia l'embed su Discord
-        embed = await create_professional_embed(summaries)
-        await ctx.send(embed=embed)
+        if summaries:
+            save_news_for_web(summaries, "news.json")
             
+            header = Embed(
+                title="🤖 Tech & AI Digest",
+                description=datetime.now().strftime('%A %d %B %Y'),
+                color=Color.blue()
+            )
+            await ctx.send(embed=header)
+            
+            for i, summary in enumerate(summaries[:8], 1):
+                embed = Embed(
+                    title=f"{i}. {summary['title'][:256]}",
+                    description=summary['summary'][:2048],
+                    url=summary['url'],
+                    color=Color.from_rgb(88, 166, 255)
+                )
+                embed.set_footer(text=f"📰 {summary['source']}")
+                await ctx.send(embed=embed)
+        else:
+            await ctx.send("📭 Nessun aggiornamento tecnologico trovato.")
     except Exception as e:
-        await ctx.send(f"❌ Errore durante la generazione: {str(e)}")
+        await ctx.send(f"❌ Errore durante il digest tech: {str(e)}")
+
+# --- NUOVO COMANDO LEGAL ---
+@bot.command()
+async def legal(ctx):
+    """Trigger manuale per il ramo legale"""
+    try:
+        await ctx.send("⚖️ Consultazione degli archivi giuridici in corso per Graphyte Legal...")
+        
+        # Passiamo "legal" nell'invocazione del grafo
+        state = {"articles": [], "summaries": [], "digest": "", "category": "legal"}
+        result = news_graph.invoke(state)
+        summaries = result.get("summaries", [])
+        
+        if summaries:
+            # Salviamo nel nuovo file dedicato
+            save_news_for_web(summaries, "legal_news.json")
+            
+            header = Embed(
+                title="⚖️ Legal & Diritto Intelligence",
+                description=datetime.now().strftime('%A %d %B %Y'),
+                color=Color.from_rgb(255, 170, 0) # Colore Oro/Ambra coerente con il sito!
+            )
+            await ctx.send(embed=header)
+            
+            for i, summary in enumerate(summaries[:8], 1):
+                embed = Embed(
+                    title=f"{i}. {summary['title'][:256]}",
+                    description=summary['summary'][:2048],
+                    url=summary['url'],
+                    color=Color.from_rgb(255, 170, 0)
+                )
+                embed.set_footer(text=f"📰 {summary['source'] || 'Fonte Giuridica'}")
+                await ctx.send(embed=embed)
+        else:
+            await ctx.send("📭 Nessun aggiornamento legale rilevante trovato.")
+    except Exception as e:
+        await ctx.send(f"❌ Errore durante il digest legal: {str(e)}")
 
 def run():
     bot.run(DISCORD_TOKEN)
