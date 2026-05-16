@@ -1,20 +1,62 @@
 [
     {
-        "title": "Frontier AI has broken the open CTF format",
-        "url": "https://kabir.au/blog/the-ctf-scene-is-dead",
+        "title": "Moving away from Tailwind, and learning to structure my CSS",
+        "url": "https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/",
         "source": "HackerNews",
-        "summary": "Frontier AI models now solve open CTF challenges too easily, breaking the traditional format. Developers should redesign CTF competitions to remain effective for skill-building and benchmarking."
+        "summary": "Author shares their journey ditching Tailwind for structured vanilla CSS. Matters as devs reconsider utility-first trade-offs. Takeaway: learn CSS architecture fundamentals before adopting frameworks."
     },
     {
-        "title": "The main thing about P2P meth is that there's so much of it (2021)",
-        "url": "https://dynomight.net/p2p-meth/",
+        "title": "SANA-WM, a 2.6B open-source world model for 1-minute 720p video",
+        "url": "https://nvlabs.github.io/Sana/WM/",
         "source": "HackerNews",
-        "summary": "This article about P2P methamphetamine production/supply is not tech/AI-related despite appearing on HackerNews. It's a drug policy piece with no relevance to developers or actionable technical insights."
+        "summary": "SANA-WM is a 2.6B parameter open-source world model capable of generating 1-minute 720p videos. Matters for devs as a lightweight, accessible alternative to closed video gen models. Worth evaluating for video/simulation pipelines."
     },
     {
-        "title": "The Sonic Revolution: Advanced Speech Tech and AI",
-        "url": "https://medium.com/@madnisagheer625/the-sonic-revolution-advanced-speech-tech-and-ai-4f043a17b58a?source=rss------technology-5",
+        "title": "Δ-Mem: Efficient Online Memory for Large Language Models",
+        "url": "https://arxiv.org/abs/2605.12357",
+        "source": "HackerNews",
+        "summary": "Δ-Mem introduces an efficient online memory mechanism for LLMs, enabling persistent context without full retraining. Matters for devs building long-context apps. Consider it for memory-augmented RAG pipelines."
+    },
+    {
+        "title": "DeepSeek-V4-Flash means LLM steering is interesting again",
+        "url": "https://www.seangoedecke.com/steering-vectors/",
+        "source": "HackerNews",
+        "summary": "DeepSeek-V4-Flash enables effective LLM steering techniques. Matters for devs seeking fine-grained control over model behavior. Experiment with steering vectors now."
+    },
+    {
+        "title": "My Favorite Bugs: Invalid Surrogate Pairs",
+        "url": "https://george.mand.is/2026/05/my-favorite-bugs-invalid-surrogate-pairs/",
+        "source": "HackerNews",
+        "summary": "I'm unable to provide a meaningful summary because the article content is empty — only the title and source are given with no actual content/body text.\n\nBased solely on the title \"My Favorite Bugs: Invalid Surrogate Pairs,\" this likely discusses UTF-16 encoding bugs where unpaired surrogates (U+D800–U+DFFF) cause crashes or security issues. Developers should validate Unicode handling at system boundaries."
+    },
+    {
+        "title": "US Is Starting to See Heavy Job Losses in Roles Exposed to AI",
+        "url": "https://www.bloomberg.com/news/articles/2026-05-15/us-is-starting-to-see-heavy-job-losses-in-roles-exposed-to-ai",
+        "source": "HackerNews",
+        "summary": "The US is experiencing significant job losses in AI-exposed roles. Developers should upskill in AI/ML to stay relevant. Automate or be automated."
+    },
+    {
+        "title": "Why MCP? The Story of How AI Finally Got Its Act Together",
+        "url": "https://medium.com/@nikitacbudholiya/why-mcp-the-story-of-how-ai-finally-got-its-act-together-813f01548084?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Advanced speech tech and AI are converging to transform voice interfaces. Developers should explore speech APIs for next-gen apps. Act now: prototype voice features."
+        "summary": "MCP (Model Context Protocol) standardizes how AI models connect to external tools/data. Developers get a unified integration layer instead of custom adapters. Adopt MCP early to future-proof AI toolchains."
+    },
+    {
+        "title": "I Built an Inventory Management System for My Dental Clinic — With AI as My Co-Pilot",
+        "url": "https://medium.com/@nisanisasy/i-built-an-inventory-management-system-for-my-dental-clinic-with-ai-as-my-co-pilot-c18b2b4c6234?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "A dentist built a clinic inventory management system using AI-assisted coding. Shows AI co-pilots enable non-devs to build real apps, shifting who creates software."
+    },
+    {
+        "title": "Understanding the Future of AI: Foundation Models & Generative Intelligence",
+        "url": "https://medium.com/@muznasabzwari/understanding-the-future-of-ai-foundation-models-generative-intelligence-778def1bcc0e?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "AI foundation models are evolving beyond traditional software into generative intelligence. Developers should invest in understanding foundation model APIs and prompt engineering. Start building with models like GPT-4 and open-source alternatives now."
+    },
+    {
+        "title": "Code Review Was Never About Catching Bugs. AI Pull Requests Just Proved It.",
+        "url": "https://medium.com/@alistair.prestidge/code-review-was-never-about-catching-bugs-ai-pull-requests-just-proved-it-ca970f2377be?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "The article argues AI-generated PRs expose that code review's real value was knowledge sharing, not bug detection. Developers should redesign review processes for AI-authored code, focusing on intent verification and system coherence instead."
     }
 ]
