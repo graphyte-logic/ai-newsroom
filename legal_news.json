@@ -1,0 +1,62 @@
+[
+    {
+        "title": "Moving away from Tailwind, and learning to structure my CSS",
+        "url": "https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/",
+        "source": "HackerNews",
+        "summary": "Author shares their journey ditching Tailwind for structured vanilla CSS. Matters as devs reconsider utility-first tradeoffs. Takeaway: learn CSS architecture before adopting frameworks."
+    },
+    {
+        "title": "SANA-WM, a 2.6B open-source world model for 1-minute 720p video",
+        "url": "https://nvlabs.github.io/Sana/WM/",
+        "source": "HackerNews",
+        "summary": "SANA-WM is a 2.6B parameter open-source world model capable of generating 1-minute 720p videos. Matters for devs building video gen/simulation apps with a lightweight, accessible model. Worth evaluating for real-time content pipelines."
+    },
+    {
+        "title": "Δ-Mem: Efficient Online Memory for Large Language Models",
+        "url": "https://arxiv.org/abs/2605.12357",
+        "source": "HackerNews",
+        "summary": "Research introduces Δ-Mem, a method for efficient online memory in LLMs, enabling persistent context without full retraining. Developers can leverage this for stateful apps with lower compute. Explore integrating delta-based memory for long-running LLM agents."
+    },
+    {
+        "title": "DeepSeek-V4-Flash means LLM steering is interesting again",
+        "url": "https://www.seangoedecke.com/steering-vectors/",
+        "source": "HackerNews",
+        "summary": "DeepSeek-V4-Flash enables effective LLM steering/prompting techniques. Matters for devs as cheaper models respond well to guidance. Experiment now."
+    },
+    {
+        "title": "My Favorite Bugs: Invalid Surrogate Pairs",
+        "url": "https://george.mand.is/2026/05/my-favorite-bugs-invalid-surrogate-pairs/",
+        "source": "HackerNews",
+        "summary": "I'm unable to provide a meaningful summary because the article content is empty — only a title and source were given with no actual content/body text.\n\nPlease share the full article text so I can summarize it."
+    },
+    {
+        "title": "US Is Starting to See Heavy Job Losses in Roles Exposed to AI",
+        "url": "https://www.bloomberg.com/news/articles/2026-05-15/us-is-starting-to-see-heavy-job-losses-in-roles-exposed-to-ai",
+        "source": "HackerNews",
+        "summary": "The US is experiencing significant job losses in AI-exposed roles. Developers should focus on AI-augmented skills to stay relevant. Upskill in AI/ML now."
+    },
+    {
+        "title": "Apple Spent $5B on a Vault. Three Guys and an AI Walked Around It in Five Days.",
+        "url": "https://medium.com/@lordmoma/apple-spent-5b-on-a-vault-three-guys-and-an-ai-walked-around-it-in-five-days-bfd3ef39c432?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "Three researchers used AI to bypass Apple's $5B security infrastructure in five days. This highlights that even massive security investments can't outpace AI-augmented offensive techniques. Developers should prioritize AI-driven threat modeling and red-teaming in their security pipelines."
+    },
+    {
+        "title": "“Compinches”: The Caribbean Spanish Word Your Therapist Wishes Existed in English",
+        "url": "https://medium.com/@donriveradiaz/compinches-the-caribbean-spanish-word-your-therapist-wishes-existed-in-english-5d8e49be51f7?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "This is a linguistics/culture article about a Spanish word, not a tech/AI topic. It has no relevance to developers and contains no actionable technical insight."
+    },
+    {
+        "title": "Blessed vs. Privileged: Two Words That Sound Like Siblings But Raise Very Different Children",
+        "url": "https://medium.com/@donriveradiaz/blessed-vs-privileged-two-words-that-sound-like-siblings-but-raise-very-different-children-e6606095dda6?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "This appears to be a personal/philosophical essay on language semantics (\"blessed\" vs. \"privileged\"), not a tech/AI article. No actionable developer insight. Skip."
+    },
+    {
+        "title": "Breaking Free From the AI Cloud: Unleashing the Power of Local Servers on Your Laptop or Smartphone.",
+        "url": "https://medium.com/@garythatcher608/breaking-free-from-the-ai-cloud-unleashing-the-power-of-local-servers-on-your-laptop-or-smartphone-dae6ba39cd9d?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "**Summary:** Article explores running AI models locally on laptops/smartphones instead of cloud APIs. Matters for developers seeking lower latency, privacy, and cost savings. Actionable: Explore local inference tools like Ollama or llama.cpp."
+    }
+]
