@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Frontier AI has broken the open CTF format",
+        "url": "https://kabir.au/blog/the-ctf-scene-is-dead",
+        "source": "HackerNews",
+        "summary": "Frontier AI models now solve open CTF challenges too easily, breaking the traditional format. Developers should redesign CTF competitions to remain effective for skill-building and benchmarking."
+    },
+    {
+        "title": "The main thing about P2P meth is that there's so much of it (2021)",
+        "url": "https://dynomight.net/p2p-meth/",
+        "source": "HackerNews",
+        "summary": "This article about P2P methamphetamine production/supply is not tech/AI-related despite appearing on HackerNews. It's a drug policy piece with no relevance to developers or actionable technical insights."
+    },
+    {
+        "title": "The Sonic Revolution: Advanced Speech Tech and AI",
+        "url": "https://medium.com/@madnisagheer625/the-sonic-revolution-advanced-speech-tech-and-ai-4f043a17b58a?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "Advanced speech tech and AI are converging to transform voice interfaces. Developers should explore speech APIs for next-gen apps. Act now: prototype voice features."
+    }
+]
