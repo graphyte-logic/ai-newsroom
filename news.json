@@ -1,8 +1,20 @@
 [
     {
-        "title": "Out Of 1000+ Claude Skills, These 10 Just Made ChatGPT Obsolete Claude",
-        "url": "https://medium.com/data-science-in-your-pocket/out-of-1000-claude-skills-these-10-just-made-chatgpt-obsolete-claude-5d226cf77e55?source=rss------technology-5",
+        "title": "Part 5 — Persisting AI Artifacts: The JobAnnouncement Lifecycle",
+        "url": "https://medium.com/scrum-and-coke/part-5-persisting-ai-artifacts-the-jobannouncement-lifecycle-d51ac226ff82?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "L'articolo di Medium elenca 10 funzionalità di Claude che, secondo l'autore, lo renderebbero superiore a ChatGPT, selezionate da un catalogo di oltre 1.000 competenze disponibili. Si tratta tuttavia di un contenuto dal taglio fortemente clickbait, privo di dettagli tecnici verificabili, poiché il sommario fornito è troncato e non consente di valutare le argomentazioni specifiche. L'impatto tecnico reale appare quindi limitato: più che un'analisi rigorosa, il pezzo sembra pensato per generare engagement sfruttando la rivalità percepita tra i due modelli."
+        "summary": "L'articolo illustra come persistere gli artefatti generati dall'intelligenza artificiale gestendo il ciclo di vita completo di un oggetto JobAnnouncement, dalla creazione all'archiviazione."
+    },
+    {
+        "title": "NVIDIA Didn’t Build the AI Boom — It Built the Infrastructure Behind Its $5.5 Trillion Rise",
+        "url": "https://medium.com/@jatindobariya2/nvidia-didnt-build-the-ai-boom-it-built-the-infrastructure-behind-its-5-5-trillion-rise-78f28fa8dd43?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "NVIDIA non ha creato l'AI, ma l'infrastruttura su cui essa si regge, raggiungendo una capitalizzazione di 5.500 miliardi di dollari."
+    },
+    {
+        "title": "Part 4 — The Compliance MCP Server: Deterministic Rules, Zero LLM",
+        "url": "https://medium.com/scrum-and-coke/part-4-the-compliance-mcp-server-deterministic-rules-zero-llm-6fa051cb3f8d?source=rss------technology-5",
+        "source": "Medium Tech",
+        "summary": "Un server MCP per la compliance esegue regole deterministiche senza utilizzare alcun modello linguistico, garantendo verifiche precise e prevedibili."
     }
 ]
