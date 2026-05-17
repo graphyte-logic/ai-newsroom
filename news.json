@@ -3,18 +3,18 @@
         "title": "Part 5 — Persisting AI Artifacts: The JobAnnouncement Lifecycle",
         "url": "https://medium.com/scrum-and-coke/part-5-persisting-ai-artifacts-the-jobannouncement-lifecycle-d51ac226ff82?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Il quinto articolo della serie illustra come persistere gli artefatti generati dall'IA gestendo il ciclo di vita completo dell'entità JobAnnouncement."
+        "summary": "L'articolo illustra come gestire il ciclo di vita dell'entità JobAnnouncement, persistendo gli artefatti generati dall'intelligenza artificiale in un flusso strutturato."
     },
     {
         "title": "NVIDIA Didn’t Build the AI Boom — It Built the Infrastructure Behind Its $5.5 Trillion Rise",
         "url": "https://medium.com/@jatindobariya2/nvidia-didnt-build-the-ai-boom-it-built-the-infrastructure-behind-its-5-5-trillion-rise-78f28fa8dd43?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "NVIDIA ha raggiunto i 5.500 miliardi di dollari di valore non creando l'AI, ma costruendo l'infrastruttura hardware indispensabile alla sua espansione."
+        "summary": "NVIDIA ha raggiunto i 5.500 miliardi di dollari di valore non creando l'AI, ma costruendo l'infrastruttura hardware indispensabile al suo boom."
     },
     {
         "title": "Part 4 — The Compliance MCP Server: Deterministic Rules, Zero LLM",
         "url": "https://medium.com/scrum-and-coke/part-4-the-compliance-mcp-server-deterministic-rules-zero-llm-6fa051cb3f8d?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Un server MCP per la compliance esegue regole deterministiche senza ricorrere a modelli di linguaggio, garantendo verifiche precise e prevedibili."
+        "summary": "Un server MCP per la compliance esegue regole deterministiche senza utilizzare alcun modello linguistico, garantendo verifiche precise e prevedibili."
     }
 ]
