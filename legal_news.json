@@ -1,44 +1,44 @@
 [
     {
-        "title": "Moving away from Tailwind, and learning to structure my CSS",
-        "url": "https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/",
-        "source": "HackerNews",
-        "summary": "A developer shares their journey moving from Tailwind CSS back to vanilla CSS, learning proper CSS architecture. Matters as it highlights the trade-off between utility frameworks and maintainable, structured stylesheets. Takeaway: invest in learning CSS fundamentals before relying on abstractions."
+        "title": "Decreto fiscale 2026: tutte le novità approvate dal Senato per imprese e professionisti",
+        "url": "https://www.diritto.it/decreto-fiscale-2026-novita-imprese-professionisti/",
+        "source": "Il portale giuridico online per i professionisti – Diritto.it",
+        "summary": "This article is about Italian fiscal decree 2026 (tax/legal policy for businesses and professionals), not a tech/AI topic. No actionable developer insights available."
     },
     {
-        "title": "SANA-WM, a 2.6B open-source world model for 1-minute 720p video",
-        "url": "https://nvlabs.github.io/Sana/WM/",
-        "source": "HackerNews",
-        "summary": "SANA-WM is a 2.6B parameter open-source world model generating 1-min 720p videos. Matters for devs building video gen/simulation apps with accessible hardware. Actionable: evaluate for prototyping video workflows."
+        "title": "Il sistema di assunzione del personale ATA viola il diritto UE, Italia condannata",
+        "url": "https://www.diritto.it/personale-ata-assunzioni-illegittime-cgue-condanna/",
+        "source": "Il portale giuridico online per i professionisti – Diritto.it",
+        "summary": "Italy condemned by EU court for ATA staff hiring system violating EU law. Limited dev relevance—may signal stricter EU scrutiny on automated hiring systems. Developers building HR/recruitment tools should ensure EU compliance."
     },
     {
-        "title": "Δ-Mem: Efficient Online Memory for Large Language Models",
-        "url": "https://arxiv.org/abs/2605.12357",
-        "source": "HackerNews",
-        "summary": "Δ-Mem introduces efficient online memory augmentation for LLMs, enabling continual learning without full retraining. Devs can update model knowledge incrementally, reducing compute costs. Consider integrating for apps needing real-time knowledge updates."
+        "title": "Condomino impugna senza motivo: il giudice lo sanziona",
+        "url": "https://www.diritto.it/impugnazione-delibera-condominiale-lite-temeraria/",
+        "source": "Il portale giuridico online per i professionisti – Diritto.it",
+        "summary": "This article is about Italian condominium/property law (a resident's legal challenge was sanctioned by a judge), not tech/AI news. No relevance to developers or actionable tech insights exist here."
     },
     {
-        "title": "DeepSeek-V4-Flash means LLM steering is interesting again",
-        "url": "https://www.seangoedecke.com/steering-vectors/",
-        "source": "HackerNews",
-        "summary": "DeepSeek-V4-Flash revives interest in LLM steering techniques. Developers can leverage its architecture for more controllable model behavior. Experiment with steering vectors now."
+        "title": "L’impugnazione via PEC: quando l’errore non rende l’atto inammissibile",
+        "url": "https://www.diritto.it/pec-errata-consulta-ammissibilita-impugnazione/",
+        "source": "Il portale giuridico online per i professionisti – Diritto.it",
+        "summary": "This article is about Italian legal procedure (PEC email appeals and admissibility of flawed filings), not tech/AI news. No developer relevance."
     },
     {
-        "title": "US Is Starting to See Heavy Job Losses in Roles Exposed to AI",
-        "url": "https://www.bloomberg.com/news/articles/2026-05-15/us-is-starting-to-see-heavy-job-losses-in-roles-exposed-to-ai",
-        "source": "HackerNews",
-        "summary": "The US is experiencing significant job losses in AI-exposed roles. Developers should upskill in AI/ML to stay relevant. Automate or be automated."
+        "title": "Equo compenso agli editori: la Corte UE conferma il modello italiano, ma ne delimita i confini",
+        "url": "https://www.diritto.it/equo-compenso-editori-la-corte-ue-salva-agcom/",
+        "source": "Il portale giuridico online per i professionisti – Diritto.it",
+        "summary": "EU Court upheld Italy's fair compensation model for publishers but set limits. Matters for devs building AI/content platforms needing licensing. Review EU content rules before scraping."
     },
     {
-        "title": "What Is THE UNITY TOKEN ( $TUNIT) and How Does It Plan to Connect Blockchain With Real Human Impact?",
-        "url": "https://medium.com/cryptoinvestar/what-is-the-unity-token-tunit-and-how-does-it-plan-to-connect-blockchain-with-real-human-impact-de13d0ed93ae?source=rss------technology-5",
-        "source": "Medium Tech",
-        "summary": "THE UNITY TOKEN ($TUNIT) aims to bridge blockchain technology with real-world social impact. For developers, it signals growing demand for purpose-driven dApps. Watch for SDK/API integrations."
+        "title": "AI Act, accordo sul Digital Omnibus: più tempo alle imprese e nuove regole sui deepfake",
+        "url": "https://www.diritto.it/ai-act-rinvii-semplificazioni-divieti-deepfake/",
+        "source": "Il portale giuridico online per i professionisti – Diritto.it",
+        "summary": "EU agreed on Digital Omnibus tweaks to AI Act: extended compliance deadlines for businesses and new deepfake rules. Developers get more time to adapt but must implement deepfake labeling. Review your AI system's risk classification and disclosure mechanisms now."
     },
     {
-        "title": "Memory Palace Feature Explanation:\nMemory Palace is VoxtrynAI’s advanced long-term memory system…",
-        "url": "https://medium.com/@voxtrynai/memory-palace-feature-explanation-memory-palace-is-voxtrynais-advanced-long-term-memory-system-b28d164ab01d?source=rss------technology-5",
-        "source": "Medium Tech",
-        "summary": "VoxtrynAI launched \"Memory Palace,\" a long-term memory system for AI agents. Developers can build more context-aware apps. Worth evaluating for stateful AI workflows."
+        "title": "Stipendi, cosa cambia per le aziende dal 7 giugno: arriva la trasparenza retributiva UE",
+        "url": "https://www.diritto.it/trasparenza-retributiva-attuazione-ue-giugno-2026/",
+        "source": "Il portale giuridico online per i professionisti – Diritto.it",
+        "summary": "EU directive 2023/970 mandates pay transparency for companies starting June 7. Devs at EU firms gain right to salary range info. Review your comp against new disclosed benchmarks."
     }
 ]
