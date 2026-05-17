@@ -86,6 +86,36 @@
         .btn:hover {
             text-decoration: underline;
         }
+        /* Stili del Bottone di Controllo */
+        .control-panel {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #332200;
+        }
+        .btn-refresh {
+            background: #ffaa00;
+            color: #111;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+        .btn-refresh:hover {
+            background: #ffcc66;
+        }
+        .btn-refresh:disabled {
+            background: #555;
+            color: #aaa;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -101,14 +131,47 @@
             </div>
         </div>
 
+        <div class="control-panel">
+            <div>
+                <span style="font-weight: bold; color: #ffaa00;">⚙️ Gestione Hub</span>
+                <div id="refresh-status" style="color: #aaa; font-size: 0.85rem; margin-top: 3px;">Usa il comando a destra per aggiornare l'archivio remoto.</div>
+            </div>
+            <button id="btn-refresh" class="btn-refresh" onclick="forzaAggiornamento()">🔄 Aggiorna Ora</button>
+        </div>
+
         <div id="news-container" class="grid">Caricamento notizie legali in corso...</div>
     </div>
 
     <script>
+        async function forzaAggiornamento() {
+            const statusText = document.getElementById('refresh-status');
+            const btn = document.getElementById('btn-refresh');
+            
+            statusText.innerText = "⏳ Connessione all'IA e generazione report in corso... Attendere circa 15 secondi...";
+            btn.disabled = true;
+            
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/refresh/legal', {
+                    method: 'POST'
+                });
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    statusText.innerHTML = "<span style='color: #00ff00;'>✅ Archivio aggiornato e caricato su GitHub! Ricarica la pagina tra pochi istanti.</span>";
+                    setTimeout(fetchLegalNews, 2000); // Ricarica i dati nella griglia
+                } else {
+                    statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore durante l'elaborazione dell'IA.</span>";
+                }
+            } catch (error) {
+                statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore: Assicurati che il file main.py sia attivo sul tuo computer.</span>";
+            }
+            btn.disabled = false;
+        }
+
         async function fetchLegalNews() {
             try {
                 // Legge il file specifico per il ramo legal
-                const res = await fetch('legal_news.json');
+                const res = await fetch('legal_news.json?t=' + new Date().getTime()); // Evita la cache del browser
                 const data = await res.json();
                 const container = document.getElementById('news-container');
                 
@@ -121,7 +184,7 @@
                     <div class="card">
                         <div>
                             <h3>${n.title}</h3>
-                            <p>${n.summary.substring(0, 180)}...</p>
+                            <p>${n.summary}</p>
                         </div>
                         <div class="meta-info">
                             <span>📰 ${n.source || 'Fonte Legal'}</span>
@@ -131,7 +194,7 @@
                 `).join('');
             } catch (e) { 
                 console.error("Errore nel caricamento delle news legali:", e); 
-                document.getElementById('news-container').innerHTML = "<p style='color: #ff4444;'>Nessun dato legal rilevato. Invia il comando !legal su Discord per generare il primo report.</p>";
+                document.getElementById('news-container').innerHTML = "<p style='color: #ff4444;'>Nessun dato legal rilevato nell'archivio remoto.</p>";
             }
         }
         fetchLegalNews();
