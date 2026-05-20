@@ -3,13 +3,19 @@
         "title": "Victory: Tennessee man jailed 37 days for Trump meme wins $835,000 settlement",
         "url": "https://www.fire.org/news/victory-tennessee-man-jailed-37-days-trump-meme-wins-835000-settlement-after-first-amendment",
         "source": "HackerNews",
-        "summary": "Un uomo del Tennessee, incarcerato 37 giorni per un meme su Trump, ottiene un risarcimento di 835.000 dollari, segnando un precedente sulla libertà d'espressione online."
+        "summary": "Un uomo del Tennessee, incarcerato 37 giorni per un meme su Trump, ottiene un risarcimento di 835.000 dollari, segnando una vittoria per la libertà d'espressione online."
     },
     {
         "title": "Google's AI is being manipulated. The search giant is quietly fighting back",
         "url": "https://www.bbc.com/future/article/20260519-google-tackles-attempts-to-hack-its-ai-results",
         "source": "HackerNews",
-        "summary": "Google sta contrastando silenziosamente le tecniche di manipolazione che sfruttano la sua intelligenza artificiale per alterare i risultati di ricerca."
+        "summary": "Google sta contrastando silenziosamente le tecniche di manipolazione che sfruttano le sue funzionalità AI nei risultati di ricerca per diffondere disinformazione."
+    },
+    {
+        "title": "Testing distributed systems with AI agents",
+        "url": "https://github.com/shenli/distributed-system-testing",
+        "source": "HackerNews",
+        "summary": "Agenti di intelligenza artificiale vengono impiegati per testare sistemi distribuiti, automatizzando la scoperta di bug complessi legati a concorrenza e guasti."
     },
     {
         "title": "Formal Verification Gates for AI Coding Loops",
@@ -18,33 +24,27 @@
         "summary": "La verifica formale viene integrata come checkpoint obbligatorio nei cicli di codifica automatizzata dell'IA, garantendo correttezza del codice prima del deployment."
     },
     {
-        "title": "Testing distributed systems with AI agents",
-        "url": "https://github.com/shenli/distributed-system-testing",
-        "source": "HackerNews",
-        "summary": "Agenti di intelligenza artificiale vengono impiegati per testare automaticamente sistemi distribuiti, migliorando la rilevazione di bug complessi e riducendo l'intervento manuale."
-    },
-    {
         "title": "Ask HN: Shouldn't Google need to give a public statement about Railway incident?",
         "url": "https://news.ycombinator.com/item?id=48210590",
         "source": "HackerNews",
-        "summary": "Un utente Hacker News chiede se Google debba rilasciare una dichiarazione pubblica riguardo un incidente che ha coinvolto la piattaforma di hosting Railway."
+        "summary": "Un utente Hacker News chiede se Google debba rilasciare una dichiarazione pubblica riguardo un incidente che ha coinvolto la piattaforma cloud Railway."
     },
     {
-        "title": "Every year, cybersecurity predictions warn about “AI-powered attacks.”",
-        "url": "https://medium.com/@neuralcoretech.official/every-year-cybersecurity-predictions-warn-about-ai-powered-attacks-aa71d1a517e1?source=rss------technology-5",
-        "source": "Medium Tech",
-        "summary": "Ogni anno si prevedono attacchi informatici potenziati dall'intelligenza artificiale, ma la vera sfida resta trasformare questi allarmi in difese concrete."
+        "title": "Show HN: Lance – image/video generation and understanding in one model",
+        "url": "https://github.com/bytedance/Lance",
+        "source": "HackerNews",
+        "summary": "Lance è un modello unificato open-source capace di generare e comprendere immagini e video all'interno di un'unica architettura."
     },
     {
-        "title": "10 Underrated AI Tools Quietly Shaping the Future of Work in 2026",
-        "url": "https://medium.com/@contact_85797/10-underrated-ai-tools-quietly-shaping-the-future-of-work-in-2026-3b1ee7c5ec44?source=rss------technology-5",
+        "title": "AI's Impact on Software Engineering’s (Not So) Civil War",
+        "url": "https://medium.com/@treybigsby/ais-impact-on-software-engineerings-not-so-civil-war-9b800d6849ad?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Dieci strumenti di intelligenza artificiale poco conosciuti stanno ridefinendo silenziosamente il futuro del lavoro nel 2026, automatizzando processi aziendali complessi."
+        "summary": "L'intelligenza artificiale sta acuendo il dibattito interno all'ingegneria del software, ridefinendo ruoli, competenze richieste e dinamiche professionali tra gli sviluppatori."
     },
     {
-        "title": "The Rise of the Agent: How Google’s New Gemini 3.5 Flash Is Turning AI Into Active Coworkers",
-        "url": "https://medium.com/@nguyenan04102004/the-rise-of-the-agent-how-googles-new-gemini-3-5-flash-is-turning-ai-into-active-coworkers-fd1764b1a175?source=rss------technology-5",
+        "title": "The Day Companies That Cut People for AI Have to Buy Back “Context”",
+        "url": "https://medium.com/@yuhi-reflects/the-day-companies-that-cut-people-for-ai-have-to-buy-back-context-432152bb7e67?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Google Gemini 3.5 Flash trasforma l'IA da assistente passivo a collaboratore attivo, inaugurando l'era degli agenti autonomi integrati nei flussi di lavoro."
+        "summary": "Le aziende che licenziano dipendenti per sostituirli con l'IA scoprono poi di dover ricomprare a caro prezzo il \"contesto\" umano perduto."
     }
 ]
