@@ -3,7 +3,7 @@
         "title": "Victory: Tennessee man jailed 37 days for Trump meme wins $835,000 settlement",
         "url": "https://www.fire.org/news/victory-tennessee-man-jailed-37-days-trump-meme-wins-835000-settlement-after-first-amendment",
         "source": "HackerNews",
-        "summary": "Un uomo del Tennessee, incarcerato 37 giorni per un meme su Trump, ottiene un risarcimento di 835.000 dollari, evidenziando i rischi legali della libertà d'espressione online."
+        "summary": "Un uomo del Tennessee, incarcerato 37 giorni per un meme su Trump, ottiene un risarcimento di 835.000 dollari, segnando un precedente sulla libertà d'espressione online."
     },
     {
         "title": "Google's AI is being manipulated. The search giant is quietly fighting back",
@@ -15,13 +15,13 @@
         "title": "Formal Verification Gates for AI Coding Loops",
         "url": "https://reubenbrooks.dev/blog/structural-backpressure-beats-smarter-agents/",
         "source": "HackerNews",
-        "summary": "La verifica formale viene integrata come checkpoint obbligatorio nei cicli di codifica automatizzata dell'IA, garantendo correttezza matematica del codice generato."
+        "summary": "La verifica formale viene integrata come checkpoint obbligatorio nei cicli di codifica automatizzata dell'IA, garantendo correttezza del codice prima del deployment."
     },
     {
         "title": "Testing distributed systems with AI agents",
         "url": "https://github.com/shenli/distributed-system-testing",
         "source": "HackerNews",
-        "summary": "Agenti di intelligenza artificiale vengono impiegati per testare sistemi distribuiti, automatizzando la rilevazione di bug complessi legati a concorrenza e resilienza."
+        "summary": "Agenti di intelligenza artificiale vengono impiegati per testare automaticamente sistemi distribuiti, migliorando la rilevazione di bug complessi e riducendo l'intervento manuale."
     },
     {
         "title": "Ask HN: Shouldn't Google need to give a public statement about Railway incident?",
@@ -33,18 +33,18 @@
         "title": "Every year, cybersecurity predictions warn about “AI-powered attacks.”",
         "url": "https://medium.com/@neuralcoretech.official/every-year-cybersecurity-predictions-warn-about-ai-powered-attacks-aa71d1a517e1?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Ogni anno le previsioni di cybersecurity lanciano allarmi sugli attacchi potenziati dall'IA, ma la minaccia concreta resta ancora sovrastimata."
+        "summary": "Ogni anno si prevedono attacchi informatici potenziati dall'intelligenza artificiale, ma la vera sfida resta trasformare questi allarmi in difese concrete."
     },
     {
         "title": "10 Underrated AI Tools Quietly Shaping the Future of Work in 2026",
         "url": "https://medium.com/@contact_85797/10-underrated-ai-tools-quietly-shaping-the-future-of-work-in-2026-3b1ee7c5ec44?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Dieci strumenti di intelligenza artificiale poco noti stanno ridefinendo silenziosamente il futuro del lavoro nel 2026, automatizzando processi aziendali complessi."
+        "summary": "Dieci strumenti di intelligenza artificiale poco conosciuti stanno ridefinendo silenziosamente il futuro del lavoro nel 2026, automatizzando processi aziendali complessi."
     },
     {
         "title": "The Rise of the Agent: How Google’s New Gemini 3.5 Flash Is Turning AI Into Active Coworkers",
         "url": "https://medium.com/@nguyenan04102004/the-rise-of-the-agent-how-googles-new-gemini-3-5-flash-is-turning-ai-into-active-coworkers-fd1764b1a175?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Google Gemini 3.5 Flash trasforma l'IA da assistente passivo a collaboratore attivo, introducendo agenti autonomi capaci di operare concretamente negli ambienti di lavoro."
+        "summary": "Google Gemini 3.5 Flash trasforma l'IA da assistente passivo a collaboratore attivo, inaugurando l'era degli agenti autonomi integrati nei flussi di lavoro."
     }
 ]
