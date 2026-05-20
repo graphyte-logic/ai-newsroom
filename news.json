@@ -9,36 +9,36 @@
         "title": "Google's AI is being manipulated. The search giant is quietly fighting back",
         "url": "https://www.bbc.com/future/article/20260519-google-tackles-attempts-to-hack-its-ai-results",
         "source": "HackerNews",
-        "summary": "Google sta contrastando silenziosamente le tecniche di manipolazione che inquinano i risultati della sua intelligenza artificiale nei motori di ricerca."
+        "summary": "Google sta contrastando silenziosamente le tecniche di manipolazione che sfruttano la sua intelligenza artificiale nei risultati di ricerca per diffondere disinformazione."
     },
     {
         "title": "Testing distributed systems with AI agents",
         "url": "https://github.com/shenli/distributed-system-testing",
         "source": "HackerNews",
-        "summary": "Agenti di intelligenza artificiale vengono impiegati per testare sistemi distribuiti, automatizzando la scoperta di bug complessi legati a concorrenza e tolleranza ai guasti."
+        "summary": "Agenti di intelligenza artificiale vengono impiegati per testare sistemi distribuiti, automatizzando la scoperta di bug complessi legati a concorrenza e fault tolerance."
     },
     {
         "title": "Formal Verification Gates for AI Coding Loops",
         "url": "https://reubenbrooks.dev/blog/structural-backpressure-beats-smarter-agents/",
         "source": "HackerNews",
-        "summary": "La verifica formale viene integrata come gate automatico nei cicli di codifica AI, bloccando il codice generato che non supera prove di correttezza matematica."
+        "summary": "La verifica formale viene integrata come checkpoint obbligatorio nei cicli di generazione automatica di codice tramite IA, garantendone correttezza prima del deployment."
     },
     {
         "title": "Every year, cybersecurity predictions warn about “AI-powered attacks.”",
         "url": "https://medium.com/@neuralcoretech.official/every-year-cybersecurity-predictions-warn-about-ai-powered-attacks-aa71d1a517e1?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Ogni anno si prevedono attacchi informatici potenziati dall'intelligenza artificiale, ma la vera sfida resta trasformare questi allarmi in difese concrete."
+        "summary": "Ogni anno si prevedono attacchi informatici potenziati dall'intelligenza artificiale, ma la vera novità è la loro concreta e crescente realizzazione."
     },
     {
         "title": "10 Underrated AI Tools Quietly Shaping the Future of Work in 2026",
         "url": "https://medium.com/@contact_85797/10-underrated-ai-tools-quietly-shaping-the-future-of-work-in-2026-3b1ee7c5ec44?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Dieci strumenti AI poco noti stanno ridefinendo silenziosamente il futuro del lavoro nel 2026, automatizzando processi aziendali complessi ancora sottovalutati dal mainstream."
+        "summary": "Dieci strumenti AI poco conosciuti stanno ridefinendo silenziosamente il futuro del lavoro nel 2026, automatizzando attività complesse in modi ancora sottovalutati."
     },
     {
         "title": "The Rise of the Agent: How Google’s New Gemini 3.5 Flash Is Turning AI Into Active Coworkers",
         "url": "https://medium.com/@nguyenan04102004/the-rise-of-the-agent-how-googles-new-gemini-3-5-flash-is-turning-ai-into-active-coworkers-fd1764b1a175?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Google Gemini 3.5 Flash trasforma l'IA da assistente passivo a collaboratore attivo, introducendo agenti autonomi capaci di operare come veri colleghi di lavoro."
+        "summary": "Google Gemini 3.5 Flash trasforma l'IA da assistente passivo a vero collaboratore attivo, inaugurando l'era degli agenti autonomi nel lavoro quotidiano."
     }
 ]
