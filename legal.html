@@ -5,123 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graphyte Intelligence - Legal & Diritto</title>
     <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background: #141414; 
-            color: #e0e0e0; 
-            padding: 30px;
-            margin: 0;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .nav-back {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #ffaa00;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-        .nav-back:hover {
-            color: #ffcc66;
-        }
-        .header {
-            border-bottom: 2px solid #332200;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .header h1 { 
-            margin: 0; 
-            font-size: 2.2rem;
-            color: #ffaa00;
-        }
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-            gap: 25px; 
-        }
-        .card { 
-            background: #1e1e1e; 
-            padding: 25px; 
-            border-left: 5px solid #ffaa00; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card h3 {
-            margin-top: 0;
-            color: #ffffff;
-            font-size: 1.25rem;
-            line-height: 1.4;
-        }
-        .card p {
-            color: #aaaaaa;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-        .meta-info {
-            margin-top: 15px;
-            padding-top: 10px;
-            border-top: 1px solid #2d2d2d;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            color: #777777;
-        }
-        .btn { 
-            color: #ffaa00; 
-            text-decoration: none; 
-            font-weight: bold; 
-        }
-        .btn:hover {
-            text-decoration: underline;
-        }
-        .control-panel {
-            background: #1e1e1e;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid #332200;
-        }
-        .btn-refresh {
-            background: #ffaa00;
-            color: #111;
-            border: none;
-            padding: 10px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 0.95rem;
-            transition: background 0.2s;
-        }
-        .btn-refresh:hover {
-            background: #ffcc66;
-        }
-        .btn-refresh:disabled {
-            background: #555;
-            color: #aaa;
-            cursor: not-allowed;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #141414; color: #e0e0e0; padding: 30px; margin: 0; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .nav-back { display: inline-block; margin-bottom: 20px; color: #ffaa00; text-decoration: none; font-weight: bold; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-back:hover { color: #ffcc66; }
+        .header { border-bottom: 2px solid #332200; padding-bottom: 20px; margin-bottom: 30px; display: flex; align-items: center; gap: 20px; }
+        .header h1 { margin: 0; font-size: 2.2rem; color: #ffaa00; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+        .card { background: #1e1e1e; padding: 25px; border-left: 5px solid #ffaa00; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; }
+        .card h3 { margin-top: 0; color: #ffffff; font-size: 1.25rem; line-height: 1.4; }
+        .card p { color: #aaaaaa; font-size: 0.95rem; line-height: 1.6; flex-grow: 1; }
+        .meta-info { margin-top: 15px; padding-top: 10px; border-top: 1px solid #2d2d2d; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #777777; }
+        .btn { color: #ffaa00; text-decoration: none; font-weight: bold; }
+        .btn:hover { text-decoration: underline; }
+        .control-panel { background: #1e1e1e; padding: 15px; border-radius: 8px; margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #332200; }
+        .btn-refresh { background: #ffaa00; color: #111; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 5px; font-size: 0.95rem; transition: background 0.2s; }
+        .btn-refresh:hover { background: #ffcc66; }
+        .btn-refresh:disabled { background: #555; color: #aaa; cursor: not-allowed; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <a href="index.html" class="nav-back">← Torna all'Hub Principale</a>
-        
         <div class="header">
             <span style="font-size: 2.5rem;">⚖️</span>
             <div>
@@ -129,7 +34,6 @@
                 <p style="margin: 5px 0 0 0; color: #888;">Rassegna autonoma su normative, sentenze e diritto digitale</p>
             </div>
         </div>
-
         <div class="control-panel">
             <div>
                 <span style="font-weight: bold; color: #ffaa00;">⚙️ Gestione Hub</span>
@@ -137,12 +41,10 @@
             </div>
             <button id="btn-refresh" class="btn-refresh" onclick="forzaAggiornamento()">🔄 Aggiorna Ora</button>
         </div>
-
         <div id="news-container" class="grid">Caricamento notizie legali in corso...</div>
     </div>
 
     <script>
-        // FUNZIONE DI FORZATURA BACKEND MANCANTE AGGIUNTA
         async function forzaAggiornamento() {
             const statusText = document.getElementById('refresh-status');
             const btn = document.getElementById('btn-refresh');
@@ -152,13 +54,13 @@
                 const response = await fetch('http://127.0.0.1:8000/api/refresh/legal', { method: 'POST' });
                 const data = await response.json();
                 if (data.status === 'success') {
-                    statusText.innerHTML = "<span style='color: #00ff00;'>✅ Sincronizzazione locale e remota completata!</span>";
+                    statusText.innerHTML = "<span style='color: #00ff00;'>✅ Sincronizzazione locale e remota completata! Aggiorna la pagina se necessario.</span>";
                     setTimeout(() => { fetchLegalNews(); }, 1000);
                 } else {
                     statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore nell'elaborazione del backend.</span>";
                 }
             } catch (error) {
-                statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore: Assicurati che il file main.py sia avviato.</span>";
+                statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore: Assicurati che il server Python locale sia attivo.</span>";
             }
             btn.disabled = false;
         }
@@ -168,12 +70,10 @@
                 const res = await fetch('legal_news.json?v=' + Date.now());
                 const data = await res.json();
                 const container = document.getElementById('news-container');
-                
                 if (!data || data.length === 0) {
                     container.innerHTML = "<p>Nessun aggiornamento disponibile al momento.</p>";
                     return;
                 }
-
                 container.innerHTML = data.map(n => `
                     <div class="card">
                         <div>
