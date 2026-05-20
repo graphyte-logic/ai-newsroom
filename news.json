@@ -9,19 +9,19 @@
         "title": "Google's AI is being manipulated. The search giant is quietly fighting back",
         "url": "https://www.bbc.com/future/article/20260519-google-tackles-attempts-to-hack-its-ai-results",
         "source": "HackerNews",
-        "summary": "Google sta contrastando silenziosamente le tecniche di manipolazione che sfruttano la sua intelligenza artificiale per alterare i risultati di ricerca."
+        "summary": "Google sta contrastando silenziosamente le tecniche di manipolazione che sfruttano le sue funzionalità di ricerca basate sull'intelligenza artificiale per diffondere disinformazione."
     },
     {
         "title": "Testing distributed systems with AI agents",
         "url": "https://github.com/shenli/distributed-system-testing",
         "source": "HackerNews",
-        "summary": "Agenti di intelligenza artificiale vengono impiegati per testare sistemi distribuiti, automatizzando la rilevazione di bug complessi legati a concorrenza e guasti."
+        "summary": "Agenti AI vengono impiegati per testare automaticamente sistemi distribuiti, individuando bug complessi difficilmente rilevabili con i metodi tradizionali."
     },
     {
         "title": "Formal Verification Gates for AI Coding Loops",
         "url": "https://reubenbrooks.dev/blog/structural-backpressure-beats-smarter-agents/",
         "source": "HackerNews",
-        "summary": "La verifica formale viene integrata come checkpoint obbligatorio nei cicli di codifica automatizzata dell'IA, garantendo correttezza del codice prima del deployment."
+        "summary": "La verifica formale viene integrata come checkpoint obbligatorio nei cicli di codifica automatizzata dell'IA, garantendo correttezza del codice generato."
     },
     {
         "title": "Ask HN: Shouldn't Google need to give a public statement about Railway incident?",
@@ -33,30 +33,30 @@
         "title": "Show HN: Lance – image/video generation and understanding in one model",
         "url": "https://github.com/bytedance/Lance",
         "source": "HackerNews",
-        "summary": "Lance è un modello unificato open-source che integra generazione e comprensione di immagini e video in un'unica architettura multimodale."
+        "summary": "Lance è un modello unificato che integra generazione e comprensione di immagini e video in un'unica architettura, semplificando la pipeline multimodale."
     },
     {
         "title": "How Can AI Detect and Analyze Traffic Patterns in Real Time?",
         "url": "https://medium.com/@tarunsharma19aa/how-can-ai-detect-and-analyze-traffic-patterns-in-real-time-61873a410464?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "L'intelligenza artificiale analizza i flussi di traffico in tempo reale, ottimizzando la gestione stradale e riducendo la congestione urbana."
+        "summary": "L'intelligenza artificiale analizza i flussi di traffico in tempo reale, ottimizzando la gestione stradale e riducendo la congestione grazie a sensori e algoritmi predittivi."
     },
     {
         "title": "Before You \"Vibe Code\" Your Next AI Product, Read This.",
         "url": "https://medium.com/@i.mugochukwu/before-you-vibe-code-your-next-ai-product-read-this-f7718497eebd?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "L'articolo avverte sviluppatori di valutare attentamente rischi e limiti del \"vibe coding\" prima di affidarsi all'IA per costruire prodotti software."
+        "summary": "L'articolo avverte sviluppatori di valutare rischi e limiti del \"vibe coding\" prima di affidarsi ciecamente all'IA per costruire prodotti software."
     },
     {
         "title": "Overland AI: The Autonomous War Machine That Actually Works — For Now",
         "url": "https://medium.com/@azha.khan.6/overland-ai-the-autonomous-war-machine-that-actually-works-for-now-69dc77bb0a8f?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Overland AI sviluppa veicoli militari autonomi funzionanti, capaci di navigare fuoristrada senza intervento umano, attirando importanti finanziamenti dal Pentagono."
+        "summary": "Overland AI sviluppa veicoli militari autonomi funzionanti, capaci di navigare fuoristrada senza intervento umano, attirando importanti finanziamenti dal settore difesa."
     },
     {
         "title": "Enterprise Collaboration: How Modern Businesses Are Transforming Communication with AI-Powered…",
         "url": "https://medium.com/@manyasingh7000/enterprise-collaboration-how-modern-businesses-are-transforming-communication-with-ai-powered-5e42d4a52dd9?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "Le aziende stanno trasformando la comunicazione interna adottando strumenti di collaborazione potenziati dall'intelligenza artificiale per aumentare efficienza e produttività."
+        "summary": "Le aziende stanno adottando strumenti di collaborazione potenziati dall'intelligenza artificiale per trasformare la comunicazione interna e aumentare la produttività operativa."
     }
 ]
