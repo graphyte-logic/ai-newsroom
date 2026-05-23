@@ -3,48 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphyte Logic - Tech & Legal Room</title>
+    <title>Graphyte Logic - Legal Room</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #141414; color: #e0e0e0; padding: 30px; margin: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0c0f0e; color: #e2e8f0; padding: 30px; margin: 0; }
         .container { max-width: 1200px; margin: 0 auto; }
-        .nav-back { display: inline-block; margin-bottom: 20px; color: #00ffff; text-decoration: none; font-weight: bold; font-size: 0.95rem; transition: color 0.2s; }
-        .nav-back:hover { color: #66ffff; }
-        .header { border-bottom: 2px solid #003333; padding-bottom: 20px; margin-bottom: 30px; display: flex; align-items: center; gap: 20px; }
-        .header h1 { margin: 0; font-size: 2.2rem; color: #00ffff; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
-        .card { background: #1e1e1e; border-radius: 6px; border: 1px solid #2d2d2d; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; min-height: 180px; }
+        .nav-back { display: inline-block; margin-bottom: 20px; color: #ffaa00; text-decoration: none; font-weight: bold; font-size: 0.95rem; }
+        .header { border-bottom: 1px solid #1e2925; padding-bottom: 20px; margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; }
+        .header h1 { margin: 0; font-size: 2rem; color: #f8fafc; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        
+        /* CARD STYLE - RIPRISTINATO CON COLORE LEGAL */
+        .card { 
+            background: #141917; 
+            border-radius: 8px; 
+            border-top: 1px solid #2d2d2d;
+            border-right: 2px solid #ffaa00;
+            border-bottom: 2px solid #ffaa00;
+            border-left: 2px solid #ffaa00;
+            padding: 25px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between;
+        }
         .card h3 { margin: 0 0 10px 0; font-size: 1.15rem; color: #ffffff; line-height: 1.4; }
-        .card p { margin: 0 0 15px 0; font-size: 0.95rem; color: #aaaaaa; line-height: 1.5; }
-        .meta-info { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #2d2d2d; padding-top: 12px; font-size: 0.85rem; color: #777777; }
-        .btn { background: #252525; color: #00ffff; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.85rem; border: 1px solid #00ffff; transition: all 0.2s; }
-        .btn:hover { background: #00ffff; color: #141414; }
-        .btn-refresh { background: transparent; border: 2px solid #00ffff; color: #00ffff; padding: 10px 20px; font-size: 1rem; font-weight: bold; border-radius: 5px; cursor: pointer; transition: all 0.2s; margin-left: auto; }
-        .btn-refresh:hover { background: #00ffff; color: #141414; }
-        .btn-refresh:disabled { border-color: #334155; color: #555; cursor: not-allowed; }
-        #refresh-status { font-size: 0.95rem; color: #888; font-weight: normal; margin-top: 5px; }
+        .card p { margin: 0 0 15px 0; font-size: 0.95rem; color: #94a3b8; line-height: 1.5; flex-grow: 1; }
+        
+        .meta-info { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1e2925; padding-top: 12px; font-size: 0.85rem; color: #64748b; }
+        .read-more { color: #ffaa00; text-decoration: none; font-weight: bold; }
+        .read-more:hover { color: #ffffff; }
+
+        .btn-refresh { background: #1e1e1e; border: 1px solid #ffaa00; color: #ffaa00; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: all 0.2s; font-weight: bold; }
+        .btn-refresh:hover { background: #ffaa00; color: #141414; }
+        #refresh-status { font-size: 0.95rem; color: #888; margin-top: 5px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="nav-back">← Torna all'Hub Centrale</a>
+        <a href="index.html" class="nav-back">← Torna all'Hub</a>
         <div class="header">
             <div>
-                <h1>🤖 Tech & AI Intelligence</h1>
-                <div id="refresh-status">Sorgenti informative monitorate in tempo reale</div>
+                <h1>⚖️ Legal & Diritto Intelligence</h1>
+                <div id="refresh-status">Monitoraggio archivi normativi</div>
             </div>
             <button id="btn-refresh" class="btn-refresh" onclick="forzaAggiornamento()">Aggiorna Ora</button>
         </div>
-        <div id="news-container" class="grid">Caricamento notizie...</div>
+        <div id="news-container" class="grid">Caricamento notizie legali...</div>
     </div>
-
-        <script>
+    <script>
         async function forzaAggiornamento() {
             const statusText = document.getElementById('refresh-status');
             const btn = document.getElementById('btn-refresh');
-            statusText.innerHTML = "⏳ Estrazione feed e compilazione sintesi legali (30s)...";
+            statusText.innerHTML = "⏳ Aggiornamento Legal in corso (30s)...";
             btn.disabled = true;
             try {
-                // CORRETTO: Ora punta al canale legal
                 const response = await fetch('http://127.0.0.1:8000/api/refresh/legal', { method: 'POST' });
                 const data = await response.json();
                 if (data.status === 'success') {
@@ -53,33 +64,23 @@
                         countdown--;
                         if (countdown <= 0) {
                             clearInterval(interval);
-                            statusText.innerHTML = "<span style='color: #00ffff;'>✅ Database Legal Aggiornato!</span>";
+                            statusText.innerHTML = "<span style='color: #ffaa00;'>✅ Database Legal Aggiornato!</span>";
                             fetchNews();
                             btn.disabled = false;
                         } else {
                             statusText.innerHTML = `⏳ Allineamento server... Mancano ${countdown}s`;
                         }
                     }, 1000);
-                } else {
-                    statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore durante l'aggiornamento.</span>";
-                    btn.disabled = false;
-                }
-            } catch (error) {
-                statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore: Server Python non raggiungibile.</span>";
-                btn.disabled = false;
-            }
+                } else { statusText.innerHTML = "❌ Errore aggiornamento."; btn.disabled = false; }
+            } catch (error) { statusText.innerHTML = "❌ Errore server."; btn.disabled = false; }
         }
 
         async function fetchNews() {
             try {
-                // CORRETTO: Ora legge dal database specifico del ramo Legal
                 const res = await fetch('legal_news.json?v=' + Date.now());
                 const data = await res.json();
                 const container = document.getElementById('news-container');
-                if (!data || data.length === 0) {
-                    container.innerHTML = "<p>Nessun aggiornamento giuridico disponibile nell'indice.</p>";
-                    return;
-                }
+                if (!data || data.length === 0) { container.innerHTML = "<p>Nessun dato.</p>"; return; }
                 container.innerHTML = data.map(n => `
                     <div class="card">
                         <div>
@@ -87,14 +88,12 @@
                             <p>${n.summary}</p>
                         </div>
                         <div class="meta-info">
-                            <span>⚖️ ${n.source || 'Fonte Legal'}</span>
-                            <a href="${n.url}" target="_blank" class="btn">Leggi →</a>
+                            <span>⚖️ ${n.source || 'Legal Source'}</span>
+                            <a href="${n.url}" target="_blank" class="read-more">Leggi di più →</a>
                         </div>
                     </div>
                 `).join('');
-            } catch (e) { 
-                document.getElementById('news-container').innerHTML = "<p style='color: #ff4444;'>Archivio Legal temporaneamente non disponibile.</p>";
-            }
+            } catch (e) { }
         }
         fetchNews();
     </script>
