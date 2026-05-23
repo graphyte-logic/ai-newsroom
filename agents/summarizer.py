@@ -8,21 +8,27 @@ def summarize_articles(articles: list, category: str = "tech") -> list:
     """Usa Claude per generare micro-riassunti d'impatto o schede di procurement in italiano"""
     summaries = []
     
-    # Filtro parole chiave per ottimizzare i passaggi su DORA/EBA
+    # Filtro parole chiave per ottimizzare i passaggi su DORA/EBA (Procurement)
     keywords_filter = ["eba", "dora", "rts", "guidelines", "consultation", "third-party", "procurement", "sourcing", "outsourcing"]
     
-    for article in articles[:15]:  # Analizziamo un pool leggermente più ampio per via dei filtri
+    # Filtro parole chiave stringenti per canale Tech verticale su AI
+    ai_keywords = ["ai", "artificial intelligence", "intelligenza artificiale", "llm", "gpt", "claude", "openai", "nvidia", "machine learning", "deep learning", "neural", "copilot", "agent", "midjourney", "anthropic", "gemini"]
+
+    for article in articles[:15]:  # Analizziamo un pool di massimo 15 articoli filtrati
         titolo = article.get('title', '')
         contenuto_grezzo = article.get('summary') or article.get('description') or ''
         contenuto = contenuto_grezzo[:500]
         fonte = article.get('source', '')
         tier = article.get('tier', 'Tier 3 (TREND)')
         
+        # ----------------------------------------------------
+        # FLUSSO 1: PROCUREMENT & COMPLIANCE
+        # ----------------------------------------------------
         if category == "procurement":
-            # Applichiamo un controllo preventivo blando basato sulle tue parole chiave
+            # Controllo preventivo basato sulle parole chiave normative
             text_to_check = (titolo + " " + contenuto).lower()
             if not any(k in text_to_check for k in keywords_filter) and "Tier 1" not in fonte:
-                continue # Salta gli articoli palesemente fuori focus prima della chiamata API
+                continue # Salta gli articoli fuori focus prima della chiamata API
                 
             prompt = f"""You are an intelligence analyst specialized in banking procurement, regulatory compliance (EBA, DORA), and AI.
 
@@ -48,19 +54,16 @@ Return ONLY a valid JSON object matching this schema, no markdown blocks, no ext
     "horizon": "SHORT or MID or LONG",
     "action_item": "Clear actionable instruction for the procurement leader in Italian",
     "regulatory_alert": true_or_false,
-    "executive_warning": "1-line strict critical warning in Italian if regulatory_alert is true, else empty string",
-    "url": "{article.get('url')}",
-    "source": "{fonte}"
+    "executive_warning": "1-line strict critical warning in Italian if regulatory_alert is true, else empty string"
 }}"""
             try:
                 response = client.messages.create(
-                    model="claude-3-5-sonnet-20241022", # Sonnet garantisce un output JSON strutturato perfetto
+                    model="claude-opus-4-6", 
                     max_tokens=500,
                     messages=[{"role": "user", "content": prompt}]
                 )
                 text_res = response.content[0].text.strip()
                 
-                # Rimozione di blocchi markdown accidentali
                 if text_res.startswith("```json"):
                     text_res = text_res[7:-3].strip()
                 elif text_res.startswith("```"):
@@ -69,29 +72,51 @@ Return ONLY a valid JSON object matching this schema, no markdown blocks, no ext
                 parsed_json = json.loads(text_res)
                 
                 if "not_relevant" not in parsed_json:
+                    parsed_json["url"] = article.get("url", "")
+                    parsed_json["source"] = fonte
                     summaries.append(parsed_json)
             except Exception as e:
                 print(f"⚠️ Errore AI Procurement per '{titolo}': {e}")
                 
+        # ----------------------------------------------------
+        # FLUSSO 2: TECH AI VERTICAL o LEGAL
+        # ----------------------------------------------------
         else:
-            # Flusso Standard Tech & Legal preesistente
             source_lower = fonte.lower()
             is_legal = "diritto" in source_lower or "legal" in source_lower or "fonte legal" in source_lower or category == "legal"
             
             if is_legal:
+                # Flusso Ordinario Legal
                 prompt = f"""Riassumi questa notizia giuridica in modo ultra-conciso.\nTitolo: {titolo}\nContenuto: {contenuto}\n\nREGOLA TASSATIVA: Scrivi un'unica frase di massimo 25 parole in perfetto italiano. \nVai dritto al sodo (cosa stabilisce la norma/sentenza). Non scrivere introduzioni o formule di errore."""
             else:
-                prompt = f"""Riassumi questa notizia tech in modo ultra-conciso.\nTitolo: {titolo}\nContenuto: {contenuto}\n\nREGOLA TASSATIVA: Scrivi un'unica frase di massimo 25 parole in perfetto italiano.\nEvidenzia solo la novità tecnica o l'impatto. Non scrivere introduzioni o formule di errore."""
+                # Pre-filtraggio locale per eliminare tech generico non-AI
+                text_to_check = (titolo + " " + contenuto).lower()
+                if not any(k in text_to_check for k in ai_keywords):
+                    continue  # Salta a piè pari l'articolo senza interrogare l'API
+                    
+                # Guardiano LLM per scartare notizie borderline prive di AI pura
+                prompt = f"""You are an expert AI technology analyst.
+Analyze this technical article:
+Title: {titolo}
+Content: {contenuto}
+
+CRITICAL FILTER: Is this article strictly about Artificial Intelligence, Generative AI, LLMs, neural hardware, or closely related AI infrastructure? 
+If NO, return exactly: REJECT
+If YES, write a single impactful sentence in perfect Italian (max 25 words) summarizing the AI innovation or its direct impact. Do not include introductions, markdown or error formulas."""
 
             try:
                 response = client.messages.create(
-                    model="claude-3-5-sonnet-20241022",
+                    model="claude-opus-4-6", 
                     max_tokens=80,
                     messages=[{"role": "user", "content": prompt}]
                 )
                 summary_text = response.content[0].text.strip()
                 
-                if summary_text.startswith('I') and summary_text.endswith('\"'):
+                # Se Claude rifiuta l'articolo Tech perché non incentrato sull'AI, lo scartiamo
+                if not is_legal and "REJECT" in summary_text:
+                    continue
+                
+                if summary_text.startswith('"') and summary_text.endswith('"'):
                     summary_text = summary_text[1:-1]
                     
                 summaries.append({
@@ -101,6 +126,6 @@ Return ONLY a valid JSON object matching this schema, no markdown blocks, no ext
                     "summary": summary_text
                 })
             except Exception as e:
-                print(f"⚠️ Errore riassunto ordinario: {e}")
+                print(f"⚠️ Errore riassunto ordinario ({category}): {e}")
                 
     return summaries
