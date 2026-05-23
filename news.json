@@ -1,62 +1,86 @@
 [
     {
-        "title": "Victory: Tennessee man jailed 37 days for Trump meme wins $835,000 settlement",
-        "url": "https://www.fire.org/news/victory-tennessee-man-jailed-37-days-trump-meme-wins-835000-settlement-after-first-amendment",
+        "title": "Shipping a laptop to a refugee camp in Uganda",
+        "url": "",
         "source": "HackerNews",
-        "summary": "Un uomo del Tennessee, incarcerato 37 giorni per un meme su Trump, ottiene un risarcimento di 835.000 dollari a tutela della libertà d'espressione online."
+        "summary": "Un laptop è stato spedito a un campo profughi in Uganda, portando accesso alla tecnologia e connettività digitale in contesti umanitari difficili."
     },
     {
-        "title": "Google's AI is being manipulated. The search giant is quietly fighting back",
-        "url": "https://www.bbc.com/future/article/20260519-google-tackles-attempts-to-hack-its-ai-results",
+        "title": "Sleep research led to a new sleep apnea drug",
+        "url": "",
         "source": "HackerNews",
-        "summary": "Google sta contrastando silenziosamente le tecniche di manipolazione che sfruttano le sue funzionalità di ricerca basate sull'intelligenza artificiale per diffondere disinformazione."
+        "summary": "La ricerca sul sonno ha portato allo sviluppo di un nuovo farmaco per il trattamento dell'apnea notturna."
     },
     {
-        "title": "Testing distributed systems with AI agents",
-        "url": "https://github.com/shenli/distributed-system-testing",
+        "title": "Experience: We found a baby on the subway – now he's our 26-year-old son",
+        "url": "",
         "source": "HackerNews",
-        "summary": "Agenti AI vengono impiegati per testare automaticamente sistemi distribuiti, individuando bug complessi difficilmente rilevabili con i metodi tradizionali."
+        "summary": "Una coppia racconta di aver trovato un neonato abbandonato nella metropolitana di New York e di averlo adottato: oggi ha 26 anni."
     },
     {
-        "title": "Formal Verification Gates for AI Coding Loops",
-        "url": "https://reubenbrooks.dev/blog/structural-backpressure-beats-smarter-agents/",
+        "title": "Spanish Court Declines to Fine NordVPN over LaLiga Piracy Blocking Order",
+        "url": "",
         "source": "HackerNews",
-        "summary": "La verifica formale viene integrata come checkpoint obbligatorio nei cicli di codifica automatizzata dell'IA, garantendo correttezza del codice generato."
+        "summary": "Un tribunale spagnolo ha rifiutato di multare NordVPN per non aver bloccato lo streaming pirata di LaLiga, riconoscendo i limiti giurisdizionali sulle VPN."
     },
     {
-        "title": "Ask HN: Shouldn't Google need to give a public statement about Railway incident?",
-        "url": "https://news.ycombinator.com/item?id=48210590",
+        "title": "Rubish: A Unix shell written in pure Ruby",
+        "url": "",
         "source": "HackerNews",
-        "summary": "Un utente Hacker News chiede se Google debba rilasciare una dichiarazione pubblica riguardo un incidente che ha coinvolto la piattaforma di hosting Railway."
+        "summary": "Rubish è una shell Unix scritta interamente in Ruby, offrendo un'alternativa agli interpreti tradizionali con la flessibilità e l'espressività di questo linguaggio."
     },
     {
-        "title": "Show HN: Lance – image/video generation and understanding in one model",
-        "url": "https://github.com/bytedance/Lance",
-        "source": "HackerNews",
-        "summary": "Lance è un modello unificato che integra generazione e comprensione di immagini e video in un'unica architettura, semplificando la pipeline multimodale."
-    },
-    {
-        "title": "How Can AI Detect and Analyze Traffic Patterns in Real Time?",
-        "url": "https://medium.com/@tarunsharma19aa/how-can-ai-detect-and-analyze-traffic-patterns-in-real-time-61873a410464?source=rss------technology-5",
+        "title": "The Bull, The Bear & The Butterfly — Story behind India’s IPO frenzy",
+        "url": "",
         "source": "Medium Tech",
-        "summary": "L'intelligenza artificiale analizza i flussi di traffico in tempo reale, ottimizzando la gestione stradale e riducendo la congestione grazie a sensori e algoritmi predittivi."
+        "summary": "L'articolo analizza le dinamiche dietro la frenesia delle IPO in India, esplorando i fattori rialzisti, ribassisti e gli effetti a catena sul mercato."
     },
     {
-        "title": "Before You \"Vibe Code\" Your Next AI Product, Read This.",
-        "url": "https://medium.com/@i.mugochukwu/before-you-vibe-code-your-next-ai-product-read-this-f7718497eebd?source=rss------technology-5",
+        "title": "Umeed Aur Intezar (Hope & Waiting)\n​\"Ek din zaroor aayega wo din bhi dosto,\nJab waqt ka badalna…",
+        "url": "",
         "source": "Medium Tech",
-        "summary": "L'articolo avverte sviluppatori di valutare rischi e limiti del \"vibe coding\" prima di affidarsi ciecamente all'IA per costruire prodotti software."
+        "summary": "Questo non è un articolo tech: è un post poetico in urdu su speranza e attesa, privo di qualsiasi contenuto tecnologico o novità rilevante."
     },
     {
-        "title": "Overland AI: The Autonomous War Machine That Actually Works — For Now",
-        "url": "https://medium.com/@azha.khan.6/overland-ai-the-autonomous-war-machine-that-actually-works-for-now-69dc77bb0a8f?source=rss------technology-5",
+        "title": "Technology Was Supposed to Save Time — So Why Are We Busier?",
+        "url": "",
         "source": "Medium Tech",
-        "summary": "Overland AI sviluppa veicoli militari autonomi funzionanti, capaci di navigare fuoristrada senza intervento umano, attirando importanti finanziamenti dal settore difesa."
+        "summary": "La tecnologia prometteva di farci risparmiare tempo, ma ha finito per moltiplicare le attività e renderci paradossalmente più impegnati che mai."
     },
     {
-        "title": "Enterprise Collaboration: How Modern Businesses Are Transforming Communication with AI-Powered…",
-        "url": "https://medium.com/@manyasingh7000/enterprise-collaboration-how-modern-businesses-are-transforming-communication-with-ai-powered-5e42d4a52dd9?source=rss------technology-5",
+        "title": "Students Want to Be Influencers, But Are We Teaching Them What Influence Really Means? (Part 1)",
+        "url": "",
         "source": "Medium Tech",
-        "summary": "Le aziende stanno adottando strumenti di collaborazione potenziati dall'intelligenza artificiale per trasformare la comunicazione interna e aumentare la produttività operativa."
+        "summary": "Molti studenti aspirano a diventare influencer, ma il sistema educativo non insegna loro il vero significato e la responsabilità dell'influenza digitale."
+    },
+    {
+        "title": "Personal Trainer vs. AI Subscription: Would You Pay for a Real Coach or a $30 App?",
+        "url": "",
+        "source": "Medium Tech",
+        "summary": "Le app di fitness con intelligenza artificiale da 30 dollari al mese sfidano i personal trainer tradizionali, offrendo coaching personalizzato a costi drasticamente inferiori."
+    },
+    {
+        "title": "Lab 1: identification of networking devices",
+        "url": "",
+        "source": "Medium Tech",
+        "summary": "Un laboratorio didattico guida all'identificazione e classificazione dei principali dispositivi di rete, utile per chi studia fondamenti di networking."
+    },
+    {
+        "title": "The Hidden Psychological Revolution of AI",
+        "url": "",
+        "source": "Medium Tech",
+        "summary": "L'intelligenza artificiale potrebbe rivoluzionare il rapporto tra potenziale interiore ed espressione visibile, trasformando non solo il lavoro ma la psicologia umana."
+    },
+    {
+        "title": "Free QR Code Generator Online: Create Custom QR Codes in Seconds",
+        "url": "",
+        "source": "Medium Tech",
+        "summary": "Un generatore online gratuito permette di creare codici QR personalizzati in pochi secondi, semplificando la condivisione di link e informazioni."
+    },
+    {
+        "title": "The Degrees Are Mine, but I didn’t Get Here Alone ❤",
+        "url": "",
+        "source": "Medium Tech",
+        "summary": "Un'ingegnera celebra i propri titoli di studio in ambito tech, sottolineando il ruolo fondamentale del supporto ricevuto nel suo percorso formativo."
     }
 ]
