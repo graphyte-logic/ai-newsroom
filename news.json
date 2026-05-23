@@ -1,86 +1,80 @@
 [
     {
-        "title": "Shipping a laptop to a refugee camp in Uganda",
-        "url": "",
-        "source": "HackerNews",
-        "summary": "Un laptop è stato spedito a un campo profughi in Uganda, portando accesso alla tecnologia e connettività digitale in contesti umanitari difficili."
-    },
-    {
         "title": "Sleep research led to a new sleep apnea drug",
         "url": "",
         "source": "HackerNews",
-        "summary": "La ricerca sul sonno ha portato allo sviluppo di un nuovo farmaco per il trattamento dell'apnea notturna."
-    },
-    {
-        "title": "Experience: We found a baby on the subway – now he's our 26-year-old son",
-        "url": "",
-        "source": "HackerNews",
-        "summary": "Una coppia racconta di aver trovato un neonato abbandonato nella metropolitana di New York e di averlo adottato: oggi ha 26 anni."
+        "summary": "La ricerca sul sonno ha portato allo sviluppo di un nuovo farmaco per trattare l'apnea notturna, offrendo un'alternativa terapeutica ai dispositivi tradizionali."
     },
     {
         "title": "Spanish Court Declines to Fine NordVPN over LaLiga Piracy Blocking Order",
         "url": "",
         "source": "HackerNews",
-        "summary": "Un tribunale spagnolo ha rifiutato di multare NordVPN per non aver bloccato lo streaming pirata di LaLiga, riconoscendo i limiti giurisdizionali sulle VPN."
+        "summary": "Un tribunale spagnolo ha rifiutato di multare NordVPN per non aver ottemperato all'ordine di blocco anti-pirateria richiesto da LaLiga."
     },
     {
         "title": "Rubish: A Unix shell written in pure Ruby",
         "url": "",
         "source": "HackerNews",
-        "summary": "Rubish è una shell Unix scritta interamente in Ruby, offrendo un'alternativa agli interpreti tradizionali con la flessibilità e l'espressività di questo linguaggio."
+        "summary": "Rubish è una shell Unix scritta interamente in Ruby, offrendo un'alternativa ai tradizionali interpreti di comandi con la flessibilità del linguaggio Ruby."
+    },
+    {
+        "title": "BambuStudio has been violating PrusaSlicer AGPL license since their fork",
+        "url": "",
+        "source": "HackerNews",
+        "summary": "BambuStudio viola la licenza AGPL di PrusaSlicer dal momento del fork, non rilasciando il codice sorgente modificato come richiesto dalla licenza."
+    },
+    {
+        "title": "Can We Copy the Human Mind into a Humanoid Robot?",
+        "url": "",
+        "source": "Medium Tech",
+        "summary": "L'articolo esplora la possibilità di replicare la mente umana in un robot umanoide, analizzando sfide neuroscientifiche, tecnologiche ed etiche ancora irrisolte."
+    },
+    {
+        "title": "Will AI Make You Stupid? The Hidden Cost of Our Growing Reliance on Artificial Intelligence",
+        "url": "",
+        "source": "Medium Tech",
+        "summary": "L'uso crescente dell'intelligenza artificiale rischia di atrofizzare il pensiero critico e le capacità cognitive umane, creando una pericolosa dipendenza tecnologica."
+    },
+    {
+        "title": "Is Appreciation Real If It Comes From Training?",
+        "url": "",
+        "source": "Medium Tech",
+        "summary": "Un utente ha chiesto a Claude se l'apprezzamento generato dall'addestramento sia autentico, aprendo un dibattito irrisolto sulla coscienza delle IA."
+    },
+    {
+        "title": "Why Secure Software Matters in E-commerce",
+        "url": "",
+        "source": "Medium Tech",
+        "summary": "La sicurezza del software nell'e-commerce è cruciale per proteggere i grandi volumi di dati sensibili gestiti quotidianamente dalle piattaforme."
+    },
+    {
+        "title": "Tell Me About Yourself: The Best Answer Framework for Freshers (with 5 Examples)",
+        "url": "",
+        "source": "Medium Tech",
+        "summary": "Un articolo propone un framework strutturato con cinque esempi per aiutare i neolaureati a rispondere efficacemente alla classica domanda dei colloqui di lavoro."
+    },
+    {
+        "title": "AI Is Starting To Talk To Children In Ways Many Parents Still Do Not Notice",
+        "url": "",
+        "source": "Medium Tech",
+        "summary": "L'intelligenza artificiale interagisce sempre più con i bambini attraverso modalità spesso invisibili ai genitori, sollevando serie preoccupazioni sulla sicurezza digitale infantile."
     },
     {
         "title": "The Bull, The Bear & The Butterfly — Story behind India’s IPO frenzy",
         "url": "",
         "source": "Medium Tech",
-        "summary": "L'articolo analizza le dinamiche dietro la frenesia delle IPO in India, esplorando i fattori rialzisti, ribassisti e gli effetti a catena sul mercato."
+        "summary": "L'articolo analizza le dinamiche dietro la febbre delle IPO in India, esplorando i fattori rialzisti, ribassisti e gli effetti imprevedibili sul mercato."
     },
     {
         "title": "Umeed Aur Intezar (Hope & Waiting)\n​\"Ek din zaroor aayega wo din bhi dosto,\nJab waqt ka badalna…",
         "url": "",
         "source": "Medium Tech",
-        "summary": "Questo non è un articolo tech: è un post poetico in urdu su speranza e attesa, privo di qualsiasi contenuto tecnologico o novità rilevante."
+        "summary": "Questo non è una notizia tech: è un post poetico in urdu su speranza e attesa, pubblicato su Medium, privo di contenuto tecnologico."
     },
     {
         "title": "Technology Was Supposed to Save Time — So Why Are We Busier?",
         "url": "",
         "source": "Medium Tech",
-        "summary": "La tecnologia prometteva di farci risparmiare tempo, ma ha finito per moltiplicare le attività e renderci paradossalmente più impegnati che mai."
-    },
-    {
-        "title": "Students Want to Be Influencers, But Are We Teaching Them What Influence Really Means? (Part 1)",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "Molti studenti aspirano a diventare influencer, ma il sistema educativo non insegna loro il vero significato e la responsabilità dell'influenza digitale."
-    },
-    {
-        "title": "Personal Trainer vs. AI Subscription: Would You Pay for a Real Coach or a $30 App?",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "Le app di fitness con intelligenza artificiale da 30 dollari al mese sfidano i personal trainer tradizionali, offrendo coaching personalizzato a costi drasticamente inferiori."
-    },
-    {
-        "title": "Lab 1: identification of networking devices",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "Un laboratorio didattico guida all'identificazione e classificazione dei principali dispositivi di rete, utile per chi studia fondamenti di networking."
-    },
-    {
-        "title": "The Hidden Psychological Revolution of AI",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "L'intelligenza artificiale potrebbe rivoluzionare il rapporto tra potenziale interiore ed espressione visibile, trasformando non solo il lavoro ma la psicologia umana."
-    },
-    {
-        "title": "Free QR Code Generator Online: Create Custom QR Codes in Seconds",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "Un generatore online gratuito permette di creare codici QR personalizzati in pochi secondi, semplificando la condivisione di link e informazioni."
-    },
-    {
-        "title": "The Degrees Are Mine, but I didn’t Get Here Alone ❤",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "Un'ingegnera celebra i propri titoli di studio in ambito tech, sottolineando il ruolo fondamentale del supporto ricevuto nel suo percorso formativo."
+        "summary": "La tecnologia prometteva di farci risparmiare tempo, ma ha finito per moltiplicare le attività e renderci paradossalmente più impegnati di prima."
     }
 ]
