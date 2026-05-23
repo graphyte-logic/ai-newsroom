@@ -1,1 +1,41 @@
-[]
+[
+    {
+        "title": "Commissione UE: bando per membri Board of Appeal ESAs",
+        "summary": "La Commissione Europea ha lanciato un invito a manifestare interesse per la nomina dei membri del Board of Appeal delle tre Autorità di Vigilanza Europee (EBA, EIOPA, ESMA). Il Board of Appeal è l'organo che gestisce i ricorsi contro le decisioni delle ESAs, con implicazioni dirette sulla governance e sulla supervisione regolamentare del settore bancario e finanziario europeo.",
+        "why_it_matters": "La composizione del Board of Appeal delle ESAs influenza direttamente l'interpretazione e l'applicazione delle normative bancarie, incluse quelle su outsourcing, rischio ICT e conformità DORA/EBA. Per i responsabili procurement bancario, eventuali cambiamenti nella composizione possono modificare gli orientamenti sui ricorsi relativi a decisioni di vigilanza su fornitori terzi e rischio operativo.",
+        "classification": "REGULATION",
+        "impact": "LOW",
+        "horizon": "MID",
+        "action_item": "Monitorare la composizione finale del Board of Appeal ESAs e valutare eventuali impatti sugli orientamenti regolamentari in materia di outsourcing e gestione fornitori terzi nel settore bancario.",
+        "regulatory_alert": false,
+        "executive_warning": "",
+        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/european-commission-launches-call-candidates-esas-board-appeal",
+        "source": "European Banking Authority (Tier 1 (ALERT))"
+    },
+    {
+        "title": "EBA modifica le Linee Guida sulla definizione di default",
+        "summary": "L'EBA ha pubblicato il Report finale che modifica le Linee Guida sull'applicazione della definizione di default. Le modifiche riguardano aspetti specifici del factoring pro-soluto (non-recourse factoring) e confermano l'adeguatezza della soglia dell'1% sulla riduzione del valore attuale netto (NPV) per il riconoscimento prudenziale del default nelle ristrutturazioni del debito.",
+        "why_it_matters": "Le modifiche EBA sulla definizione di default impattano direttamente i criteri di valutazione del rischio creditizio delle banche, influenzando anche i rapporti con fornitori di servizi di factoring e le condizioni contrattuali con terze parti finanziarie. I responsabili procurement devono assicurarsi che i contratti con factor e provider di servizi finanziari siano allineati alle nuove linee guida.",
+        "classification": "REGULATION",
+        "impact": "MEDIUM",
+        "horizon": "SHORT",
+        "action_item": "Verificare con le funzioni Risk e Compliance l'impatto delle nuove linee guida EBA sui contratti di factoring pro-soluto in essere e aggiornare i criteri di selezione e monitoraggio dei fornitori di servizi di factoring.",
+        "regulatory_alert": true,
+        "executive_warning": "Nuove Linee Guida EBA sulla definizione di default: necessario adeguamento immediato dei processi interni e dei contratti di factoring pro-soluto.",
+        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-amends-guidelines-definition-default",
+        "source": "European Banking Authority (Tier 1 (ALERT))"
+    },
+    {
+        "title": "EBA: Linee guida finali sull'indipendenza delle autorità di vigilanza",
+        "summary": "L'EBA ha pubblicato le linee guida finali sull'indipendenza della vigilanza ai sensi della CRD. Le Guidelines chiariscono le misure che le autorità competenti devono adottare per prevenire e gestire i conflitti di interesse del personale e degli organi di governance, includendo dichiarazioni di interessi, limitazioni al trading di strumenti finanziari e restrizioni sui periodi di cooling-off.",
+        "why_it_matters": "Queste linee guida EBA rafforzano i requisiti di governance e conflitti di interesse per le autorità di vigilanza bancaria, con potenziali impatti indiretti sui processi di procurement e outsourcing: le banche dovranno verificare che i propri framework di governance e le procedure di selezione fornitori siano allineati ai nuovi standard di indipendenza e trasparenza richiesti dall'EBA.",
+        "classification": "REGULATION",
+        "impact": "MEDIUM",
+        "horizon": "MID",
+        "action_item": "Verificare l'allineamento delle policy interne su conflitti di interesse e governance ai nuovi requisiti EBA, estendendo la revisione anche ai processi di procurement e alle relazioni con fornitori terzi per garantire conformità e indipendenza decisionale.",
+        "regulatory_alert": true,
+        "executive_warning": "Nuove linee guida EBA vincolanti su indipendenza e conflitti di interesse: aggiornare immediatamente le policy di governance e compliance.",
+        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-supervisory-independence",
+        "source": "European Banking Authority (Tier 1 (ALERT))"
+    }
+]
