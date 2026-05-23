@@ -1,80 +1,14 @@
 [
     {
-        "title": "Sleep research led to a new sleep apnea drug",
-        "url": "",
+        "title": "Microsoft starts canceling Claude Code licenses",
+        "url": "https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad",
         "source": "HackerNews",
-        "summary": "La ricerca sul sonno ha portato allo sviluppo di un nuovo farmaco per trattare l'apnea notturna, offrendo un'alternativa terapeutica ai dispositivi tradizionali."
+        "summary": "Microsoft sta cancellando le licenze di Claude Code ai dipendenti, segnalando tensioni competitive crescenti nell'ecosistema degli strumenti di coding basati su AI."
     },
     {
-        "title": "Spanish Court Declines to Fine NordVPN over LaLiga Piracy Blocking Order",
-        "url": "",
-        "source": "HackerNews",
-        "summary": "Un tribunale spagnolo ha rifiutato di multare NordVPN per non aver ottemperato all'ordine di blocco anti-pirateria richiesto da LaLiga."
-    },
-    {
-        "title": "Rubish: A Unix shell written in pure Ruby",
-        "url": "",
-        "source": "HackerNews",
-        "summary": "Rubish è una shell Unix scritta interamente in Ruby, offrendo un'alternativa ai tradizionali interpreti di comandi con la flessibilità del linguaggio Ruby."
-    },
-    {
-        "title": "BambuStudio has been violating PrusaSlicer AGPL license since their fork",
-        "url": "",
-        "source": "HackerNews",
-        "summary": "BambuStudio viola la licenza AGPL di PrusaSlicer dal momento del fork, non rilasciando il codice sorgente modificato come richiesto dalla licenza."
-    },
-    {
-        "title": "Can We Copy the Human Mind into a Humanoid Robot?",
-        "url": "",
+        "title": "The First Time AI Answered Me Like a Human, I Got Scared",
+        "url": "https://ai.plainenglish.io/the-first-time-ai-answered-me-like-a-human-i-got-scared-4018c239e803?source=rss------technology-5",
         "source": "Medium Tech",
-        "summary": "L'articolo esplora la possibilità di replicare la mente umana in un robot umanoide, analizzando sfide neuroscientifiche, tecnologiche ed etiche ancora irrisolte."
-    },
-    {
-        "title": "Will AI Make You Stupid? The Hidden Cost of Our Growing Reliance on Artificial Intelligence",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "L'uso crescente dell'intelligenza artificiale rischia di atrofizzare il pensiero critico e le capacità cognitive umane, creando una pericolosa dipendenza tecnologica."
-    },
-    {
-        "title": "Is Appreciation Real If It Comes From Training?",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "Un utente ha chiesto a Claude se l'apprezzamento generato dall'addestramento sia autentico, aprendo un dibattito irrisolto sulla coscienza delle IA."
-    },
-    {
-        "title": "Why Secure Software Matters in E-commerce",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "La sicurezza del software nell'e-commerce è cruciale per proteggere i grandi volumi di dati sensibili gestiti quotidianamente dalle piattaforme."
-    },
-    {
-        "title": "Tell Me About Yourself: The Best Answer Framework for Freshers (with 5 Examples)",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "Un articolo propone un framework strutturato con cinque esempi per aiutare i neolaureati a rispondere efficacemente alla classica domanda dei colloqui di lavoro."
-    },
-    {
-        "title": "AI Is Starting To Talk To Children In Ways Many Parents Still Do Not Notice",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "L'intelligenza artificiale interagisce sempre più con i bambini attraverso modalità spesso invisibili ai genitori, sollevando serie preoccupazioni sulla sicurezza digitale infantile."
-    },
-    {
-        "title": "The Bull, The Bear & The Butterfly — Story behind India’s IPO frenzy",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "L'articolo analizza le dinamiche dietro la febbre delle IPO in India, esplorando i fattori rialzisti, ribassisti e gli effetti imprevedibili sul mercato."
-    },
-    {
-        "title": "Umeed Aur Intezar (Hope & Waiting)\n​\"Ek din zaroor aayega wo din bhi dosto,\nJab waqt ka badalna…",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "Questo non è una notizia tech: è un post poetico in urdu su speranza e attesa, pubblicato su Medium, privo di contenuto tecnologico."
-    },
-    {
-        "title": "Technology Was Supposed to Save Time — So Why Are We Busier?",
-        "url": "",
-        "source": "Medium Tech",
-        "summary": "La tecnologia prometteva di farci risparmiare tempo, ma ha finito per moltiplicare le attività e renderci paradossalmente più impegnati di prima."
+        "summary": "L'articolo esplora il momento in cui l'intelligenza artificiale ha smesso di sembrare software, generando risposte così umane da risultare inquietanti e personali."
     }
 ]
