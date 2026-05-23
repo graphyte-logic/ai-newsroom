@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphyte Logic - AI Newsroom</title>
+    <title>Graphyte Logic - Tech & Legal Room</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #141414; color: #e0e0e0; padding: 30px; margin: 0; }
         .container { max-width: 1200px; margin: 0 auto; }
@@ -12,34 +12,27 @@
         .header { border-bottom: 2px solid #003333; padding-bottom: 20px; margin-bottom: 30px; display: flex; align-items: center; gap: 20px; }
         .header h1 { margin: 0; font-size: 2.2rem; color: #00ffff; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
-        .card { background: #1e1e1e; padding: 25px; border-left: 5px solid #00ffff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; }
-        .card h3 { margin-top: 0; color: #ffffff; font-size: 1.25rem; line-height: 1.4; }
-        .card p { color: #aaaaaa; font-size: 0.95rem; line-height: 1.6; flex-grow: 1; }
-        .meta-info { margin-top: 15px; padding-top: 10px; border-top: 1px solid #2d2d2d; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #777777; }
-        .btn { color: #00ffff; text-decoration: none; font-weight: bold; }
-        .btn:hover { text-decoration: underline; }
-        .control-panel { background: #1e1e1e; padding: 15px; border-radius: 8px; margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #003333; }
-        .btn-refresh { background: #00ffff; color: #111; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 5px; font-size: 0.95rem; transition: background 0.2s; }
-        .btn-refresh:hover { background: #66ffff; }
-        .btn-refresh:disabled { background: #555; color: #aaa; cursor: not-allowed; }
+        .card { background: #1e1e1e; border-radius: 6px; border: 1px solid #2d2d2d; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; min-height: 180px; }
+        .card h3 { margin: 0 0 10px 0; font-size: 1.15rem; color: #ffffff; line-height: 1.4; }
+        .card p { margin: 0 0 15px 0; font-size: 0.95rem; color: #aaaaaa; line-height: 1.5; }
+        .meta-info { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #2d2d2d; padding-top: 12px; font-size: 0.85rem; color: #777777; }
+        .btn { background: #252525; color: #00ffff; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.85rem; border: 1px solid #00ffff; transition: all 0.2s; }
+        .btn:hover { background: #00ffff; color: #141414; }
+        .btn-refresh { background: transparent; border: 2px solid #00ffff; color: #00ffff; padding: 10px 20px; font-size: 1rem; font-weight: bold; border-radius: 5px; cursor: pointer; transition: all 0.2s; margin-left: auto; }
+        .btn-refresh:hover { background: #00ffff; color: #141414; }
+        .btn-refresh:disabled { border-color: #334155; color: #555; cursor: not-allowed; }
+        #refresh-status { font-size: 0.95rem; color: #888; font-weight: normal; margin-top: 5px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="nav-back">← Torna all'Hub Principale</a>
+        <a href="index.html" class="nav-back">← Torna all'Hub Centrale</a>
         <div class="header">
-            <img src="https://github.com/graphyte-logic.png" width="60" style="border-radius: 50%;" alt="Logo">
             <div>
-                <h1>Graphyte AI Newsroom</h1>
-                <p style="margin: 5px 0 0 0; color: #888;">Monitoraggio autonomo sui trend globali di intelligenza artificiale e sviluppo</p>
+                <h1>🤖 Tech & AI Intelligence</h1>
+                <div id="refresh-status">Sorgenti informative monitorate in tempo reale</div>
             </div>
-        </div>
-        <div class="control-panel">
-            <div>
-                <span style="font-weight: bold; color: #00ffff;">⚙️ Gestione Hub</span>
-                <div id="refresh-status" style="color: #aaa; font-size: 0.85rem; margin-top: 3px;">Usa il comando a destra per forzare la generazione e il push su GitHub Pages.</div>
-            </div>
-            <button id="btn-refresh" class="btn-refresh" onclick="forzaAggiornamento()">🔄 Aggiorna Ora</button>
+            <button id="btn-refresh" class="btn-refresh" onclick="forzaAggiornamento()">Aggiorna Ora</button>
         </div>
         <div id="news-container" class="grid">Caricamento notizie...</div>
     </div>
@@ -48,43 +41,43 @@
         async function forzaAggiornamento() {
             const statusText = document.getElementById('refresh-status');
             const btn = document.getElementById('btn-refresh');
-            statusText.innerHTML = "⏳ Analisi feed e sintesi IA in corso... Invio a GitHub Pages...";
+            statusText.innerHTML = "⏳ Estrazione feed e compilazione sintesi (30s)...";
             btn.disabled = true;
             try {
+                // NOTA: se duplichi questo file per legal.html, cambia 'tech' in 'legal' qui sotto
                 const response = await fetch('http://127.0.0.1:8000/api/refresh/tech', { method: 'POST' });
                 const data = await response.json();
                 if (data.status === 'success') {
-                    statusText.innerHTML = "⏳ Invio completato! Attesa allineamento server GitHub (30s)...";
-                    // Countdown di 30 secondi per dare tempo a GitHub Pages di aggiornare i server reali
                     let countdown = 30;
                     const interval = setInterval(() => {
                         countdown--;
                         if (countdown <= 0) {
                             clearInterval(interval);
-                            statusText.innerHTML = "<span style='color: #00ff00;'>✅ Pagina aggiornata con successo!</span>";
+                            statusText.innerHTML = "<span style='color: #00ffff;'>✅ Database Aggiornato!</span>";
                             fetchNews();
                             btn.disabled = false;
                         } else {
-                            statusText.innerHTML = `⏳ Sincronizzazione in corso... Mancano ${countdown} secondi...`;
+                            statusText.innerHTML = `⏳ Allineamento server... Mancano ${countdown}s`;
                         }
                     }, 1000);
                 } else {
-                    statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore nell'elaborazione del backend.</span>";
+                    statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore durante l'aggiornamento.</span>";
                     btn.disabled = false;
                 }
             } catch (error) {
-                statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore: Assicurati che il server Python locale sia attivo.</span>";
+                statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore: Server Python non raggiungibile.</span>";
                 btn.disabled = false;
             }
         }
 
         async function fetchNews() {
             try {
+                // NOTA: se duplichi questo file per legal.html, cambia 'news.json' in 'legal_news.json'
                 const res = await fetch('news.json?v=' + Date.now());
                 const data = await res.json();
                 const container = document.getElementById('news-container');
                 if (!data || data.length === 0) {
-                    container.innerHTML = "<p>Nessun aggiornamento disponibile al momento.</p>";
+                    container.innerHTML = "<p>Nessun dato disponibile nell'indice.</p>";
                     return;
                 }
                 container.innerHTML = data.map(n => `
@@ -95,13 +88,12 @@
                         </div>
                         <div class="meta-info">
                             <span>📰 ${n.source || 'HackerNews'}</span>
-                            <a href="${n.url}" target="_blank" class="btn">Leggi di più →</a>
+                            <a href="${n.url}" target="_blank" class="btn">Leggi →</a>
                         </div>
                     </div>
                 `).join('');
             } catch (e) { 
-                console.error("Errore nel caricamento news:", e); 
-                document.getElementById('news-container').innerHTML = "<p style='color: #ff4444;'>Nessun dato tech rilevato nell'archivio remoto.</p>";
+                document.getElementById('news-container').innerHTML = "<p style='color: #ff4444;'>Archivio temporaneamente non disponibile.</p>";
             }
         }
         fetchNews();
