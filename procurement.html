@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphyte Intelligence - Procurement & Compliance</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0c0f0e; color: #e2e8f0; padding: 30px; margin: 0; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .nav-back { display: inline-block; margin-bottom: 20px; color: #10b981; text-decoration: none; font-weight: bold; font-size: 0.95rem; }
+        .header { border-bottom: 2px solid #064e3b; padding-bottom: 20px; margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; }
+        .header-title h1 { margin: 0; font-size: 2rem; color: #10b981; }
+        .header-title p { margin: 5px 0 0 0; color: #94a3b8; }
+        .btn-refresh { background: #064e3b; color: #10b981; border: 1px solid #10b981; padding: 12px 24px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: all 0.2s; }
+        .btn-refresh:hover { background: #10b981; color: #0c0f0e; }
+        .btn-refresh:disabled { opacity: 0.5; cursor: not-allowed; }
+        #refresh-status { margin-top: 10px; font-size: 0.9rem; color: #94a3b8; }
+        .grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+        .card { background: #141917; border-radius: 8px; border: 1px solid #1e2925; padding: 25px; display: flex; flex-direction: column; gap: 15px; position: relative; }
+        .card.alert-border { border: 2px solid #ef4444; background: #1c1212; }
+        .alert-banner { background: #ef4444; color: #ffffff; padding: 10px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; }
+        .card-header h3 { margin: 0; font-size: 1.4rem; color: #f8fafc; }
+        .badges { display: flex; gap: 10px; flex-wrap: wrap; }
+        .badge { padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
+        .badge.class { background: #1e293b; color: #38bdf8; }
+        .badge.impact-high { background: #7f1d1d; color: #fca5a5; }
+        .badge.impact-medium { background: #7c2d12; color: #fed7aa; }
+        .badge.impact-low { background: #14532d; color: #bbf7d0; }
+        .badge.horizon { background: #312e81; color: #c7d2fe; }
+        .section-block { background: #19201d; padding: 12px; border-radius: 6px; border-left: 3px solid #10b981; font-size: 0.95rem; }
+        .section-block.action { border-left-color: #fbbf24; background: #201f18; }
+        .section-block strong { color: #f8fafc; display: block; margin-bottom: 4px; }
+        .meta-info { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1e2925; padding-top: 15px; font-size: 0.85rem; color: #64748b; }
+        .read-more { background: #1e2925; color: #e2e8f0; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: bold; }
+        .read-more:hover { background: #10b981; color: #0c0f0e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="nav-back">← Torna all'Hub Centrale</a>
+        <div class="header">
+            <div class="header-title">
+                <h1>🏛️ Procurement & Regulatory Intelligence</h1>
+                <p>Monitoraggio EBA, DORA Compliance e Analisi Rischio Fornitori Terzi</p>
+                <div id="refresh-status">Dati sincronizzati localmente</div>
+            </div>
+            <button id="btn-refresh" class="btn-refresh" onclick="forzaAggiornamento()">Aggiorna Ora</button>
+        </div>
+        <div id="news-container" class="grid">Caricamento reportistica in corso...</div>
+    </div>
+
+    <script>
+        async function forzaAggiornamento() {
+            const statusText = document.getElementById('refresh-status');
+            const btn = document.getElementById('btn-refresh');
+            statusText.innerHTML = "⏳ Analisi registri di vigilanza ed estrazione KPI... Sincronizzazione in corso (30s)...";
+            btn.disabled = true;
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/refresh/procurement', { method: 'POST' });
+                const data = await response.json();
+                if (data.status === 'success') {
+                    let countdown = 30;
+                    const interval = setInterval(() => {
+                        countdown--;
+                        if (countdown <= 0) {
+                            clearInterval(interval);
+                            statusText.innerHTML = "<span style='color: #10b981;'>✅ Database Procurement Aggiornato!</span>";
+                            fetchProcurementNews();
+                            btn.disabled = false;
+                        } else {
+                            statusText.innerHTML = `⏳ Allineamento server di distribuzione remoti... Mancano ${countdown}s`;
+                        }
+                    }, 1000);
+                } else {
+                    statusText.innerHTML = "<span style='color: #ef4444;'>❌ Errore durante l'estrazione dati.</span>";
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                statusText.innerHTML = "<span style='color: #ef4444;'>❌ Connessione al server Python fallita. Assicurati che main.py sia in esecuzione.</span>";
+                btn.disabled = false;
+            }
+        }
+
+        async function fetchProcurementNews() {
+            try {
+                const res = await fetch('procurement_news.json?v=' + Date.now());
+                const data = await res.json();
+                const container = document.getElementById('news-container');
+                if (!data || data.length === 0) {
+                    container.innerHTML = "<p>Nessun alert o bando rilevato nelle ultime ore.</p>";
+                    return;
+                }
+                container.innerHTML = data.map(n => `
+                    <div class="card ${n.regulatory_alert ? 'alert-border' : ''}">
+                        ${n.regulatory_alert ? `<div class="alert-banner">🚨 REGULATORY ALERT: ${n.executive_warning}</div>` : ''}
+                        <div class="card-header">
+                            <h3>${n.title}</h3>
+                            <div class="badges">
+                                <span class="badge class">${n.classification}</span>
+                                <span class="badge impact-${n.impact.toLowerCase()}">Impatto: ${n.impact}</span>
+                                <span class="badge horizon">Orizzonte: ${n.horizon}</span>
+                            </div>
+                        </div>
+                        <p style="color: #cbd5e1; margin: 0; line-height: 1.6;">${n.summary}</p>
+                        <div class="section-block">
+                            <strong>Why It Matters per il Procurement:</strong>
+                            ${n.why_it_matters}
+                        </div>
+                        <div class="section-block action">
+                            <strong>Azione raccomandata per il Procurement Leader:</strong>
+                            ${n.action_item}
+                        </div>
+                        <div class="meta-info">
+                            <span>Fonte: 📂 ${n.source}</span>
+                            <a href="${n.url}" target="_blank" class="read-more">Analizza Fonte →</a>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (e) { 
+                console.error(e);
+                document.getElementById('news-container').innerHTML = "<p style='color: #ef4444;'>Nessun report di procurement salvato nell'archivio.</p>";
+            }
+        }
+        fetchProcurementNews();
+    </script>
+</body>
+</html>

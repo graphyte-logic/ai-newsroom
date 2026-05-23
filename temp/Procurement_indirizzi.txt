@@ -1,0 +1,29 @@
+{
+  "sources": {
+    "regulation": [
+      "https://eba.europa.eu/news-press/news/rss.xml",
+      "https://www.bankingsupervision.europa.eu/home/rss/html/index.en.html",
+      "https://www.bis.org/doclist/rss_all_categories.rss",
+      "https://www.cssf.lu/en/rss-feed/"
+    ],
+    "fintech_ai": [
+      "https://www.finextra.com/rss/headlines.aspx",
+      "https://www.finextra.com/rss/channel.aspx?channel=ai",
+      "https://www.finextra.com/rss/channel.aspx?channel=risk",
+      "https://www.finextra.com/rss/channel.aspx?channel=cloud"
+    ],
+    "procurement": [
+      "https://spendmatters.com/feed",
+      "https://procurementleaders.com/feed",
+      "https://sievo.com/blog/rss.xml",
+      "https://feeds.feedburner.com/sc247/rss"
+    ],
+    "cyber": [
+      "https://www.ncsc.nl/rss"
+    ],
+    "macro": [
+      "https://economic-research.bnpparibas.com/rss/en-us",
+      "https://cepr.org/rss/vox-content"
+    ]
+  }
+}
