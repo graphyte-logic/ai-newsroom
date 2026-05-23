@@ -37,14 +37,14 @@
         <div id="news-container" class="grid">Caricamento notizie...</div>
     </div>
 
-    <script>
+        <script>
         async function forzaAggiornamento() {
             const statusText = document.getElementById('refresh-status');
             const btn = document.getElementById('btn-refresh');
-            statusText.innerHTML = "⏳ Estrazione feed e compilazione sintesi (30s)...";
+            statusText.innerHTML = "⏳ Estrazione feed e compilazione sintesi legali (30s)...";
             btn.disabled = true;
             try {
-                // NOTA: se duplichi questo file per legal.html, cambia 'tech' in 'legal' qui sotto
+                // CORRETTO: Ora punta al canale legal
                 const response = await fetch('http://127.0.0.1:8000/api/refresh/legal', { method: 'POST' });
                 const data = await response.json();
                 if (data.status === 'success') {
@@ -53,7 +53,7 @@
                         countdown--;
                         if (countdown <= 0) {
                             clearInterval(interval);
-                            statusText.innerHTML = "<span style='color: #00ffff;'>✅ Database Aggiornato!</span>";
+                            statusText.innerHTML = "<span style='color: #00ffff;'>✅ Database Legal Aggiornato!</span>";
                             fetchNews();
                             btn.disabled = false;
                         } else {
@@ -72,12 +72,12 @@
 
         async function fetchNews() {
             try {
-                // NOTA: se duplichi questo file per legal.html, cambia 'news.json' in 'legal_news.json'
+                // CORRETTO: Ora legge dal database specifico del ramo Legal
                 const res = await fetch('legal_news.json?v=' + Date.now());
                 const data = await res.json();
                 const container = document.getElementById('news-container');
                 if (!data || data.length === 0) {
-                    container.innerHTML = "<p>Nessun dato disponibile nell'indice.</p>";
+                    container.innerHTML = "<p>Nessun aggiornamento giuridico disponibile nell'indice.</p>";
                     return;
                 }
                 container.innerHTML = data.map(n => `
@@ -87,13 +87,13 @@
                             <p>${n.summary}</p>
                         </div>
                         <div class="meta-info">
-                            <span>📰 ${n.source || 'HackerNews'}</span>
+                            <span>⚖️ ${n.source || 'Fonte Legal'}</span>
                             <a href="${n.url}" target="_blank" class="btn">Leggi →</a>
                         </div>
                     </div>
                 `).join('');
             } catch (e) { 
-                document.getElementById('news-container').innerHTML = "<p style='color: #ff4444;'>Archivio temporaneamente non disponibile.</p>";
+                document.getElementById('news-container').innerHTML = "<p style='color: #ff4444;'>Archivio Legal temporaneamente non disponibile.</p>";
             }
         }
         fetchNews();
