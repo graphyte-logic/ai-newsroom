@@ -3,7 +3,16 @@
         "title": "The ESA’s Joint Committee highlights digitalisation, cyber resilience and sustainable finance as key priorities of 2025",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-joint-committee-highlights-digitalisation-cyber-resilience-and-sustainable-finance-key",
         "source": "EBA News",
-        "summary": "Le autorità di vigilanza europee identificano digitalizzazione, resilienza informatica e finanza sostenibile come priorità normative chiave per il 2025.",
+        "summary": "Le autorità di vigilanza europea prioritizzano digitalizzazione, resilienza informatica e finanza sostenibile mediante implementazione del DORA nel 2025.",
+        "geo": "EU",
+        "signal_type": "regulatory",
+        "sub_category": "EBA"
+    },
+    {
+        "title": "The EBA responds to the Commission’s proposed changes to its draft technical standards on operational risk",
+        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-responds-commissions-proposed-changes-its-draft-technical-standards-operational-risk",
+        "source": "EBA News",
+        "summary": "L'EBA contesta le modifiche proposte della Commissione agli standard tecnici sul rischio operativo nel settore bancario.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
