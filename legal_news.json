@@ -3,7 +3,7 @@
         "title": "The EBA consults on amendments to the RTS on the assignment of risk weights to specialised lending exposures under the Supervisory Slotting Criteria Approach",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-consults-amendments-rts-assignment-risk-weights-specialised-lending-exposures-under-supervisory",
         "source": "EBA News",
-        "summary": "L'EBA aggiorna i criteri di ponderazione del rischio per esposizioni specializzate, impattando la governance del rischio e la gestione dei fornitori terzi bancari.",
+        "summary": "L'EBA aggiorna i criteri di ponderazione del rischio per esposizioni specializzate, impattando la gestione del rischio creditizio e la conformità normativa bancaria.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -12,7 +12,7 @@
         "title": "The ESA’s Joint Committee highlights digitalisation, cyber resilience and sustainable finance as key priorities of 2025",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-joint-committee-highlights-digitalisation-cyber-resilience-and-sustainable-finance-key",
         "source": "EBA News",
-        "summary": "Le autorità di vigilanza europea stabiliscono priorità 2025 su resilienza operativa, cyber security e governance digitale per intermediari finanziari.",
+        "summary": "Le autorità di vigilanza europee (EBA, EIOPA, ESMA) prioritizzano resilienza operativa e cyber mediante DORA, impattando governance ICT e gestione fornitori terzi.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -21,7 +21,7 @@
         "title": "The EBA amends Guidelines on the definition of default",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-amends-guidelines-definition-default",
         "source": "EBA News",
-        "summary": "L'EBA amenda le linee guida sulla definizione di default, impattando la valutazione del rischio di credito e la gestione della conformità prudenziale bancaria.",
+        "summary": "ACCEPT\n\nL'EBA emenda le linee guida sulla definizione di default, impattando la valutazione del rischio di credito e i requisiti di conformità prudenziale per gli intermediari finanziari.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -30,7 +30,7 @@
         "title": "The EBA publishes its final Guidelines on supervisory independence",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-supervisory-independence",
         "source": "EBA News",
-        "summary": "L'EBA stabilisce linee guida sulla indipendenza dei supervisori per gestire conflitti di interesse del personale e degli organi di governo delle autorità competenti.",
+        "summary": "L'EBA stabilisce linee guida sulla indipendenza dei supervisori per gestire conflitti di interesse del personale e governance bancaria secondo la CRD.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -39,7 +39,7 @@
         "title": "The EBA streamlines its Guidelines on connected clients to align with new EU legislation",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-streamlines-its-guidelines-connected-clients-align-new-eu-legislation",
         "source": "EBA News",
-        "summary": "L'EBA elimina sezioni delle Linee Guida su clienti collegati per allineamento con nuova legislazione UE direttamente applicabile.",
+        "summary": "L'EBA elimina sezioni delle Guidelines sui clienti connessi per allineamento con nuova legislazione UE direttamente applicabile alle istituzioni creditizie.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -48,7 +48,7 @@
         "title": "The EBA responds to the Commission’s proposed changes to its draft technical standards on operational risk",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-responds-commissions-proposed-changes-its-draft-technical-standards-operational-risk",
         "source": "EBA News",
-        "summary": "L'EBA contesta gli emendamenti della Commissione ai RTS su rischio operativo, impattando requisiti patrimoniali e supervisione bancaria efficace.",
+        "summary": "# Analysis Result\n\n**ACCEPT**\n\nL'EBA contesta gli emendamenti della Commissione agli standard tecnici su rischio operativo, impattando requisiti patrimoniali e efficacia di supervisione bancaria.\n\n---\n\n## Justification\n\nThis article qualifies under the critical legal filter because:\n\n1. **Direct regulatory impact**: The EBA Opinion addresses proposed changes to RTS on operational risk under CRR—binding technical standards affecting all EU banks\n\n2. **Operational risk governance nexus**: Operational risk requirements inherently encomp",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
