@@ -1,27 +1,18 @@
 [
     {
-        "title": "Building Agentic Laravel Apps with Prism PHP",
-        "url": "https://dev.to/dewaldhugo/building-agentic-laravel-apps-with-prism-php-2hoi",
+        "title": "Anthropic and Google Just Shipped the Same Product. 2 Weeks Apart. Different Logos.",
+        "url": "https://dev.to/rentierdigital/anthropic-and-google-just-shipped-the-same-product-2-weeks-apart-different-logos-2fai",
         "source": "Dev.to AI",
-        "summary": "YES\n\nPrism PHP estende Laravel con capacità avanzate di tool calling multi-provider per agenti IA sofisticati oltre completamenti base.",
+        "summary": "YES\n\nAnthropic e Google hanno simultaneamente lanciato agenti gestiti, segnalando la convergenza del paradigma di sviluppo verso automazione autonoma in produzione.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Memory as Meaning in AI",
-        "url": "https://dev.to/paifamily/memory-as-meaning-in-ai-1e77",
+        "title": "터미널 AI 에이전트 구축 (v7)",
+        "url": "https://dev.to/matias_yoon_738a24cb1190f/teomineol-ai-eijeonteu-gucug-v7-26do",
         "source": "Dev.to AI",
-        "summary": "YES\n\nLa memoria negli agenti AI trasforma sequenze discrete in significato continuo, abilitando accumulo, revisione e evoluzione cognitiva nel tempo.",
-        "geo": "global",
-        "signal_type": "trend",
-        "sub_category": "AI Development"
-    },
-    {
-        "title": "Three researchers. One GPU. Two years. How the RX 580 became an AI platform.",
-        "url": "https://dev.to/aivisionslab/three-researchers-one-gpu-two-years-how-the-rx-580-became-an-ai-platform-5989",
-        "source": "Dev.to AI",
-        "summary": "Tre ricercatori indipendenti hanno trasformato la GPU RX 580 in piattaforma AI funzionante, sfidando i limiti hardware precedentemente ritenuti insuperabili.",
+        "summary": "Questo articolo descrive la costruzione di agenti AI terminali basati su LLM locali per accelerare lo sviluppo di codice.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
