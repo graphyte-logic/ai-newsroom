@@ -1,54 +1,9 @@
 [
     {
-        "title": "The EBA consults on amendments to the RTS on the assignment of risk weights to specialised lending exposures under the Supervisory Slotting Criteria Approach",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-consults-amendments-rts-assignment-risk-weights-specialised-lending-exposures-under-supervisory",
-        "source": "EBA News",
-        "summary": "L'EBA aggiorna i criteri di ponderazione del rischio per esposizioni creditizie specializzate, impattando la gestione del rischio e la conformità normativa delle banche.",
-        "geo": "EU",
-        "signal_type": "regulatory",
-        "sub_category": "EBA"
-    },
-    {
         "title": "The ESA’s Joint Committee highlights digitalisation, cyber resilience and sustainable finance as key priorities of 2025",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-joint-committee-highlights-digitalisation-cyber-resilience-and-sustainable-finance-key",
         "source": "EBA News",
-        "summary": "Le autorità di vigilanza europea stabiliscono priorità 2025 su resilienza operativa e cyber, implementando DORA per rafforzare gestione rischi ICT e terze parti.",
-        "geo": "EU",
-        "signal_type": "regulatory",
-        "sub_category": "EBA"
-    },
-    {
-        "title": "The EBA amends Guidelines on the definition of default",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-amends-guidelines-definition-default",
-        "source": "EBA News",
-        "summary": "L'EBA modifica le Linee Guida sulla definizione di insolvenza, impattando la gestione del rischio creditizio e i requisiti prudenziali delle banche.",
-        "geo": "EU",
-        "signal_type": "regulatory",
-        "sub_category": "EBA"
-    },
-    {
-        "title": "The EBA publishes its final Guidelines on supervisory independence",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-supervisory-independence",
-        "source": "EBA News",
-        "summary": "L'EBA stabilisce linee guida sulla indipendenza dei supervisori per prevenire conflitti di interesse del personale e dei vertici delle autorità competenti.",
-        "geo": "EU",
-        "signal_type": "regulatory",
-        "sub_category": "EBA"
-    },
-    {
-        "title": "The EBA streamlines its Guidelines on connected clients to align with new EU legislation",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-streamlines-its-guidelines-connected-clients-align-new-eu-legislation",
-        "source": "EBA News",
-        "summary": "L'EBA elimina sezioni delle linee guida sui clienti connessi per allinearsi alla nuova legislazione UE direttamente applicabile alle banche.",
-        "geo": "EU",
-        "signal_type": "regulatory",
-        "sub_category": "EBA"
-    },
-    {
-        "title": "The EBA responds to the Commission’s proposed changes to its draft technical standards on operational risk",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-responds-commissions-proposed-changes-its-draft-technical-standards-operational-risk",
-        "source": "EBA News",
-        "summary": "# ANALYSIS\n\nThis article concerns EBA's Opinion on Commission amendments to RTS on operational risk under CRR. The core subject is **capital requirements for operational risk** - a foundational prudential regulation for banking institutions.\n\n**Assessment against the Critical Legal Filter:**\n\nThe article addresses operational risk requirements under CRR, which encompasses:\n- Risk management frameworks\n- Internal governance and control structures\n- Third-party dependencies and outsourcing arrangements\n- ICT risk management (as operational risk includes technology failures)\n- Supervisory capital adequacy standards\n\nWhile the",
+        "summary": "Le autorità di vigilanza europee identificano digitalizzazione, resilienza informatica e finanza sostenibile come priorità normative chiave per il 2025.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
