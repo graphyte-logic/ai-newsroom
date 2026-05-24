@@ -1,56 +1,29 @@
 [
     {
-        "title": "Automate VIP Customer Support Triage with Low-Code AI (Even Without a Data Scientist)",
-        "url": "https://dev.to/ken_deng_ai/automate-vip-customer-support-triage-with-low-code-ai-even-without-a-data-scientist-ni4",
+        "title": "Building Agentic Laravel Apps with Prism PHP",
+        "url": "https://dev.to/dewaldhugo/building-agentic-laravel-apps-with-prism-php-2hoi",
         "source": "Dev.to AI",
-        "summary": "Gli strumenti AI low-code automatizzano il triage del supporto clienti combinando sentiment analysis e intent recognition senza expertise di data scientist.",
+        "summary": "YES\n\nPrism PHP estende Laravel con capacità avanzate di tool calling multi-provider per agenti IA sofisticati oltre completamenti base.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Building Production-Ready Semantic Search with Python and Snowflake Cortex",
-        "url": "https://dev.to/artemooon/building-production-ready-semantic-search-with-python-and-snowflake-cortex-42a7",
+        "title": "Memory as Meaning in AI",
+        "url": "https://dev.to/paifamily/memory-as-meaning-in-ai-1e77",
         "source": "Dev.to AI",
-        "summary": "YES\n\nQuesto articolo illustra come implementare la ricerca semantica potenziata da intelligenza artificiale utilizzando Snowflake Cortex e Python.",
+        "summary": "YES\n\nLa memoria negli agenti AI trasforma sequenze discrete in significato continuo, abilitando accumulo, revisione e evoluzione cognitiva nel tempo.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Unlocking Agentic AI: My Journey with CrewAI and LangGraph",
-        "url": "https://dev.to/naveenmalothu/unlocking-agentic-ai-my-journey-with-crewai-and-langgraph-52ok",
+        "title": "Three researchers. One GPU. Two years. How the RX 580 became an AI platform.",
+        "url": "https://dev.to/aivisionslab/three-researchers-one-gpu-two-years-how-the-rx-580-became-an-ai-platform-5989",
         "source": "Dev.to AI",
-        "summary": "YES\n\nGli agenti AI autonomi CrewAI e LangGraph trasformano sistemi decisionali indipendenti in infrastrutture intelligenti scalabili per applicazioni enterprise.",
+        "summary": "Tre ricercatori indipendenti hanno trasformato la GPU RX 580 in piattaforma AI funzionante, sfidando i limiti hardware precedentemente ritenuti insuperabili.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
-    },
-    {
-        "title": "Revolutionizing Automation: Agentic AI with CrewAI and LangGraph",
-        "url": "https://dev.to/naveenmalothu/revolutionizing-automation-agentic-ai-with-crewai-and-langgraph-k9",
-        "source": "Dev.to AI",
-        "summary": "CrewAI e LangGraph abilitano l'automazione intelligente tramite agenti AI autonomi che orchestrano flussi di lavoro complessi senza intervento umano.",
-        "geo": "global",
-        "signal_type": "trend",
-        "sub_category": "AI Development"
-    },
-    {
-        "title": "Deutsche Bank applies AI to third party vendor risks",
-        "url": "https://www.finextra.com/newsarticle/47778/deutsche-bank-applies-ai-to-third-party-vendor-risks?utm_medium=rssfinextra&utm_source=finextrafeed",
-        "source": "Finextra AI",
-        "summary": "Deutsche Bank utilizza l'intelligenza artificiale per accelerare la valutazione dei rischi dei fornitori terzi, migliorando efficienza operativa.",
-        "geo": "global",
-        "signal_type": "trend",
-        "sub_category": "Fintech AI"
-    },
-    {
-        "title": "National Bank of Canada leads $25 million Series C extension in Sardine",
-        "url": "https://www.finextra.com/newsarticle/47788/national-bank-of-canada-leads-25-million-series-c-extension-in-sardine?utm_medium=rssfinextra&utm_source=finextrafeed",
-        "source": "Finextra Risk",
-        "summary": "La Banca Nazionale del Canada finanzia una piattaforma AI di gestione del rischio per frode, conformità e underwriting creditizio.",
-        "geo": "global",
-        "signal_type": "trend",
-        "sub_category": "Risk Intelligence"
     }
 ]
