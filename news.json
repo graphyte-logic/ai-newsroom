@@ -1,14 +1,56 @@
 [
     {
+        "title": "Automate VIP Customer Support Triage with Low-Code AI (Even Without a Data Scientist)",
+        "url": "https://dev.to/ken_deng_ai/automate-vip-customer-support-triage-with-low-code-ai-even-without-a-data-scientist-ni4",
+        "source": "Dev.to AI",
+        "summary": "Gli strumenti AI low-code automatizzano il triage del supporto clienti mediante analisi del sentiment e intent, eliminando la necessità di data scientist specializzati.",
+        "geo": "global",
+        "signal_type": "trend",
+        "sub_category": "AI Development"
+    },
+    {
+        "title": "Building Production-Ready Semantic Search with Python and Snowflake Cortex",
+        "url": "https://dev.to/artemooon/building-production-ready-semantic-search-with-python-and-snowflake-cortex-42a7",
+        "source": "Dev.to AI",
+        "summary": "L'articolo illustra l'implementazione di ricerca semantica potenziata da AI utilizzando Snowflake Cortex per applicazioni di catalogo in produzione.",
+        "geo": "global",
+        "signal_type": "trend",
+        "sub_category": "AI Development"
+    },
+    {
+        "title": "Unlocking Agentic AI: My Journey with CrewAI and LangGraph",
+        "url": "https://dev.to/naveenmalothu/unlocking-agentic-ai-my-journey-with-crewai-and-langgraph-52ok",
+        "source": "Dev.to AI",
+        "summary": "YES\n\nGli agenti IA autonomi CrewAI e LangGraph trasformano sistemi decisionali indipendenti in applicazioni pratiche di intelligenza artificiale generativa.",
+        "geo": "global",
+        "signal_type": "trend",
+        "sub_category": "AI Development"
+    },
+    {
+        "title": "Revolutionizing Automation: Agentic AI with CrewAI and LangGraph",
+        "url": "https://dev.to/naveenmalothu/revolutionizing-automation-agentic-ai-with-crewai-and-langgraph-k9",
+        "source": "Dev.to AI",
+        "summary": "CrewAI e LangGraph rivoluzionano l'automazione mediante agenti IA autonomi che orchestrano flussi di lavoro complessi con intelligenza distribuita.",
+        "geo": "global",
+        "signal_type": "trend",
+        "sub_category": "AI Development"
+    },
+    {
         "title": "Deutsche Bank applies AI to third party vendor risks",
         "url": "https://www.finextra.com/newsarticle/47778/deutsche-bank-applies-ai-to-third-party-vendor-risks?utm_medium=rssfinextra&utm_source=finextrafeed",
         "source": "Finextra AI",
-        "summary": "Deutsche Bank utilizza l'intelligenza artificiale per accelerare e ottimizzare il processo di valutazione dei rischi legati ai fornitori terzi."
+        "summary": "Deutsche Bank utilizza intelligenza artificiale per accelerare la valutazione dei rischi dei fornitori terzi, migliorando efficienza operativa.",
+        "geo": "global",
+        "signal_type": "trend",
+        "sub_category": "Fintech AI"
     },
     {
         "title": "National Bank of Canada leads $25 million Series C extension in Sardine",
         "url": "https://www.finextra.com/newsarticle/47788/national-bank-of-canada-leads-25-million-series-c-extension-in-sardine?utm_medium=rssfinextra&utm_source=finextrafeed",
         "source": "Finextra Risk",
-        "summary": "National Bank of Canada guida un'estensione di 25 milioni nella Serie C di Sardine, piattaforma AI per frode, compliance e sottoscrizione creditizia."
+        "summary": "La Banca Nazionale del Canada finanzia la piattaforma di intelligenza artificiale di Sardine per frodi, conformità e sottoscrizione creditizia.",
+        "geo": "global",
+        "signal_type": "trend",
+        "sub_category": "Risk Intelligence"
     }
 ]
