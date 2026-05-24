@@ -1,18 +1,9 @@
 [
     {
-        "title": "The EBA issues an opinion about an Austrian macroprudential measure",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-issues-opinion-about-austrian-macroprudential-measure",
+        "title": "The ESA’s Joint Committee highlights digitalisation, cyber resilience and sustainable finance as key priorities of 2025",
+        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-joint-committee-highlights-digitalisation-cyber-resilience-and-sustainable-finance-key",
         "source": "EBA News",
-        "summary": "L'EBA ha espresso parere alla Commissione europea sull'intenzione dell'autorità austriaca FMA di aumentare il buffer di rischio sistemico settoriale per il mercato immobiliare commerciale.",
-        "geo": "EU",
-        "signal_type": "regulatory",
-        "sub_category": "EBA"
-    },
-    {
-        "title": "European Commission launches call for candidates for the ESAs’ Board of Appeal",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/european-commission-launches-call-candidates-esas-board-appeal",
-        "source": "EBA News",
-        "summary": "La Commissione europea ha aperto un bando per la selezione dei membri della commissione di ricorso delle tre Autorità europee di vigilanza (EBA, EIOPA, ESMA).",
+        "summary": "Le Autorità di vigilanza europee (EBA, EIOPA, ESMA) prioritizzano nel 2025 digitalizzazione, resilienza cyber e finanza sostenibile.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -21,52 +12,7 @@
         "title": "The EBA consults on amendments to the RTS on the assignment of risk weights to specialised lending exposures under the Supervisory Slotting Criteria Approach",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-consults-amendments-rts-assignment-risk-weights-specialised-lending-exposures-under-supervisory",
         "source": "EBA News",
-        "summary": "L'EBA ha avviato una consultazione pubblica su modifiche agli RTS per l'assegnazione dei pesi di rischio ai finanziamenti specializzati secondo il CRR3.",
-        "geo": "EU",
-        "signal_type": "regulatory",
-        "sub_category": "EBA"
-    },
-    {
-        "title": "The EBA amends Guidelines on the definition of default",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-amends-guidelines-definition-default",
-        "source": "EBA News",
-        "summary": "L'EBA modifica le linee guida sulla definizione di default, adeguandole al factoring pro soluto e confermando la soglia dell'1% sulla riduzione del valore attuale netto.",
-        "geo": "EU",
-        "signal_type": "regulatory",
-        "sub_category": "EBA"
-    },
-    {
-        "title": "The EBA publishes its final Guidelines on supervisory independence",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-supervisory-independence",
-        "source": "EBA News",
-        "summary": "L'EBA ha pubblicato le linee guida definitive sull'indipendenza delle autorità di vigilanza, disciplinando conflitti d'interesse, dichiarazioni patrimoniali, limiti al trading e periodi di cooling-off.",
-        "geo": "EU",
-        "signal_type": "regulatory",
-        "sub_category": "EBA"
-    },
-    {
-        "title": "The EBA streamlines its Guidelines on connected clients to align with new EU legislation",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-streamlines-its-guidelines-connected-clients-align-new-eu-legislation",
-        "source": "EBA News",
-        "summary": "L'EBA ha parzialmente eliminato sezioni delle sue Linee guida sui clienti connessi per allinearle alla nuova legislazione UE direttamente applicabile, garantendo coerenza normativa.",
-        "geo": "EU",
-        "signal_type": "regulatory",
-        "sub_category": "EBA"
-    },
-    {
-        "title": "The EBA updates list of correlated currencies",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-updates-list-correlated-currencies-4",
-        "source": "EBA News",
-        "summary": "L'EBA ha aggiornato per il 2026 l'elenco delle valute strettamente correlate, utilizzato per calcolare i requisiti patrimoniali sul rischio di cambio.",
-        "geo": "EU",
-        "signal_type": "regulatory",
-        "sub_category": "EBA"
-    },
-    {
-        "title": "The ESA’s Joint Committee highlights digitalisation, cyber resilience and sustainable finance as key priorities of 2025",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-joint-committee-highlights-digitalisation-cyber-resilience-and-sustainable-finance-key",
-        "source": "EBA News",
-        "summary": "Il Comitato congiunto delle Autorità di vigilanza europee indica digitalizzazione, cyber-resilienza (attuazione DORA) e finanza sostenibile quali priorità trasversali per il 2025.",
+        "summary": "L'EBA consulta emendamenti ai RTS per aggiornare i criteri di assegnazione dei ponderali di rischio ai finanziamenti specializzati.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -75,16 +21,52 @@
         "title": "The EBA responds to the Commission’s proposed changes to its draft technical standards on operational risk",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-responds-commissions-proposed-changes-its-draft-technical-standards-operational-risk",
         "source": "EBA News",
-        "summary": "L'EBA ha pubblicato un parere contrario a due modifiche proposte dalla Commissione europea agli standard tecnici sui requisiti di capitale per il rischio operativo.",
+        "summary": "L'EBA critica due emendamenti della Commissione ai requisiti patrimoniali per il rischio operativo bancario, ritenendoli incoerenti e inefficaci.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
     },
     {
-        "title": "EBA Report shows persistent gender imbalance and pay gaps in EU banking leadership",
-        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-report-shows-persistent-gender-imbalance-and-pay-gaps-eu-banking-leadership",
+        "title": "The EBA amends Guidelines on the definition of default",
+        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-amends-guidelines-definition-default",
         "source": "EBA News",
-        "summary": "L'EBA rileva persistenti squilibri di genere e divari retributivi nei vertici bancari UE, invitando gli istituti a promuovere una rappresentanza più equilibrata.",
+        "summary": "L'EBA modifica le linee guida sulla definizione di insolvenza, adattandole al factoring non-ricorsivo e confermando la soglia NPV dell'1%.",
+        "geo": "EU",
+        "signal_type": "regulatory",
+        "sub_category": "EBA"
+    },
+    {
+        "title": "The EBA issues an opinion about an Austrian macroprudential measure",
+        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-issues-opinion-about-austrian-macroprudential-measure",
+        "source": "EBA News",
+        "summary": "L'EBA autorizza l'Austria ad aumentare il buffer di rischio sistemico nel settore immobiliare commerciale oltre il 5%.",
+        "geo": "EU",
+        "signal_type": "regulatory",
+        "sub_category": "EBA"
+    },
+    {
+        "title": "The EBA publishes its final Guidelines on supervisory independence",
+        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-supervisory-independence",
+        "source": "EBA News",
+        "summary": "L'EBA pubblica linee guida sulla indipendenza dei supervisori bancari per prevenire conflitti d'interesse mediante dichiarazioni e limitazioni commerciali.",
+        "geo": "EU",
+        "signal_type": "regulatory",
+        "sub_category": "EBA"
+    },
+    {
+        "title": "The EBA streamlines its Guidelines on connected clients to align with new EU legislation",
+        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-streamlines-its-guidelines-connected-clients-align-new-eu-legislation",
+        "source": "EBA News",
+        "summary": "L'EBA semplifica le linee guida sui clienti connessi per allinearsi alla nuova legislazione UE direttamente applicabile.",
+        "geo": "EU",
+        "signal_type": "regulatory",
+        "sub_category": "EBA"
+    },
+    {
+        "title": "The EBA updates list of correlated currencies",
+        "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-updates-list-correlated-currencies-4",
+        "source": "EBA News",
+        "summary": "L'EBA aggiorna il 2026 della lista delle valute correlate per il calcolo dei requisiti patrimoniali nel rischio di cambio.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
