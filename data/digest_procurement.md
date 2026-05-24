@@ -3,44 +3,44 @@
 Data Rilascio: Sunday 24 May 2026
 ```
 
-**1. ⚡ [SIGNAL] CPO Crunch: costruire leadership in tempi di incertezza strutturale**
+**1. ⚡ [SIGNAL] CPO Crunch: costruire leadership procurement in tempi incerti**
 └─ 🌍 Ambito: *global* | Canale: *Governance & Operating Model* | Fonte: *Procurement Leaders*
-L'articolo di Procurement Leaders anticipa i temi del World Procurement Congress (WPC), evidenziando come l'incertezza sia ormai una condizione strutturale e non transitoria. I CPO sono chiamati a sviluppare nuove competenze di leadership per navigare volatilità geopolitica, pressioni sui costi e trasformazione digitale. Il focus è sulla capacità dei leader di procurement di adattare strategie, team e modelli operativi per generare valore in un contesto di permacrisi.
+Procurement Leaders annuncia che al World Procurement Congress (WPC) i CPO discuteranno come sviluppare capacità di leadership in un contesto di incertezza ormai strutturale. Il tema centrale è la trasformazione del ruolo del Chief Procurement Officer, chiamato non solo a gestire costi e fornitori, ma anche a guidare resilienza, talento e visione strategica in scenari macroeconomici e geopolitici sempre più volatili.
 > [🔗 Apri Documentazione Originale](https://procurementleaders.com/content/cpo-crunch-building-leadership-muscle/)
 
-**2. ⚡ [SIGNAL] CPO Crunch: il valore strategico dei dati nel procurement**
+**2. ⚡ [SIGNAL] CPO Crunch: dati puliti e tempestivi per sbloccare il procurement**
 └─ 🌍 Ambito: *global* | Canale: *Governance & Operating Model* | Fonte: *Procurement Leaders*
-L'articolo di Procurement Leaders evidenzia come l'accesso a dati puliti, accurati e tempestivi rappresenti la leva fondamentale per sbloccare il pieno potenziale della funzione procurement. Senza una solida base informativa, le strategie di sourcing, la gestione dei fornitori e l'analisi della spesa rimangono inefficaci. La qualità del dato diventa quindi prerequisito per decisioni informate, automazione, AI e compliance, trasformando il CPO da gestore operativo a partner strategico del business.
+L'articolo di Procurement Leaders evidenzia come la qualità, la pulizia e la tempestività dei dati siano il fattore critico per liberare il pieno potenziale della funzione procurement. Senza un'infrastruttura dati solida, le iniziative di sourcing strategico, analytics avanzata, automazione e gestione del rischio fornitori restano limitate. I CPO devono affrontare la frammentazione informativa, la scarsa governance e l'integrazione tra sistemi ERP, P2P e TPRM per generare insight azionabili e decisioni basate sui dati.
 > [🔗 Apri Documentazione Originale](https://procurementleaders.com/content/cpo-crunch-all-about-data/)
 
-**3. ⚡ [SIGNAL] CPO e mega deal M&A: gestire la complessità procurement**
+**3. ⚡ [SIGNAL] CPO e mega deal: gestire la complessità delle M&A**
 └─ 🌍 Ambito: *global* | Canale: *Governance & Operating Model* | Fonte: *Procurement Leaders*
-L'articolo evidenzia come l'attività di M&A abbia raggiunto livelli record, ponendo i Chief Procurement Officer di fronte alla sfida di gestire integrazioni complesse, consolidamenti di portafoglio fornitori e sinergie di costo in contesti di elevata incertezza. I CPO devono sviluppare capacità di scenario planning, due diligence procurement accelerata e governance dei contratti per supportare le operazioni straordinarie, presidiando rischi di continuità operativa, sovrapposizioni contrattuali e armonizzazione delle policy di sourcing post-merger.
+L'articolo di Procurement Leaders evidenzia come l'attività di fusioni e acquisizioni stia raggiungendo livelli record, ponendo i Chief Procurement Officer di fronte a sfide crescenti nella gestione dell'incertezza. I CPO devono sviluppare capacità di integrazione rapida dei fornitori, armonizzazione dei contratti, gestione del rischio terze parti durante le transizioni e ottimizzazione delle sinergie di costo. La complessità dei mega deal richiede competenze trasversali tra strategia, finanza, compliance e supply chain.
 > [🔗 Apri Documentazione Originale](https://procurementleaders.com/content/mergers-acquisitions-mega-deals-procurement-value/)
 
-**4. ⚡ [SIGNAL] CPO Crunch: nuovi talenti per un procurement resiliente**
+**4. ⚡ [SIGNAL] CPO Crunch: nuovi talenti per il futuro del procurement**
 └─ 🌍 Ambito: *global* | Canale: *Governance & Operating Model* | Fonte: *Procurement Leaders*
-L'articolo di Procurement Leaders evidenzia l'emergere di una nuova generazione di leader del procurement, animati dalla passione e dalla visione necessarie per affrontare le disruption attuali. I futuri CPO mostrano competenze rinnovate, orientamento digitale e capacità di gestire complessità geopolitiche, normative e tecnologiche, garantendo continuità e innovazione nella funzione acquisti in un contesto di crescente pressione su resilienza, sostenibilità e trasformazione operativa.
+L'articolo di Procurement Leaders evidenzia l'emergere di una nuova generazione di leader del procurement, animati dalla passione e dalla visione necessarie per affrontare le continue disruption del settore. Questi futuri CPO mostrano capacità rinnovate per garantire resilienza, innovazione e valore strategico alle funzioni acquisti, in un contesto segnato da volatilità geopolitica, trasformazione digitale e crescenti pressioni regolatorie.
 > [🔗 Apri Documentazione Originale](https://procurementleaders.com/content/cpo-crunch-fresh-talent-fresh-vision/)
 
-**5. ⚡ [SIGNAL] Lezioni di leadership dal CPO uscente di P&G**
+**5. ⚡ [SIGNAL] Lezioni di leadership dalla CPO uscente di P&G**
 └─ 🌍 Ambito: *global* | Canale: *Governance & Operating Model* | Fonte: *Procurement Leaders*
-Ana Elena Marziano, Chief Procurement Officer di Procter & Gamble, condivide le lezioni apprese in una carriera di 37 anni nel procurement. L'articolo, parte della rubrica CPO Crunch di Procurement Leaders, esplora i principi di leadership che hanno guidato il suo percorso ai vertici della funzione acquisti di una delle più grandi multinazionali del largo consumo, offrendo spunti per la prossima generazione di leader del procurement.
+Ana Elena Marziano, Chief Procurement Officer di Procter & Gamble, condivide le lezioni apprese in 37 anni di carriera nella funzione acquisti. L'articolo di Procurement Leaders raccoglie spunti su leadership, gestione del cambiamento e sviluppo del talento procurement, offrendo una prospettiva strategica sull'evoluzione del ruolo del CPO in un contesto aziendale sempre più complesso e orientato alla trasformazione digitale e alla resilienza della supply chain.
 > [🔗 Apri Documentazione Originale](https://procurementleaders.com/content/cpo-crunch-lessons-in-leadership-from-an-outgoing-cpo/)
 
-**6. ⚡ [SIGNAL] CPO e sostenibilità: rendere le strategie ESG economicamente solide**
+**6. ⚡ [SIGNAL] Sostenibilità a prova di crisi: il nuovo mandato dei CPO**
 └─ 🌍 Ambito: *global* | Canale: *Governance & Operating Model* | Fonte: *Procurement Leaders*
-L'articolo di Procurement Leaders sostiene che i Chief Procurement Officer devono guidare un cambio di mentalità per integrare la sostenibilità nelle strategie di approvvigionamento in modo "economicamente a prova di bomba". La sostenibilità non può più essere trattata come iniziativa accessoria, ma deve essere strutturalmente collegata al valore economico, alla resilienza della supply chain e alla competitività di lungo periodo, superando la tensione percepita tra obiettivi ESG e performance finanziaria.
+L'articolo di Procurement Leaders sottolinea come i Chief Procurement Officer debbano guidare un cambio di mentalità per rendere le strategie di sostenibilità "economicamente a prova di bomba". In un contesto di pressioni inflazionistiche e incertezza geopolitica, la sostenibilità non può più essere un costo accessorio ma deve integrarsi nel valore economico delle decisioni di sourcing, dimostrando ROI tangibile e resilienza della supply chain nel lungo periodo.
 > [🔗 Apri Documentazione Originale](https://procurementleaders.com/content/cpo-crunch-making-sustainability-economically-bombproof/)
 
 **7. ⚡ [SIGNAL] Crisi carburanti nel Pacifico: lezioni per i CPO globali**
 └─ 🌍 Ambito: *global* | Canale: *Governance & Operating Model* | Fonte: *Procurement Leaders*
-Australia e Nuova Zelanda stanno affrontando crescenti rischi di carenza di carburante, dovuti alla chiusura di raffinerie locali e alla dipendenza da importazioni concentrate in pochi hub asiatici. La situazione evidenzia la fragilità delle catene di approvvigionamento energetico nel Pacifico e offre spunti strategici per i CPO globali su diversificazione geografica dei fornitori, scorte strategiche e piani di continuità operativa in caso di disruption energetiche prolungate.
+Australia e Nuova Zelanda stanno affrontando il rischio di carenze di carburante a causa della contrazione delle forniture nel Pacifico, dovuta alla chiusura di raffinerie locali e alla crescente dipendenza dalle importazioni asiatiche. La situazione evidenzia vulnerabilità strutturali nelle catene di approvvigionamento energetico e impone ai CPO globali una riflessione su diversificazione delle fonti, scorte strategiche e resilienza logistica, anche in settori non direttamente energetici ma dipendenti da logistica e trasporti.
 > [🔗 Apri Documentazione Originale](https://procurementleaders.com/content/cpo-crunch-oil-trouble-pacific-fuel-shortage/)
 
 **8. ⚡ [SIGNAL] CPO tra crisi e premi: l'adattabilità come competenza chiave**
 └─ 🌍 Ambito: *global* | Canale: *Governance & Operating Model* | Fonte: *Procurement Leaders*
-L'articolo di Procurement Leaders evidenzia la crescente capacità dei Chief Procurement Officer di alternare modalità operative differenti: dalla pianificazione strategica di lungo periodo alla gestione reattiva delle emergenze. Questa dualità riflette il contesto attuale caratterizzato da shock geopolitici, disruption della supply chain e pressioni regolatorie crescenti. I CPO emergono come figure sempre più strategiche, chiamate a bilanciare resilienza operativa e creazione di valore competitivo.
+L'articolo di Procurement Leaders evidenzia come i Chief Procurement Officer stiano dimostrando crescente capacità di adattamento, oscillando tra gestione strategica pianificata e risposta rapida alle emergenze. La doppia modalità operativa - pianificazione ponderata e crisis management - emerge come tratto distintivo della leadership procurement moderna, in un contesto caratterizzato da volatilità geopolitica, disruption della supply chain e pressioni regolatorie crescenti.
 > [🔗 Apri Documentazione Originale](https://procurementleaders.com/content/cpo-crunch-cpos-demonstrate-their-adaptability-switching-from-crises-to-prizes/)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
