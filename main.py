@@ -1,6 +1,8 @@
 import json
+import os
 import subprocess
 import threading
+import traceback
 from datetime import datetime
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,6 +10,9 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import uvicorn
 
 from agents.orchestrator import news_graph
+
+# Garantisce l'esistenza della cartella di output per i digest Markdown
+os.makedirs("data", exist_ok=True)
 
 app = FastAPI(title="Graphyte Intelligence Hub Backend")
 
@@ -89,16 +94,37 @@ async def force_refresh(category: str):
         res = esegui_workflow_news(category)
         return {"status": "success", "message": f"Aggiornamento {category} completato", "details": res}
     except Exception as e:
+        print(f"❌ [API] Eccezione in /api/refresh/{category}: {e}")
+        traceback.print_exc()
         return {"status": "error", "message": str(e)}
 
 # --- SCHEDULER AUTOMATICO INTERVALLATO ---
 scheduler = BackgroundScheduler()
 scheduler.add_job(aggiornamento_automatico_totale, 'cron', hour=8, minute=0)
 scheduler.add_job(aggiornamento_automatico_totale, 'cron', hour=18, minute=0)
-scheduler.start()
+
+
+@app.on_event("startup")
+def _start_scheduler():
+    scheduler.start()
+
+
+@app.on_event("shutdown")
+def _stop_scheduler():
+    scheduler.shutdown(wait=False)
+
 
 # ==============================================================================
 # 🚀 AVVIO DIRETTO E FORZATO DEL SERVER (SENZA COSTRUTTI AMBIGUI)
 # ==============================================================================
-print("🖥️ Sincronizzazione inizializzata. Avvio server Uvicorn...")
-uvicorn.run(app, host="127.0.0.1", port=8000)
+if __name__ == "__main__":
+    import os
+    print("🖥️ Sincronizzazione inizializzata. Avvio server Uvicorn...")
+    
+    # Se siamo su Render prende la porta dinamica (es. 10000), altrimenti usa 8000 in locale
+    port = int(os.environ.get("PORT", 8000))
+    
+    # Se siamo su Render ascolta su 0.0.0.0, altrimenti usa il localhost 127.0.0.1
+    host = "0.0.0.0" if "RENDER" in os.environ else "127.0.0.1"
+    
+    uvicorn.run(app, host=host, port=port)
