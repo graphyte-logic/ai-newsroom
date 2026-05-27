@@ -56,7 +56,7 @@
             statusText.innerHTML = "⏳ Aggiornamento Legal in corso (30s)...";
             btn.disabled = true;
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/refresh/legal', { method: 'POST' });
+                const response = await fetch('http://graphyte-newsroom.onrender.com/api/refresh/legal', { method: 'POST' });
                 const data = await response.json();
                 if (data.status === 'success') {
                     let countdown = 30;
