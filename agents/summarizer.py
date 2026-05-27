@@ -1,13 +1,18 @@
 import json
+import os
 import re
 from concurrent.futures import ThreadPoolExecutor
 from anthropic import Anthropic
-import sys
-from pathlib import Path
-   # Aggiunge la cartella principale del progetto al percorso di ricerca di Python
-sys.path.append(str(Path(__file__).resolve().parent.parent))
+from dotenv import load_dotenv
 
-from config import ANTHROPIC_API_KEY
+# Carica il file .env se sei in locale (sul server Render non farà nulla perché la chiave è già nel sistema)
+load_dotenv()
+
+# Prende la chiave direttamente dall'ambiente di sistema (sia del tuo PC che di Render)
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
+
+if not ANTHROPIC_API_KEY:
+    raise ValueError("⚠️ ERRORE: La variabile ANTHROPIC_API_KEY non è stata configurata!")
 
 client = Anthropic(api_key=ANTHROPIC_API_KEY)
 
