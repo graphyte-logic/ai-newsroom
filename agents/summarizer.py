@@ -2,7 +2,13 @@ import json
 import re
 from concurrent.futures import ThreadPoolExecutor
 from anthropic import Anthropic
-from config import ANTHROPIC_API_KEY
+```python
+   import sys
+   from pathlib import Path
+   # Aggiunge la cartella principale del progetto al percorso di ricerca di Python
+   sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+   from config import ANTHROPIC_API_KEY
 
 client = Anthropic(api_key=ANTHROPIC_API_KEY)
 
