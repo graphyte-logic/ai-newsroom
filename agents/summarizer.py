@@ -1,147 +1,188 @@
 import json
+import re
 from concurrent.futures import ThreadPoolExecutor
 from anthropic import Anthropic
 from config import ANTHROPIC_API_KEY
 
 client = Anthropic(api_key=ANTHROPIC_API_KEY)
 
-# Filtri parole chiave riutilizzati come guardrail interni prima della chiamata API
-KEYWORDS_FILTER = ["eba", "dora", "rts", "guidelines", "consultation", "third-party", "procurement", "sourcing", "outsourcing"]
-AI_KEYWORDS = ["ai", "artificial intelligence", "intelligenza artificiale", "llm", "gpt", "claude", "openai", "nvidia", "machine learning", "deep learning", "neural", "copilot", "agent", "anthropic", "gemini"]
+MODEL_HEAVY = "claude-opus-4-7"
+MODEL_LIGHT = "claude-haiku-4-5-20251001"
 
-def process_single_article(article: dict, category: str) -> dict:
-    """Esegue l'interrogazione atomica a Claude per un singolo articolo in modo isolato"""
+MAX_ARTICLES = 15
+MAX_PARALLEL = 8
+CONTENT_TRUNCATE_CHARS = 500
+
+AI_KEYWORDS = [
+    "ai", "artificial intelligence", "intelligenza artificiale",
+    "llm", "gpt", "claude", "openai", "nvidia", "machine learning",
+    "deep learning", "neural", "copilot", "agent", "midjourney",
+    "anthropic", "gemini"
+]
+
+
+def _truncate(text: str, limit: int = CONTENT_TRUNCATE_CHARS) -> str:
+    if len(text) <= limit:
+        return text
+    return text[:limit].rsplit(' ', 1)[0] + "..."
+
+
+def _call_claude(prompt: str, model: str, max_tokens: int) -> str:
+    response = client.messages.create(
+        model=model,
+        max_tokens=max_tokens,
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return response.content[0].text.strip()
+
+
+def _parse_xml_field(text: str, tag: str) -> str:
+    """Estrae in modo sicuro il contenuto all'interno di tag XML generati dall'LLM"""
+    pattern = f"<{tag}>(.*?)</{tag}>"
+    match = re.search(pattern, text, re.DOTALL)
+    return match.group(1).strip() if match else ""
+
+
+def _process_procurement(article: dict) -> dict | None:
     titolo = article.get('title', '')
-    contenuto_grezzo = article.get('summary') or article.get('description') or ''
+    contenuto = _truncate(article.get('summary') or article.get('description') or '')
     fonte = article.get('source', '')
-    tier = article.get('tier', 'Priority: MEDIUM')
-    
-    # Troncamento intelligente a 500 caratteri senza spaccare le parole
-    if len(contenuto_grezzo) > 500:
-        contenuto = contenuto_grezzo[:500].rsplit(' ', 1)[0] + "..."
-    else:
-        contenuto = contenuto_grezzo
+    priority = article.get('priority', 'medium')
 
-    text_to_check = (titolo + " " + contenuto).lower()
-
-    # ----------------------------------------------------
-    # PROMPT CANALE 1: PROCUREMENT & COMPLIANCE
-    # ----------------------------------------------------
-    if category == "procurement":
-        if not any(k in text_to_check for k in KEYWORDS_FILTER) and "HIGH" not in tier:
-            return None
-            
-        prompt = f"""You are an intelligence analyst specialized in banking procurement, regulatory compliance (EBA, DORA), and AI.
+    # Prompt basato su tag XML: immune a qualsiasi errore di punteggiatura o virgolette
+    prompt = f"""You are an intelligence analyst specialized in corporate procurement, supply chain strategy, third-party risk management (TPRM), and financial compliance (EBA, DORA).
 
 Input Article to Analyze:
 Title: {titolo}
 Content: {contenuto}
-Source Context: {fonte} ({tier})
+Source Context: {fonte} (Priority: {priority.upper()})
 
 Execute the following steps accurately:
-STEP 1 – RELEVANCE FILTER: Keep only if related to banking/financial services AND (procurement, sourcing, outsourcing, third-party risk, EBA/ECB/DORA, ICT risk, AI in banking). If not relevant, return exactly: {{"not_relevant": true}}
-STEP 2 – PRIORITY BOOST: Boost priority if EBA or DORA or cloud providers (AWS, Azure, Google) or vendor dependency risk are mentioned.
-STEP 3 – CLASSIFICATION: Assign one: REGULATION / PROCUREMENT / AI_TECH / RISK / MARKET_SIGNAL
-STEP 4 – OUTPUT CARD: Generate a strict JSON object with the keys specified below.
-STEP 5 – ALERT: If regulatory compliance issue or strict deadline/guideline → set "regulatory_alert": true and write a 1-line warning.
+STEP 1 – RELEVANCE FILTER: Evaluate if related to modern corporate procurement, sourcing strategies, supply chain developments, third-party risk, vendor management, or banking regulations (EBA, DORA, ICT risk). If the text is completely out of scope, write <not_relevant>true</not_relevant>.
+STEP 2 – GENERATE FIELDS: If relevant, write your analysis strictly wrapped in the XML tags specified below. 
 
-Return ONLY a valid JSON object matching this schema, no markdown blocks, no extra text:
-{{
-    "title": "Max 12 words title in Italian",
-    "summary": "Max 80 words analytical summary in Italian",
-    "why_it_matters": "Why it matters for financial procurement in Italian",
-    "classification": "REGULATION or PROCUREMENT or AI_TECH or RISK or MARKET_SIGNAL",
-    "impact": "LOW or MEDIUM or HIGH",
-    "horizon": "SHORT or MID or LONG",
-    "action_item": "Clear actionable instruction for the procurement leader in Italian",
-    "regulatory_alert": true_or_false,
-    "executive_warning": "1-line strict critical warning in Italian if regulatory_alert is true, else empty string"
-}}"""
-        try:
-            response = client.messages.create(
-                model="claude-opus-4-6", 
-                max_tokens=500,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            text_res = response.content[0].text.strip()
-            
-            if text_res.startswith("```json"):
-                text_res = text_res[7:-3].strip()
-            elif text_res.startswith("```"):
-                text_res = text_res[3:-3].strip()
-                
-            parsed_json = json.loads(text_res)
-            if "not_relevant" not in parsed_json:
-                return {
-                    **parsed_json,
-                    "url": article.get("url", ""),
-                    "source": fonte,
-                    "geo": article.get("geo", "global"),
-                    "sub_category": article.get("sub_category", "General")
-                }
-        except Exception as e:
-            print(f"⚠️ Errore JSON Claude per '{titolo}': {e}")
+Your entire response must follow exactly this format:
+<title>Max 12 words title in Italian</title>
+<summary>Max 80 words analytical summary in Italian</summary>
+<why_it_matters>Why it matters for financial procurement in Italian</why_it_matters>
+<classification>REGULATION or PROCUREMENT or AI_TECH or RISK or MARKET_SIGNAL</classification>
+<impact>LOW or MEDIUM or HIGH</impact>
+<horizon>SHORT or MID or LONG</horizon>
+<action_item>Clear actionable instruction for the procurement leader in Italian</action_item>
+<regulatory_alert>true or false</regulatory_alert>
+<executive_warning>1-line strict critical warning in Italian if regulatory_alert is true, else leave empty</executive_warning>
+
+Do not include any JSON brackets or markdown code blocks."""
+
+    try:
+        raw_res = _call_claude(prompt, MODEL_HEAVY, max_tokens=600)
+        
+        # Se Claude dichiara esplicitamente l'articolo non rilevante, lo scartiamo
+        if "<not_relevant>true</not_relevant>" in raw_res:
             return None
 
-    # ----------------------------------------------------
-    # PROMPT CANALE 2 & 3: TECH AI VERTICAL o LEGAL
-    # ----------------------------------------------------
-    else:
-        is_legal = category == "legal" or "regulatory" in article.get("category", "")
+        # Ricostruiamo il dizionario estraendo i dati dai tag XML (impossibile da rompere)
+        parsed_json = {
+            "title": _parse_xml_field(raw_res, "title") or titolo,
+            "summary": _parse_xml_field(raw_res, "summary"),
+            "why_it_matters": _parse_xml_field(raw_res, "why_it_matters"),
+            "classification": _parse_xml_field(raw_res, "classification") or "PROCUREMENT",
+            "impact": _parse_xml_field(raw_res, "impact") or "MEDIUM",
+            "horizon": _parse_xml_field(raw_res, "horizon") or "MID",
+            "action_item": _parse_xml_field(raw_res, "action_item"),
+            "regulatory_alert": _parse_xml_field(raw_res, "regulatory_alert").lower() == "true",
+            "executive_warning": _parse_xml_field(raw_res, "executive_warning")
+        }
+
+        # Controllo di sicurezza minimo per validare la scheda
+        if not parsed_json["summary"]:
+            return None
+
+        # Arricchimento metadati stabili per il frontend
+        parsed_json["url"] = article.get("url", "")
+        parsed_json["source"] = fonte
+        parsed_json["geo"] = article.get("geo", "global")
+        parsed_json["signal_type"] = article.get("signal_type", "trend")
+        parsed_json["sub_category"] = article.get("sub_category", "General")
         
-        if is_legal:
-            prompt = f"Riassumi questa notizia giuridica in modo ultra-conciso.\nTitolo: {titolo}\nContenuto: {contenuto}\n\nREGOLA TASSATIVA: Scrivi un'unica frase di massimo 25 parole in perfetto italiano. Vai dritto al sodo (cosa stabilisce la norma/sentenza). Non scrivere introduzioni."
-        else:
-            if not any(k in text_to_check for k in AI_KEYWORDS):
-                return None
-                
-            prompt = f"""You are an expert AI technology analyst.
+        return parsed_json
+        
+    except Exception as e:
+        print(f"⚠️ Errore AI Procurement per '{titolo}': {e}")
+        return None
+
+
+def _process_tech_or_legal(article: dict, category: str) -> dict | None:
+    titolo = article.get('title', '')
+    contenuto = _truncate(article.get('summary') or article.get('description') or '')
+    fonte = article.get('source', '')
+
+    is_legal = category == "legal" or article.get("signal_type") == "regulatory"
+
+    if is_legal:
+        # Prompt perfettamente allineato al perimetro della stanza Legal
+        prompt = f"""You are an expert tech lawyer and regulatory compliance analyst specialized in digital law.
+Analyze this article:
+Title: {titolo}
+Content: {contenuto}
+
+CRITICAL LEGAL FILTER: Does this article cover regulatory updates, relevant court rulings/judgments, digital law, privacy/GDPR, data protection, or legislation applied to new technologies (like AI Act, cybersecurity frameworks, crypto regulations)?
+- If it is NOT related to tech law, digital regulation, court rulings, or privacy (e.g., general retail banking news, standard corporate finance, macroeconomic policies), return exactly: REJECT
+- If YES, write a single impactful summary sentence in perfect Italian (max 25 words). Go straight to the point, explaining what the regulation, ruling, or legal update establishes. Do not use introductory phrases or markdown backticks."""
+    else:
+        text_to_check = (titolo + " " + contenuto).lower()
+        if not any(k in text_to_check for k in AI_KEYWORDS):
+            return None
+
+        prompt = f"""You are an expert AI technology analyst.
 Analyze this technical article:
 Title: {titolo}
 Content: {contenuto}
 
-CRITICAL FILTER: Is this article strictly about Artificial Intelligence, Generative AI, LLMs, neural hardware, or closely related AI infrastructure? 
+CRITICAL FILTER: Is this article strictly about Artificial Intelligence, Generative AI, LLMs, hardware accelerators, or closely related AI infrastructure?
 If NO, return exactly: REJECT
 If YES, write a single impactful sentence in perfect Italian (max 25 words) summarizing the AI innovation or its direct impact. Do not include introductions, markdown or error formulas."""
 
-        try:
-            response = client.messages.create(
-                model="claude-opus-4-6", 
-                max_tokens=100,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            summary_text = response.content[0].text.strip()
-            
-            if not is_legal and "REJECT" in summary_text:
-                return None
-            
-            if summary_text.startswith('"') and summary_text.endswith('"'):
-                summary_text = summary_text[1:-1]
-                
-            return {
-                "title": titolo,
-                "url": article.get("url"),
-                "source": fonte,
-                "summary": summary_text,
-                "geo": article.get("geo", "global"),
-                "signal_type": article.get("signal_type", "trend"),
-                "sub_category": article.get("sub_category", "General")
-            }
-        except Exception as e:
-            print(f"⚠️ Errore micro-riassunto Claude per '{titolo}': {e}")
+    try:
+        summary_text = _call_claude(prompt, MODEL_LIGHT, max_tokens=120)
+
+        # Se il prompt restituisce REJECT (sia per legal che per tech), l'articolo viene scartato
+        if "REJECT" in summary_text:
             return None
-    return None
+
+        if summary_text.startswith('"') and summary_text.endswith('"'):
+            summary_text = summary_text[1:-1]
+
+        return {
+            "title": titolo,
+            "url": article.get("url"),
+            "source": fonte,
+            "summary": summary_text,
+            "geo": article.get("geo", "global"),
+            "signal_type": article.get("signal_type", "trend"),
+            "sub_category": article.get("sub_category", "General"),
+        }
+    except Exception as e:
+        print(f"⚠️ Errore riassunto ordinario ({category}): {e}")
+        return None
+
+
+def _process_single(article: dict, category: str) -> dict | None:
+    if category == "procurement":
+        return _process_procurement(article)
+    return _process_tech_or_legal(article, category)
+
 
 def summarize_articles(articles: list, category: str = "tech") -> list:
     """Distribuisce l'elaborazione degli articoli su un pool di thread paralleli"""
     if not articles:
         return []
-        
-    pool_size = min(len(articles), 15)
-    print(f"🚀 Concorrenza Attiva: Lancio di {pool_size} chiamate parallele simultanee a Claude...")
-    
-    with ThreadPoolExecutor(max_workers=pool_size) as executor:
-        results = list(executor.map(lambda art: process_single_article(art, category), articles[:15]))
-        
-    # Filtra i None (articoli scartati dai guardrail o falliti)
+
+    pool = articles[:MAX_ARTICLES]
+    workers = min(len(pool), MAX_PARALLEL)
+    print(f"🚀 Concorrenza attiva: {workers} chiamate parallele a Claude su {len(pool)} articoli...")
+
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        results = list(executor.map(lambda art: _process_single(art, category), pool))
+
     return [r for r in results if r is not None]
