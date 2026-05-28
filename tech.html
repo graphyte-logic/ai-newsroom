@@ -75,30 +75,37 @@
                         }
                     }, 1000);
                 } else { 
-                    statusText.innerHTML = "❌ Si è verificato un problema durante l'aggiornamento."; 
+                    statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore nella risposta del server di backend.</span>"; 
                     btn.disabled = false; 
                 }
             } catch (error) { 
-                statusText.innerHTML = "❌ Impossibile raggiungere il server. Riprova più tardi."; 
+                statusText.innerHTML = "<span style='color: #ff4444;'>❌ Backend offline. Uso della cache locale in corso.</span>"; 
                 btn.disabled = false; 
+                fetchNews();
             }
         }
 
         async function fetchNews() {
+            const container = document.getElementById('news-container');
+            const updateText = document.getElementById('last-update');
             try {
                 const res = await fetch('tech_news.json?v=' + Date.now());
+                
+                // Se il file dà errore 404 o non viene trovato, andiamo direttamente nel blocco catch
+                if (!res.ok) {
+                    throw new Error("File JSON non trovato o non accessibile");
+                }
+                
                 const data = await res.json();
-                const container = document.getElementById('news-container');
-                const updateText = document.getElementById('last-update');
                 
                 if (!data || data.length === 0) { 
-                    container.innerHTML = "<p>Nessun dato disponibile.</p>"; 
+                    container.innerHTML = "<p style='color: #a0aec0;'>Nessun dato disponibile nel feed Tech. Clicca 'Aggiorna Ora' per popolarlo.</p>"; 
                     return; 
                 }
                 
                 const adesso = new Date();
                 const dataFormattata = adesso.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: 'numeric' });
-                const oraFormattata = calendarTime = adesso.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+                const oraFormattata = adesso.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
                 updateText.innerHTML = `📅 Ultimo aggiornamento: <strong>${dataFormattata}</strong> alle <strong>${oraFormattata}</strong>`;
                 
                 container.innerHTML = data.map(n => `
@@ -114,7 +121,14 @@
                     </div>
                 `).join('');
             } catch (e) { 
-                console.error("Errore nel caricamento del file JSON:", e);
+                console.error("Errore riscontrato:", e);
+                // Fallback visivo per l'utente per non lasciare la pagina vuota se il JSON manca
+                container.innerHTML = `
+                    <div class="card" style="grid-column: 1 / -1; border-color: #ffaa00; text-align: center;">
+                        <h3>⚠️ Database locale in fase di inizializzazione</h3>
+                        <p>Il file <code>tech_news.json</code> non è ancora stato generato o è vuoto. Premi il pulsante <strong>"Aggiorna Ora"</strong> in alto a destra per attivare l'agente AI e creare la prima rassegna stampa tecnologica.</p>
+                    </div>
+                `;
             }
         }
         fetchNews();
