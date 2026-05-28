@@ -50,6 +50,8 @@
         <div id="news-container" class="grid">Caricamento notizie...</div>
     </div>
     <script>
+        const BACKEND_URL = 'https://graphyte-newsroom.onrender.com';
+
         async function forzaAggiornamento() {
             const statusText = document.getElementById('refresh-status');
             const btn = document.getElementById('btn-refresh');
@@ -58,7 +60,7 @@
             btn.disabled = true;
             
             try {
-                const response = await fetch('https://graphyte-newsroom.onrender.com/api/refresh/tech', { method: 'POST' });
+                const response = await fetch(`${BACKEND_URL}/api/refresh/tech`, { method: 'POST' });
                 const data = await response.json();
                 
                 if (data.status === 'success') {
@@ -79,9 +81,8 @@
                     btn.disabled = false; 
                 }
             } catch (error) { 
-                statusText.innerHTML = "<span style='color: #ff4444;'>❌ Backend offline. Uso della cache locale in corso.</span>"; 
+                statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore di connessione al backend.</span>"; 
                 btn.disabled = false; 
-                fetchNews();
             }
         }
 
@@ -89,12 +90,9 @@
             const container = document.getElementById('news-container');
             const updateText = document.getElementById('last-update');
             try {
-                const res = await fetch('tech_news.json?v=' + Date.now());
-                
-                // Se il file dà errore 404 o non viene trovato, andiamo direttamente nel blocco catch
-                if (!res.ok) {
-                    throw new Error("File JSON non trovato o non accessibile");
-                }
+                // Leggiamo i dati direttamente dal backend dinamico anziché dal file statico locale
+                const res = await fetch(`${BACKEND_URL}/api/news/tech?v=` + Date.now());
+                if (!res.ok) throw new Error("Backend non raggiungibile o endpoint assente");
                 
                 const data = await res.json();
                 
@@ -121,12 +119,25 @@
                     </div>
                 `).join('');
             } catch (e) { 
-                console.error("Errore riscontrato:", e);
-                // Fallback visivo per l'utente per non lasciare la pagina vuota se il JSON manca
+                console.error("Uso fallback file locale:", e);
+                // Se il backend non espone un endpoint GET, proviamo a leggere il file locale
+                try {
+                    const localRes = await fetch('tech_news.json?v=' + Date.now());
+                    const localData = await localRes.json();
+                    if (localData && localData.length > 0) {
+                        // Rendering dei dati locali...
+                        container.innerHTML = localData.map(n => `
+                            <div class="card"><div><h3>${n.title}</h3><p>${n.summary}</p></div>
+                            <div class="meta-info"><span>🌐 ${n.source || 'Tech Source'}</span><a href="${n.url}" target="_blank" class="read-more">Leggi di più →</a></div></div>
+                        `).join('');
+                        return;
+                    }
+                } catch(err) {}
+                
                 container.innerHTML = `
                     <div class="card" style="grid-column: 1 / -1; border-color: #ffaa00; text-align: center;">
-                        <h3>⚠️ Database locale in fase di inizializzazione</h3>
-                        <p>Il file <code>tech_news.json</code> non è ancora stato generato o è vuoto. Premi il pulsante <strong>"Aggiorna Ora"</strong> in alto a destra per attivare l'agente AI e creare la prima rassegna stampa tecnologica.</p>
+                        <h3>⚠️ Sincronizzazione Feed in corso</h3>
+                        <p>Il feed è in fase di allineamento sul server cloud. Premi il pulsante <strong>"Aggiorna Ora"</strong> per avviare l'elaborazione dei dati.</p>
                     </div>
                 `;
             }
