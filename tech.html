@@ -50,7 +50,6 @@
         <div id="news-container" class="grid">Caricamento notizie...</div>
     </div>
     <script>
-        // 🛡️ SANITIZZAZIONE XSS: Evita l'esecuzione di codice malevolo dai feed esterni
         function escapeHTML(str) {
             if (!str) return '';
             return String(str).replace(/[&<>'"]/g, match => {
@@ -62,52 +61,46 @@
             const btn = document.querySelector('.btn');
             const statusText = document.getElementById('update-status');
             btn.disabled = true;
-            statusText.innerHTML = "⏳ Avvio aggiornamento asincrono...";
+            statusText.innerText = "⏳ Avvio aggiornamento asincrono...";
 
             try {
-                // 1. Lancia il comando al server (che risponderà subito)
                 const res = await fetch(`http://localhost:8000/api/refresh/${category}`, { method: 'POST' });
                 const data = await res.json();
 
                 if (data.status === "started" || data.status === "ignored") {
-                    // 2. Inizia a interrogare lo stato reale ogni 2 secondi
                     const pollInterval = setInterval(async () => {
                         try {
                             const statusRes = await fetch(`http://localhost:8000/api/status/${category}`);
                             const statusData = await statusRes.json();
                             
                             if (statusData.running) {
-                                statusText.innerHTML = `⏳ ${escapeHTML(statusData.message)}`;
+                                statusText.innerText = `⏳ ${statusData.message}`;
                             } else {
                                 clearInterval(pollInterval);
-                                statusText.innerHTML = `✅ ${escapeHTML(statusData.message)}`;
-                                fetchNews(); // Ricarica i file JSON appena aggiornati
+                                statusText.innerText = `✅ ${statusData.message}`;
+                                fetchNews();
                                 btn.disabled = false;
                             }
                         } catch (err) {
                             clearInterval(pollInterval);
-                            statusText.innerHTML = "❌ Errore di connessione durante il monitoraggio.";
+                            statusText.innerText = "❌ Errore di connessione durante il monitoraggio.";
                             btn.disabled = false;
                         }
                     }, 2000);
                 } else {
-                    statusText.innerHTML = `❌ Errore: ${escapeHTML(data.message)}`;
+                    statusText.innerText = `❌ Errore: ${data.message}`;
                     btn.disabled = false;
                 }
             } catch (error) {
-                statusText.innerHTML = "❌ Errore di connessione al server.";
+                statusText.innerText = "❌ Errore di connessione al server.";
                 btn.disabled = false;
             }
         }
 
         async function fetchNews() {
-            // Identifica la categoria corrente in base al nome del file HTML
-            const isLegal = window.location.pathname.includes('legal');
-            const categoryFile = isLegal ? 'legal_news.json' : 'tech_news.json';
-            const icon = isLegal ? '⚖️' : '🌐';
-
             try {
-                const res = await fetch(`${categoryFile}?v=` + Date.now());
+                // Forziamo il file specifico per evitare letture incrociate
+                const res = await fetch(`tech_news.json?v=${Date.now()}`);
                 const data = await res.json();
                 const container = document.getElementById('news-container');
                 const updateText = document.getElementById('update-status');
@@ -120,6 +113,8 @@
                 const adesso = new Date();
                 const dataFormattata = adesso.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: 'numeric' });
                 const oraFormattata = adesso.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+                
+                // Usiamo innerHTML solo qui perché i dati temporali sono sicuri e generati dal browser
                 updateText.innerHTML = `📅 Ultimo aggiornamento: <strong>${dataFormattata}</strong> alle <strong>${oraFormattata}</strong>`;
                 
                 container.innerHTML = data.map(n => `
@@ -129,7 +124,7 @@
                             <p>${escapeHTML(n.summary)}</p>
                         </div>
                         <div class="meta-info">
-                            <span>${icon} ${escapeHTML(n.source || 'Fonte Sconosciuta')}</span>
+                            <span>🌐 ${escapeHTML(n.source || 'Tech Source')}</span>
                             <a href="${escapeHTML(n.url)}" target="_blank" class="read-more">Leggi di più →</a>
                         </div>
                     </div>
