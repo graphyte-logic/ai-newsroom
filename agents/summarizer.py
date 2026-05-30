@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 # Carica il file .env se sei in locale (sul server Render non farà nulla perché la chiave è già nel sistema)
 load_dotenv()
 
-# Prende la chiave direttamente dall'ambiente di sistema (sia del tuo PC che di Render)
+# Prende la chiave direttamente dall'ambiente di sistema
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 
 if not ANTHROPIC_API_KEY:
@@ -29,7 +29,6 @@ AI_KEYWORDS = [
     "deep learning", "neural", "copilot", "agent", "midjourney",
     "anthropic", "gemini"
 ]
-
 
 def _truncate(text: str, limit: int = CONTENT_TRUNCATE_CHARS) -> str:
     if len(text) <= limit:
@@ -53,13 +52,38 @@ def _parse_xml_field(text: str, tag: str) -> str:
     return match.group(1).strip() if match else ""
 
 
+def _gatekeeper_haiku(article: dict, category: str) -> bool:
+    """
+    PASSAGGIO 1 (Fast Filter): Usa Haiku per scartare in < 1 secondo le notizie fuori contesto.
+    Abbatte i costi e i tempi non inviando spazzatura a Opus.
+    """
+    titolo = article.get('title', '')
+    contenuto = _truncate(article.get('summary') or article.get('description') or '', limit=300)
+
+    if category == "procurement":
+        prompt = f"""Analyze this article:
+Title: {titolo}
+Content: {contenuto}
+
+Is this article strictly relevant to corporate procurement, supply chain strategy, third-party vendor management, or ICT banking regulations (like DORA, EBA guidelines)?
+Reply ONLY with the exact word YES or NO. Do not add any other text."""
+        
+        res = _call_claude(prompt, MODEL_LIGHT, max_tokens=10).upper()
+        return "YES" in res
+        
+    return True # Tech e Legal usano già Haiku nel passaggio principale
+
+
 def _process_procurement(article: dict) -> dict | None:
+    """
+    PASSAGGIO 2 (Deep Extraction): Opus riceve SOLO articoli pre-validati da Haiku.
+    Nessun check di pertinenza nel prompt, dritti alla generazione XML.
+    """
     titolo = article.get('title', '')
     contenuto = _truncate(article.get('summary') or article.get('description') or '')
     fonte = article.get('source', '')
     priority = article.get('priority', 'medium')
 
-    # Prompt basato su tag XML: immune a qualsiasi errore di punteggiatura o virgolette
     prompt = f"""You are an intelligence analyst specialized in corporate procurement, supply chain strategy, third-party risk management (TPRM), and financial compliance (EBA, DORA).
 
 Input Article to Analyze:
@@ -67,9 +91,7 @@ Title: {titolo}
 Content: {contenuto}
 Source Context: {fonte} (Priority: {priority.upper()})
 
-Execute the following steps accurately:
-STEP 1 – RELEVANCE FILTER: Evaluate if related to modern corporate procurement, sourcing strategies, supply chain developments, third-party risk, vendor management, or banking regulations (EBA, DORA, ICT risk). If the text is completely out of scope, write <not_relevant>true</not_relevant>.
-STEP 2 – GENERATE FIELDS: If relevant, write your analysis strictly wrapped in the XML tags specified below. 
+Task: This article has already been pre-screened as relevant. Write your deep analysis strictly wrapped in the XML tags specified below. 
 
 Your entire response must follow exactly this format:
 <title>Max 12 words title in Italian</title>
@@ -82,16 +104,11 @@ Your entire response must follow exactly this format:
 <regulatory_alert>true or false</regulatory_alert>
 <executive_warning>1-line strict critical warning in Italian if regulatory_alert is true, else leave empty</executive_warning>
 
-Do not include any JSON brackets or markdown code blocks."""
+Do not include any JSON brackets, introductory text, or markdown code blocks."""
 
     try:
         raw_res = _call_claude(prompt, MODEL_HEAVY, max_tokens=600)
         
-        # Se Claude dichiara esplicitamente l'articolo non rilevante, lo scartiamo
-        if "<not_relevant>true</not_relevant>" in raw_res:
-            return None
-
-        # Ricostruiamo il dizionario estraendo i dati dai tag XML (impossibile da rompere)
         parsed_json = {
             "title": _parse_xml_field(raw_res, "title") or titolo,
             "summary": _parse_xml_field(raw_res, "summary"),
@@ -104,11 +121,9 @@ Do not include any JSON brackets or markdown code blocks."""
             "executive_warning": _parse_xml_field(raw_res, "executive_warning")
         }
 
-        # Controllo di sicurezza minimo per validare la scheda
         if not parsed_json["summary"]:
             return None
 
-        # Arricchimento metadati stabili per il frontend
         parsed_json["url"] = article.get("url", "")
         parsed_json["source"] = fonte
         parsed_json["geo"] = article.get("geo", "global")
@@ -130,15 +145,15 @@ def _process_tech_or_legal(article: dict, category: str) -> dict | None:
     is_legal = category == "legal" or article.get("signal_type") == "regulatory"
 
     if is_legal:
-        # Prompt perfettamente allineato al perimetro della stanza Legal
+        # Prompt corretto: ora accetta anche Consultation Papers, Guidelines e Framework normativi
         prompt = f"""You are an expert tech lawyer and regulatory compliance analyst specialized in digital law.
 Analyze this article:
 Title: {titolo}
 Content: {contenuto}
 
-CRITICAL LEGAL FILTER: Does this article cover regulatory updates, relevant court rulings/judgments, digital law, privacy/GDPR, data protection, or legislation applied to new technologies (like AI Act, cybersecurity frameworks, crypto regulations)?
-- If it is NOT related to tech law, digital regulation, court rulings, or privacy (e.g., general retail banking news, standard corporate finance, macroeconomic policies), return exactly: REJECT
-- If YES, write a single impactful summary sentence in perfect Italian (max 25 words). Go straight to the point, explaining what the regulation, ruling, or legal update establishes. Do not use introductory phrases or markdown backticks."""
+CRITICAL LEGAL FILTER: Does this article cover regulatory updates, relevant court rulings/judgments, consultation papers (e.g., EBA/ESMA), digital law, privacy, or legislative frameworks applied to tech/banking (like DORA, AI Act)?
+- If it is NOT related to these topics, return exactly: REJECT
+- If YES, write a single impactful summary sentence in perfect Italian (max 25 words). Explain what the regulation, ruling, or guideline establishes. Do not use introductory phrases or markdown."""
     else:
         text_to_check = (titolo + " " + contenuto).lower()
         if not any(k in text_to_check for k in AI_KEYWORDS):
@@ -156,7 +171,6 @@ If YES, write a single impactful sentence in perfect Italian (max 25 words) summ
     try:
         summary_text = _call_claude(prompt, MODEL_LIGHT, max_tokens=120)
 
-        # Se il prompt restituisce REJECT (sia per legal che per tech), l'articolo viene scartato
         if "REJECT" in summary_text:
             return None
 
@@ -179,7 +193,12 @@ If YES, write a single impactful sentence in perfect Italian (max 25 words) summ
 
 def _process_single(article: dict, category: str) -> dict | None:
     if category == "procurement":
+        # Attiva il filtro rapido prima di consumare token Opus
+        if not _gatekeeper_haiku(article, category):
+            print(f"⏩ [Gatekeeper] Articolo scartato da Haiku: {article.get('title')}")
+            return None
         return _process_procurement(article)
+        
     return _process_tech_or_legal(article, category)
 
 

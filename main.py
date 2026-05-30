@@ -3,18 +3,43 @@ import os
 import subprocess
 import threading
 import traceback
+import sys
 from datetime import datetime
-from fastapi import FastAPI
+from contextlib import asynccontextmanager
+from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from apscheduler.schedulers.background import BackgroundScheduler
-import uvicorn
+
+# --- C2: BLINDAGGIO ENCODING EMOJI PER WINDOWS / RENDER LOGS ---
+# Reconfigura lo stdout per usare tassativamente UTF-8 evitando errori di codifica 'charmap'/cp1252
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from agents.orchestrator import news_graph
 
 # Garantisce l'esistenza della cartella di output per i digest Markdown
 os.makedirs("data", exist_ok=True)
 
-app = FastAPI(title="Graphyte Intelligence Hub Backend")
+# --- M5: DIZIONARIO GLOBALE PER TRACCIARE LO STATO DI AVANZAMENTO REALE ---
+GLOBAL_STATUS = {
+    "tech": {"running": False, "message": "In attesa", "updated_at": None},
+    "legal": {"running": False, "message": "In attesa", "updated_at": None},
+    "procurement": {"running": False, "message": "In attesa", "updated_at": None}
+}
+
+# --- C11: LIFESPAN CONTEXT MANAGER (Risolve la deprecazione di on_event) ---
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Logica di Avvio (Startup)
+    print("🚀 Inizializzazione Scheduler Automatico...")
+    scheduler.start()
+    yield
+    # Logica di Spegnimento (Shutdown)
+    print("🛑 Arresto Scheduler...")
+    scheduler.shutdown(wait=False)
+
+# Inizializzazione FastAPI con il lifespan manager
+app = FastAPI(title="Graphyte Intelligence Hub Backend", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -32,71 +57,130 @@ def auto_push_to_github(json_file: str, md_file: str):
     with git_lock:
         print(f"🔒 [Lock Git] Accesso esclusivo acquisito per il push di {json_file} e {md_file}")
         try:
+            # M13 Quick Win: Eseguiamo un pull preventivo con rebase per evitare collisioni se origin è avanti
+            print("🔄 [Git] Esecuzione git pull --rebase preventivo...")
+            subprocess.run(["git", "pull", "--rebase"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
+            
             subprocess.run(["git", "add", json_file, md_file], check=True)
             subprocess.run([
                 "git", "commit", "-m", 
                 f"⚡ Auto-update {json_file}/{md_file}: {datetime.now().strftime('%H:%M:%S')}"
             ], check=True)
-            subprocess.run(["git", "push", "origin", "master"], check=True)
-            print(f"🚀 [GitHub] {json_file} e {md_file} pubblicati con successo!")
-        except Exception as e:
-            print(f"⚠️ [Git Error] Errore push GitHub: {e}")
-        finally:
-            print("🔓 [Lock Git] Operazioni completate. Lock rilasciato.")
+            
+            print("📤 [Git] Invio delle modifiche al repository remoto (git push)...")
+            subprocess.run(["git", "push", "origin", "master"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
+            print(f"✅ [Git] Push completato con successo per {json_file} e {md_file}")
+        except subprocess.CalledProcessError as e:
+            print(f"❌ [Git] Errore critico durante le operazioni git: {e}")
+        except Exception as ex:
+            print(f"❌ [Git] Errore imprevisto nella pipeline Git: {ex}")
 
 def esegui_workflow_news(category: str):
-    """Invocazione della pipeline LangGraph, salvataggio dei dati (JSON + MD) e push"""
-    print(f"🔮 Avvio Rooms LangGraph per la stanza: {category.upper()}")
+    """Esegue il grafo LangGraph per elaborare le notizie e aggiorna i database locali"""
+    print(f"\n🔮 [Workflow] Avvio dell'Agente Intelligente per la categoria: {category.upper()}")
     
-    config = {"configurable": {"thread_id": f"manual_{category}"}}
-    inputs = {"category": category, "articles": [], "summaries": [], "digest": ""}
+    # Configurazione dello stato iniziale per il grafo
+    inputs = {
+        "category": category,
+        "articles": [],
+        "digest_markdown": ""
+    }
     
-    data = news_graph.invoke(inputs, config=config)
+    # Esecuzione del grafo LangGraph compilato
+    outputs = news_graph.invoke(inputs)
     
-    if data and "summaries" in data and len(data["summaries"]) > 0:
-        if category == "legal":
-            json_filename = "legal_news.json"
-            md_filename = "data/digest_legal.md"
-        elif category == "procurement":
-            json_filename = "procurement_news.json"
-            md_filename = "data/digest_procurement.md"
-        else:
-            json_filename = "news.json"
-            md_filename = "data/digest_tech.md"
-
-        notizie_salvabili = data["summaries"]
-        with open(json_filename, "w", encoding="utf-8") as f:
-            json.dump(notizie_salvabili, f, ensure_ascii=False, indent=4)
-        print(f"💾 [Locale] Salvate {len(notizie_salvabili)} notizie in {json_filename}")
-
-        digest_text = data.get("digest", "*Nessun digest generato*")
-        with open(md_filename, "w", encoding="utf-8") as f_md:
-            f_md.write(digest_text)
-        print(f"📝 [Locale] Report editoriale salvato in {md_filename}")
-            
-        auto_push_to_github(json_filename, md_filename)
-        return {"status": "success", "count": len(notizie_salvabili)}
-    else:
-        print(f"📭 Nessuna notizia trovata o filtrata per la categoria {category}")
-        return {"status": "empty", "count": 0}
+    processed_articles = outputs.get("articles", [])
+    digest_md = outputs.get("digest_markdown", "")
+    
+    # 💾 SALVATAGGIO DEI RISULTATI NEI RISPETTIVI FILE STATICI SUL DISCO
+    json_filename = f"{category}_news.json"
+    md_filename = f"data/{category}_digest.md"
+    
+    with open(json_filename, "w", encoding="utf-8") as jf:
+        json.dump(processed_articles, jf, ensure_ascii=False, indent=4)
+    print(f"💾 [File System] Database JSON salvato: {json_filename} ({len(processed_articles)} articoli)")
+    
+    with open(md_filename, "w", encoding="utf-8") as mf:
+        mf.write(digest_md)
+    print(f"💾 [File System] Digest settimanale generato in: {md_filename}")
+    
+    # Sincronizzazione asincrona su GitHub Pages tramite Git
+    auto_push_to_github(json_filename, md_filename)
+    
+    return {
+        "category": category,
+        "total_processed": len(processed_articles),
+        "has_digest": len(digest_md) > 0
+    }
 
 def aggiornamento_automatico_totale():
-    print(f"⏰ [Scheduler] Avvio aggiornamento programmato di tutte le sezioni")
-    esegui_workflow_news("tech")
-    esegui_workflow_news("legal")
-    esegui_workflow_news("procurement")
+    """Rinfresca ciclicamente tutti e tre i canali informativi verticali"""
+    print(f"\n⏰ [Scheduler] Avvio della rassegna pianificata del {datetime.now()}")
+    for cat in ["tech", "legal", "procurement"]:
+        try:
+            GLOBAL_STATUS[cat]["running"] = True
+            GLOBAL_STATUS[cat]["message"] = "Aggiornamento pianificato in corso"
+            esegui_workflow_news(cat)
+            GLOBAL_STATUS[cat]["running"] = False
+            GLOBAL_STATUS[cat]["message"] = "Completato"
+            GLOBAL_STATUS[cat]["updated_at"] = datetime.now().isoformat()
+        except Exception as e:
+            GLOBAL_STATUS[cat]["running"] = False
+            GLOBAL_STATUS[cat]["message"] = f"Errore: {str(e)}"
+            print(f"🚨 [Scheduler] Fallimento aggiornamento automatico per {cat}: {e}")
 
-@app.post("/api/refresh/{category}")
-async def force_refresh(category: str):
-    if category not in ["tech", "legal", "procurement"]:
-        return {"status": "error", "message": "Categoria non valida"}
+# --- M6: FUNZIONE DI TARGET PER BACKGROUND TASK ---
+def background_refresh_task(category: str):
     try:
-        res = esegui_workflow_news(category)
-        return {"status": "success", "message": f"Aggiornamento {category} completato", "details": res}
+        GLOBAL_STATUS[category]["running"] = True
+        GLOBAL_STATUS[category]["message"] = "Analisi fonti e generazione riassunti AI in corso..."
+        GLOBAL_STATUS[category]["updated_at"] = None
+        
+        esegui_workflow_news(category)
+        
+        GLOBAL_STATUS[category]["running"] = False
+        GLOBAL_STATUS[category]["message"] = "Completato con successo"
+        GLOBAL_STATUS[category]["updated_at"] = datetime.now().isoformat()
     except Exception as e:
-        print(f"❌ [API] Eccezione in /api/refresh/{category}: {e}")
-        traceback.print_exc()
-        return {"status": "error", "message": str(e)}
+        GLOBAL_STATUS[category]["running"] = False
+        GLOBAL_STATUS[category]["message"] = f"Errore: {str(e)}"
+        GLOBAL_STATUS[category]["updated_at"] = datetime.now().isoformat()
+        print(f"❌ [API Task] Errore nel task in background per {category}: {e}")
+
+# ==============================================================================
+# 🌐 ENDPOINTS ENDPOINTS API (REST INTEGRATE PER INTERFACCIA WEB)
+# ==============================================================================
+
+@app.get("/")
+def home():
+    return {
+        "status": "online",
+        "service": "Graphyte AI Intelligence Engine Backend",
+        "endpoints": ["/api/refresh/{category}", "/api/status/{category}"]
+    }
+
+# --- M5: NUOVO ENDPOINT PER INTERROGARE LO STATO IN TEMPO REALE ---
+@app.get("/api/status/{category}")
+def get_status(category: str):
+    cat = category.lower()
+    if cat not in GLOBAL_STATUS:
+        return {"status": "error", "message": "Categoria non valida"}
+    return GLOBAL_STATUS[cat]
+
+# --- M6: ENDPOINT REFRESH ASINCRONO CON BACKGROUND TASK (Risolve C12) ---
+@app.post("/api/refresh/{category}")
+def trigger_refresh(category: str, background_tasks: BackgroundTasks):
+    cat = category.lower()
+    if cat not in GLOBAL_STATUS:
+        return {"status": "error", "message": "Categoria non valida"}
+    
+    if GLOBAL_STATUS[cat]["running"]:
+        return {"status": "ignored", "message": "Un aggiornamento per questa categoria è già in esecuzione"}
+    
+    # Lanciamo il lavoro pesante in background liberando subito la risposta HTTP
+    background_tasks.add_task(background_refresh_task, cat)
+    return {"status": "started", "message": f"Aggiornamento asincrono avviato per {cat}"}
+
 
 # --- SCHEDULER AUTOMATICO INTERVALLATO ---
 scheduler = BackgroundScheduler()
@@ -104,27 +188,13 @@ scheduler.add_job(aggiornamento_automatico_totale, 'cron', hour=8, minute=0)
 scheduler.add_job(aggiornamento_automatico_totale, 'cron', hour=18, minute=0)
 
 
-@app.on_event("startup")
-def _start_scheduler():
-    scheduler.start()
-
-
-@app.on_event("shutdown")
-def _stop_scheduler():
-    scheduler.shutdown(wait=False)
-
-
 # ==============================================================================
-# 🚀 AVVIO DIRETTO E FORZATO DEL SERVER (SENZA COSTRUTTI AMBIGUI)
+# 🚀 AVVIO DIRETTO E FORZATO DEL SERVER
 # ==============================================================================
 if __name__ == "__main__":
     import os
     print("🖥️ Sincronizzazione inizializzata. Avvio server Uvicorn...")
     
-    # Se siamo su Render prende la porta dinamica (es. 10000), altrimenti usa 8000 in locale
+    # Se siamo su Render prende la porta dinamica, altrimenti usa la 8000 locale
     port = int(os.environ.get("PORT", 8000))
-    
-    # Se siamo su Render ascolta su 0.0.0.0, altrimenti usa il localhost 127.0.0.1
-    host = "0.0.0.0" if "RENDER" in os.environ else "127.0.0.1"
-    
-    uvicorn.run(app, host=host, port=port)
+    uvicorn.run("main.py:app", host="0.0.0.0", port=port, reload=False)

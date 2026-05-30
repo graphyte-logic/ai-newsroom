@@ -49,76 +49,94 @@
     </div>
 
     <script>
-        const BACKEND_URL = 'https://graphyte-newsroom.onrender.com';
+        // 🛡️ SANITIZZAZIONE XSS
+        function escapeHTML(str) {
+            if (!str) return '';
+            return String(str).replace(/[&<>'"]/g, match => {
+                return {'&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'}[match];
+            });
+        }
 
-        async function forzaAggiornamento() {
-            const statusText = document.getElementById('refresh-status');
-            const btn = document.getElementById('btn-refresh');
-            statusText.innerHTML = "⏳ Analisi registri normativi e calcolo impatti di compliance...";
+        async function refreshData(category) {
+            const btn = document.querySelector('.btn');
+            const statusText = document.getElementById('update-status');
             btn.disabled = true;
+            statusText.innerHTML = "⏳ Avvio aggiornamento asincrono...";
+
             try {
-                const response = await fetch(`${BACKEND_URL}/api/refresh/procurement`, { method: 'POST' });
-                const data = await response.json();
-                if (data.status === 'success') {
-                    let countdown = 30;
-                    const interval = setInterval(() => {
-                        countdown--;
-                        if (countdown <= 0) {
-                            clearInterval(interval);
-                            statusText.innerHTML = "<span style='color: #10b981; font-weight: bold;'>✨ Analisi Procurement Completata!</span>";
-                            fetchProcurementNews();
+                const res = await fetch(`http://localhost:8000/api/refresh/${category}`, { method: 'POST' });
+                const data = await res.json();
+
+                if (data.status === "started" || data.status === "ignored") {
+                    const pollInterval = setInterval(async () => {
+                        try {
+                            const statusRes = await fetch(`http://localhost:8000/api/status/${category}`);
+                            const statusData = await statusRes.json();
+                            
+                            if (statusData.running) {
+                                statusText.innerHTML = `⏳ ${escapeHTML(statusData.message)}`;
+                            } else {
+                                clearInterval(pollInterval);
+                                statusText.innerHTML = `✅ ${escapeHTML(statusData.message)}`;
+                                fetchProcurementNews(); 
+                                btn.disabled = false;
+                            }
+                        } catch (err) {
+                            clearInterval(pollInterval);
+                            statusText.innerHTML = "❌ Errore di connessione durante il monitoraggio.";
                             btn.disabled = false;
-                        } else {
-                            statusText.innerHTML = `🤖 Claude sta elaborando le metriche di rischio... Mancano ${countdown}s`;
                         }
-                    }, 1000);
-                } else { statusText.innerHTML = "❌ Errore aggiornamento."; btn.disabled = false; }
-            } catch (error) { statusText.innerHTML = "❌ Backend offline."; btn.disabled = false; }
+                    }, 2000);
+                } else {
+                    statusText.innerHTML = `❌ Errore: ${escapeHTML(data.message)}`;
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                statusText.innerHTML = "❌ Errore di connessione al server.";
+                btn.disabled = false;
+            }
         }
 
         async function fetchProcurementNews() {
-            const container = document.getElementById('news-container');
-            const updateText = document.getElementById('last-update');
             try {
-                const res = await fetch(`${BACKEND_URL}/api/news/procurement?v=` + Date.now());
-                if (!res.ok) throw new Error("Fallback file");
+                const res = await fetch('procurement_news.json?v=' + Date.now());
                 const data = await res.json();
                 
-                if (!data || data.length === 0) { container.innerHTML = "<p>Nessun alert registrato nelle ultime ore.</p>"; return; }
+                if (!data || data.length === 0) {
+                    document.getElementById('news-container').innerHTML = "<p>Nessun dato disponibile nel database JSON.</p>";
+                    return;
+                }
 
-                const adesso = new Date();
-                const dataFormattata = adesso.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: 'numeric' });
-                const oraFormattata = adesso.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
-                updateText.innerHTML = `📅 Ultimo aggiornamento: <strong>${dataFormattata}</strong> alle <strong>${oraFormattata}</strong>`;
-
-                container.innerHTML = data.map(n => `
-                    <div class="card ${n.regulatory_alert ? 'alert-border' : ''}">
-                        ${n.regulatory_alert ? `<div class="alert-banner">🚨 ATTENZIONE VIGILANZA: ${n.executive_warning}</div>` : ''}
+                document.getElementById('news-container').innerHTML = data.map(n => `
+                    <div class="card">
                         <div class="card-header">
-                            <h3>${n.title}</h3>
+                            <h3>${escapeHTML(n.title)}</h3>
                             <div class="badges">
-                                <span class="badge class">${n.classification || 'RISK'}</span>
-                                <span class="badge impact-${(n.impact || 'MEDIUM').toLowerCase()}">Impatto: ${n.impact}</span>
+                                <span class="badge class">${escapeHTML(n.classification || 'RISK')}</span>
+                                <span class="badge impact-${escapeHTML(n.impact || 'MEDIUM').toLowerCase()}">Impatto: ${escapeHTML(n.impact)}</span>
                             </div>
                         </div>
-                        <p style="color: #cbd5e1; margin: 0; line-height: 1.6;">${n.summary}</p>
-                        <div class="analysis-block"><strong>Why It Matters:</strong> ${n.why_it_matters}</div>
-                        <div class="analysis-block action"><strong>Azione Suggerita:</strong> ${n.action_item}</div>
-                        <div class="meta-info"><span>Fonte: 📂 ${n.source}</span><a href="${n.url}" target="_blank" class="btn">Apri Documento →</a></div>
+                        <p style="color: #cbd5e1; margin: 0; line-height: 1.6;">${escapeHTML(n.summary)}</p>
+                        <div class="analysis-block">
+                            <strong>Why It Matters (Rilevanza per l'ecosistema aziendale):</strong>
+                            ${escapeHTML(n.why_it_matters)}
+                        </div>
+                        <div class="analysis-block action">
+                            <strong>Azione Suggerita al C-Level / Procurement Leader:</strong>
+                            ${escapeHTML(n.action_item)}
+                        </div>
+                        <div class="meta-info">
+                            <span>Fonte: 📂 ${escapeHTML(n.source)}</span>
+                            <a href="${escapeHTML(n.url)}" target="_blank" class="btn">Apri Documento →</a>
+                        </div>
                     </div>
                 `).join('');
             } catch (e) {
-                try {
-                    const localRes = await fetch('procurement_news.json?v=' + Date.now());
-                    const localData = await localRes.json();
-                    if (localData && localData.length > 0) {
-                        // Rendering locale omesso per brevità strutturale...
-                        return;
-                    }
-                } catch(err) {}
-                container.innerHTML = "<p>Database analitico non ancora sincronizzato. Clicca 'Aggiorna Ora'.</p>";
+                console.error("Errore Json:", e);
+                document.getElementById('news-container').innerHTML = "<p style='color: #ff4444;'>Impossibile caricare il database analitico.</p>";
             }
         }
+        
         fetchProcurementNews();
     </script>
 </body>

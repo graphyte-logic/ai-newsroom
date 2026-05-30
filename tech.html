@@ -50,54 +50,70 @@
         <div id="news-container" class="grid">Caricamento notizie...</div>
     </div>
     <script>
-        const BACKEND_URL = 'https://graphyte-newsroom.onrender.com';
+        // 🛡️ SANITIZZAZIONE XSS: Evita l'esecuzione di codice malevolo dai feed esterni
+        function escapeHTML(str) {
+            if (!str) return '';
+            return String(str).replace(/[&<>'"]/g, match => {
+                return {'&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'}[match];
+            });
+        }
 
-        async function forzaAggiornamento() {
-            const statusText = document.getElementById('refresh-status');
-            const btn = document.getElementById('btn-refresh');
-            
-            statusText.innerHTML = "⏳ Analisi delle fonti e generazione riassunti AI in corso...";
+        async function refreshData(category) {
+            const btn = document.querySelector('.btn');
+            const statusText = document.getElementById('update-status');
             btn.disabled = true;
-            
+            statusText.innerHTML = "⏳ Avvio aggiornamento asincrono...";
+
             try {
-                const response = await fetch(`${BACKEND_URL}/api/refresh/tech`, { method: 'POST' });
-                const data = await response.json();
-                
-                if (data.status === 'success') {
-                    let countdown = 30;
-                    const interval = setInterval(() => {
-                        countdown--;
-                        if (countdown <= 0) {
-                            clearInterval(interval);
-                            statusText.innerHTML = "<span style='color: #00ffff; font-weight: bold;'>✨ Osservatorio Tech aggiornato con successo!</span>";
-                            fetchNews(); 
+                // 1. Lancia il comando al server (che risponderà subito)
+                const res = await fetch(`http://localhost:8000/api/refresh/${category}`, { method: 'POST' });
+                const data = await res.json();
+
+                if (data.status === "started" || data.status === "ignored") {
+                    // 2. Inizia a interrogare lo stato reale ogni 2 secondi
+                    const pollInterval = setInterval(async () => {
+                        try {
+                            const statusRes = await fetch(`http://localhost:8000/api/status/${category}`);
+                            const statusData = await statusRes.json();
+                            
+                            if (statusData.running) {
+                                statusText.innerHTML = `⏳ ${escapeHTML(statusData.message)}`;
+                            } else {
+                                clearInterval(pollInterval);
+                                statusText.innerHTML = `✅ ${escapeHTML(statusData.message)}`;
+                                fetchNews(); // Ricarica i file JSON appena aggiornati
+                                btn.disabled = false;
+                            }
+                        } catch (err) {
+                            clearInterval(pollInterval);
+                            statusText.innerHTML = "❌ Errore di connessione durante il monitoraggio.";
                             btn.disabled = false;
-                        } else {
-                            statusText.innerHTML = `🤖 Claude sta analizzando le innovazioni tecnologiche... Mancano ${countdown}s`;
                         }
-                    }, 1000);
-                } else { 
-                    statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore nella risposta del server di backend.</span>"; 
-                    btn.disabled = false; 
+                    }, 2000);
+                } else {
+                    statusText.innerHTML = `❌ Errore: ${escapeHTML(data.message)}`;
+                    btn.disabled = false;
                 }
-            } catch (error) { 
-                statusText.innerHTML = "<span style='color: #ff4444;'>❌ Errore di connessione al backend.</span>"; 
-                btn.disabled = false; 
+            } catch (error) {
+                statusText.innerHTML = "❌ Errore di connessione al server.";
+                btn.disabled = false;
             }
         }
 
         async function fetchNews() {
-            const container = document.getElementById('news-container');
-            const updateText = document.getElementById('last-update');
+            // Identifica la categoria corrente in base al nome del file HTML
+            const isLegal = window.location.pathname.includes('legal');
+            const categoryFile = isLegal ? 'legal_news.json' : 'tech_news.json';
+            const icon = isLegal ? '⚖️' : '🌐';
+
             try {
-                // Leggiamo i dati direttamente dal backend dinamico anziché dal file statico locale
-                const res = await fetch(`${BACKEND_URL}/api/news/tech?v=` + Date.now());
-                if (!res.ok) throw new Error("Backend non raggiungibile o endpoint assente");
-                
+                const res = await fetch(`${categoryFile}?v=` + Date.now());
                 const data = await res.json();
+                const container = document.getElementById('news-container');
+                const updateText = document.getElementById('update-status');
                 
                 if (!data || data.length === 0) { 
-                    container.innerHTML = "<p style='color: #a0aec0;'>Nessun dato disponibile nel feed Tech. Clicca 'Aggiorna Ora' per popolarlo.</p>"; 
+                    container.innerHTML = "<p>Nessun dato disponibile.</p>"; 
                     return; 
                 }
                 
@@ -109,39 +125,21 @@
                 container.innerHTML = data.map(n => `
                     <div class="card">
                         <div>
-                            <h3>${n.title}</h3>
-                            <p>${n.summary}</p>
+                            <h3>${escapeHTML(n.title)}</h3>
+                            <p>${escapeHTML(n.summary)}</p>
                         </div>
                         <div class="meta-info">
-                            <span>🌐 ${n.source || 'Tech Source'}</span>
-                            <a href="${n.url}" target="_blank" class="read-more">Leggi di più →</a>
+                            <span>${icon} ${escapeHTML(n.source || 'Fonte Sconosciuta')}</span>
+                            <a href="${escapeHTML(n.url)}" target="_blank" class="read-more">Leggi di più →</a>
                         </div>
                     </div>
                 `).join('');
             } catch (e) { 
-                console.error("Uso fallback file locale:", e);
-                // Se il backend non espone un endpoint GET, proviamo a leggere il file locale
-                try {
-                    const localRes = await fetch('tech_news.json?v=' + Date.now());
-                    const localData = await localRes.json();
-                    if (localData && localData.length > 0) {
-                        // Rendering dei dati locali...
-                        container.innerHTML = localData.map(n => `
-                            <div class="card"><div><h3>${n.title}</h3><p>${n.summary}</p></div>
-                            <div class="meta-info"><span>🌐 ${n.source || 'Tech Source'}</span><a href="${n.url}" target="_blank" class="read-more">Leggi di più →</a></div></div>
-                        `).join('');
-                        return;
-                    }
-                } catch(err) {}
-                
-                container.innerHTML = `
-                    <div class="card" style="grid-column: 1 / -1; border-color: #ffaa00; text-align: center;">
-                        <h3>⚠️ Sincronizzazione Feed in corso</h3>
-                        <p>Il feed è in fase di allineamento sul server cloud. Premi il pulsante <strong>"Aggiorna Ora"</strong> per avviare l'elaborazione dei dati.</p>
-                    </div>
-                `;
+                console.error("Errore nel caricamento del file JSON:", e);
+                document.getElementById('news-container').innerHTML = "<p style='color: #ff4444;'>Impossibile caricare i dati.</p>";
             }
         }
+        
         fetchNews();
     </script>
 </body>
