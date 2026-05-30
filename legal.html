@@ -45,7 +45,7 @@
                 <div id="refresh-status">Monitoraggio archivi normativi</div>
                 <div id="last-update" style="font-size: 0.85rem; color: #a0aec0; margin-top: 4px;"></div>
             </div>
-            <button id="btn-refresh" class="btn-refresh" onclick="forzaAggiornamento()">Aggiorna Ora</button>
+            <button id="btn-refresh" class="btn-refresh" onclick="refreshData('legal')">Aggiorna Ora</button>
         </div>
         <div id="news-container" class="grid">Caricamento notizie legali...</div>
     </div>
@@ -58,8 +58,8 @@
         }
 
         async function refreshData(category) {
-            const btn = document.querySelector('.btn');
-            const statusText = document.getElementById('update-status');
+            const btn = document.getElementById('btn-refresh');
+            const statusText = document.getElementById('refresh-status');
             btn.disabled = true;
             statusText.innerText = "⏳ Avvio aggiornamento asincrono...";
 
@@ -103,11 +103,11 @@
                 const res = await fetch(`legal_news.json?v=${Date.now()}`);
                 const data = await res.json();
                 const container = document.getElementById('news-container');
-                const updateText = document.getElementById('update-status');
-                
-                if (!data || data.length === 0) { 
-                    container.innerHTML = "<p>Nessun dato disponibile.</p>"; 
-                    return; 
+                const updateText = document.getElementById('last-update');
+
+                if (!data || data.length === 0) {
+                    container.innerHTML = "<p>Nessun dato disponibile.</p>";
+                    return;
                 }
                 
                 const adesso = new Date();

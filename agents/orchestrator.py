@@ -157,13 +157,18 @@ def fetch_news_node(state: NewsState) -> NewsState:
                     if not include_match:
                         continue
                         
-                # Costruzione oggetto Articolo Grezzo
+                # Costruzione oggetto Articolo Grezzo (N7: propaga i metadata della sorgente)
                 article_obj = {
                     "title": title,
                     "url": link,
                     "description": description,
+                    "summary": description,  # alias che il summarizer si aspetta
                     "source": src["name"],
                     "source_category": src["category"],
+                    "priority": src.get("priority", "medium"),
+                    "signal_type": src.get("signal_type", "trend"),
+                    "geo": src.get("geo", "global"),
+                    "sub_category": src.get("sub_category", "General"),
                     "fetched_at": datetime.now().isoformat()
                 }
                 
@@ -248,15 +253,15 @@ def compile_digest_node(state: NewsState) -> NewsState:
     category = state.get("category", "tech")
     
     print(f"📝 [Node: Digest] Compilazione rassegna editoriale Markdown...")
-    
+
     current_date = datetime.now().strftime("%d/%m/%Y")
-    digest = f"# 📊 Executive Intelligence Digest — Canale {category.upper()}\\n"
-    digest += f"*Ecosistema informativo Graphyte Logic — Report del {current_date}*\\n\\n"
-    digest += "━━━━━━━━━━━━━━━━━━━━━━━━\\n\\n"
-    
+    digest = f"# 📊 Executive Intelligence Digest — Canale {category.upper()}\n"
+    digest += f"*Ecosistema informativo Graphyte Logic — Report del {current_date}*\n\n"
+    digest += "━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+
     if not summaries:
-        digest += "### 🔍 Nessun aggiornamento di rilievo registrato nelle ultime ore.\\n"
-        digest += "Il sistema di scansione non ha intercettato anomalie critiche conformi ai filtri di sicurezza.\\n"
+        digest += "### 🔍 Nessun aggiornamento di rilievo registrato nelle ultime ore.\n"
+        digest += "Il sistema di scansione non ha intercettato anomalie critiche conformi ai filtri di sicurezza.\n"
         state["digest"] = digest
         return state
 
@@ -266,19 +271,19 @@ def compile_digest_node(state: NewsState) -> NewsState:
         source = summary.get('source', 'Sorgente Sconosciuta')
         url = summary.get('url', '#')
         text = summary.get('summary', '')
-        
+
         geo = summary.get('geo', 'Global')
         sig_type = summary.get('signal_type', 'trend').upper()
         sub_cat = summary.get('sub_category', 'General')
-        
+
         prefix = "🔴 [REGULATORY]" if sig_type == "REGULATORY" else "⚡ [SIGNAL]"
-        
-        digest += f"**{i}. {prefix} {title}**\\n"
-        digest += f"└─ 🌍 Ambito: *{geo}* | Canale: *{sub_cat}* | Fonte: *{source}*\\n"
-        digest += f"{text}\\n"
-        digest += f"> [🔗 Apri Documentazione Originale]({url})\\n\\n"
-        
-    digest += "━━━━━━━━━━━━━━━━━━━━━━━━\\n"
+
+        digest += f"**{i}. {prefix} {title}**\n"
+        digest += f"└─ 🌍 Ambito: *{geo}* | Canale: *{sub_cat}* | Fonte: *{source}*\n"
+        digest += f"{text}\n"
+        digest += f"> [🔗 Apri Documentazione Originale]({url})\n\n"
+
+    digest += "━━━━━━━━━━━━━━━━━━━━━━━━\n"
     digest += f"*Generato autonomamente dal sistema Graphyte Workflow Engine*"
     
     state["digest"] = digest

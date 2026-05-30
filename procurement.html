@@ -43,7 +43,7 @@
                 <div id="refresh-status">Monitoraggio direttive EBA, DORA e gestione Terze Parti</div>
                 <div id="last-update" style="font-size: 0.85rem; color: #a0aec0; margin-top: 4px;"></div>
             </div>
-            <button id="btn-refresh" class="btn-refresh" onclick="forzaAggiornamento()">Aggiorna Ora</button>
+            <button id="btn-refresh" class="btn-refresh" onclick="refreshData('procurement')">Aggiorna Ora</button>
         </div>
         <div id="news-container" class="list-container">Caricamento report analitici...</div>
     </div>
@@ -58,8 +58,8 @@
         }
 
         async function refreshData(category) {
-            const btn = document.querySelector('.btn');
-            const statusText = document.getElementById('update-status');
+            const btn = document.getElementById('btn-refresh');
+            const statusText = document.getElementById('refresh-status');
             btn.disabled = true;
             statusText.innerHTML = "⏳ Avvio aggiornamento asincrono...";
 

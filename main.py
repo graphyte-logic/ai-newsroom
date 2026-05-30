@@ -9,6 +9,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from apscheduler.schedulers.background import BackgroundScheduler
+import uvicorn
 
 # --- C2: BLINDAGGIO ENCODING EMOJI PER WINDOWS / RENDER LOGS ---
 # Reconfigura lo stdout per usare tassativamente UTF-8 evitando errori di codifica 'charmap'/cp1252
@@ -88,9 +89,10 @@ def esegui_workflow_news(category: str):
     
     # Esecuzione del grafo LangGraph compilato
     outputs = news_graph.invoke(inputs)
-    
-    processed_articles = outputs.get("articles", [])
-    digest_md = outputs.get("digest_markdown", "")
+
+    # N1+N2: leggere le chiavi reali dello state finale
+    processed_articles = outputs.get("summaries", [])
+    digest_md = outputs.get("digest", "")
     
     # 💾 SALVATAGGIO DEI RISULTATI NEI RISPETTIVI FILE STATICI SUL DISCO
     json_filename = f"{category}_news.json"
@@ -192,9 +194,9 @@ scheduler.add_job(aggiornamento_automatico_totale, 'cron', hour=18, minute=0)
 # 🚀 AVVIO DIRETTO E FORZATO DEL SERVER
 # ==============================================================================
 if __name__ == "__main__":
-    import os
     print("🖥️ Sincronizzazione inizializzata. Avvio server Uvicorn...")
-    
+
     # Se siamo su Render prende la porta dinamica, altrimenti usa la 8000 locale
     port = int(os.environ.get("PORT", 8000))
-    uvicorn.run("main.py:app", host="0.0.0.0", port=port, reload=False)
+    # Import string corretto: "<modulo>:<oggetto>", non "<file.py>:<oggetto>"
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
