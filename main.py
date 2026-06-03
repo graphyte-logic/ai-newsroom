@@ -78,43 +78,40 @@ def auto_push_to_github(json_file: str, md_file: str):
             print(f"❌ [Git] Errore imprevisto nella pipeline Git: {ex}")
 
 def esegui_workflow_news(category: str):
-    """Esegue il grafo LangGraph per elaborare le notizie e aggiorna i database locali"""
-    print(f"\n🔮 [Workflow] Avvio dell'Agente Intelligente per la categoria: {category.upper()}")
-    
-    # Configurazione dello stato iniziale per il grafo
-    inputs = {
-        "category": category,
-        "articles": [],
-        "digest_markdown": ""
-    }
-    
-    # Esecuzione del grafo LangGraph compilato
-    outputs = news_graph.invoke(inputs)
-
-    # N1+N2: leggere le chiavi reali dello state finale
-    processed_articles = outputs.get("summaries", [])
-    digest_md = outputs.get("digest", "")
-    
-    # 💾 SALVATAGGIO DEI RISULTATI NEI RISPETTIVI FILE STATICI SUL DISCO
-    json_filename = f"{category}_news.json"
-    md_filename = f"data/{category}_digest.md"
-    
-    with open(json_filename, "w", encoding="utf-8") as jf:
-        json.dump(processed_articles, jf, ensure_ascii=False, indent=4)
-    print(f"💾 [File System] Database JSON salvato: {json_filename} ({len(processed_articles)} articoli)")
-    
-    with open(md_filename, "w", encoding="utf-8") as mf:
-        mf.write(digest_md)
-    print(f"💾 [File System] Digest settimanale generato in: {md_filename}")
-    
-    # Sincronizzazione asincrona su GitHub Pages tramite Git
-    auto_push_to_github(json_filename, md_filename)
-    
-    return {
-        "category": category,
-        "total_processed": len(processed_articles),
-        "has_digest": len(digest_md) > 0
-    }
+    """Esegue il workflow in modalità sincrona (usato dallo scheduler o dai cron job)"""
+    print(f"🔄 [Scheduler] Avvio workflow sincrono per la categoria: {category}")
+    try:
+        inputs = {
+            "category": category,
+            "articles": [],
+            "summaries": [],
+            "digest": ""
+        }
+        # Invocazione diretta e corretta del grafo di LangGraph
+        final_state = news_graph.invoke(inputs)
+        
+        # Estraiamo i risultati per i file fisici
+        summaries = final_state.get("summaries", [])
+        digest_md = final_state.get("digest", "")
+        
+        # Salvataggio e allineamento file (C12 + Auto-push)
+        json_file = f"{category}_news.json"
+        md_file = f"data/{category}_digest.md"
+        
+        with open(json_file, "w", encoding="utf-8") as f:
+            json.dump(summaries, f, ensure_ascii=False, indent=4)
+            
+        with open(md_file, "w", encoding="utf-8") as f:
+            f.write(digest_md)
+            
+        # Sincronizzazione automatica su GitHub
+        auto_push_to_github(json_file, md_file)
+        
+        return f"Successo: elaborati {len(summaries)} articoli."
+    except Exception as e:
+        print(f"❌ [Scheduler Errore] Fallimento nel workflow sincrono: {e}")
+        traceback.print_exc()
+        raise e
 
 def aggiornamento_automatico_totale():
     """Rinfresca ciclicamente tutti e tre i canali informativi verticali"""
@@ -154,8 +151,6 @@ def background_refresh_task(category: str):
 # 🌐 ENDPOINTS ENDPOINTS API (REST INTEGRATE PER INTERFACCIA WEB)
 # ==============================================================================
 
-# Static files serving (for front-end HTML/JS/JSON)
-app.mount("/", StaticFiles(directory=".", html=True), name="static")
 
 # --- M5: NUOVO ENDPOINT PER INTERROGARE LO STATO IN TEMPO REALE ---
 @app.get("/api/status/{category}")
@@ -179,6 +174,10 @@ def trigger_refresh(category: str, background_tasks: BackgroundTasks):
     background_tasks.add_task(background_refresh_task, cat)
     return {"status": "started", "message": f"Aggiornamento asincrono avviato per {cat}"}
 
+
+
+# Static files serving (for front-end HTML/JS/JSON) - Mounted at the end so it doesn't intercept API routes
+app.mount("/", StaticFiles(directory=".", html=True), name="static")
 
 # --- SCHEDULER AUTOMATICO INTERVALLATO ---
 scheduler = BackgroundScheduler()
