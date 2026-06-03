@@ -194,4 +194,6 @@ if __name__ == "__main__":
     # Se siamo su Render prende la porta dinamica, altrimenti usa la 8000 locale
     port = int(os.environ.get("PORT", 8000))
     # Import string corretto: "<modulo>:<oggetto>", non "<file.py>:<oggetto>"
-    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
+    #uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
+    # ✅ NUOVA RIGA (Passiamo l'oggetto diretto senza virgolette):
+    uvicorn.run(app, host="0.0.0.0", port=port)
