@@ -3,125 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphyte Logic - AI Intelligence Hub</title>
+    <title>Graphyte Intelligence Hub</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-start: #080b11;
+            --bg-end: #0f172a;
+            --card-bg: rgba(20, 26, 38, 0.65);
+            --card-border: rgba(255, 255, 255, 0.06);
+            --tech-color: #00f2fe;
+            --tech-glow: rgba(0, 242, 254, 0.15);
+            --legal-color: #f6d365;
+            --legal-glow: rgba(246, 211, 101, 0.15);
+            --procurement-color: #10b981;
+            --procurement-glow: rgba(16, 185, 129, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #111111;
-            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            color: #f1f5f9;
             margin: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            overflow-x: hidden;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
+
+        .background-glows {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
         }
-        .header img {
-            margin-bottom: 15px;
+
+        .glow-1 {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, transparent 70%);
             border-radius: 50%;
         }
+
+        .glow-2 {
+            position: absolute;
+            bottom: -10%;
+            right: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .header {
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header img {
+            margin-bottom: 20px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
         .header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            background: linear-gradient(45deg, #00ffff, #88a6ff);
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
+
         .header p {
-            color: #888;
-            font-size: 1.1rem;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            width: 90%;
-            max-width: 800px;
+            width: 100%;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
+
         .hub-card {
-            background: #1c1c1c;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: left;
             text-decoration: none;
-            color: white;
-            transition: all 0.3s ease;
+            color: #f8fafc;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            height: 380px;
         }
+
+        .hub-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* Hover States */
         .hub-card:hover {
-            transform: translateY(-5px);
-            border-color: #00ffff;
-            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.15);
         }
+
+        .hub-card.tech:hover {
+            border-color: var(--tech-color);
+            box-shadow: 0 15px 30px var(--tech-glow), 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
         .hub-card.legal:hover {
-            border-color: #ffaa00;
-            box-shadow: 0 10px 20px rgba(255, 170, 0, 0.1);
+            border-color: var(--legal-color);
+            box-shadow: 0 15px 30px var(--legal-glow), 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-        .hub-card h2 {
-            margin-top: 0;
-            font-size: 1.6rem;
+
+        .hub-card.procurement:hover {
+            border-color: var(--procurement-color);
+            box-shadow: 0 15px 30px var(--procurement-glow), 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-        .hub-card p {
-            color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        .btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: bold;
-            background: #2a2a2a;
-            color: #00ffff;
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
             display: inline-block;
         }
-        .legal .btn {
-            color: #ffaa00;
+
+        .hub-card h2 {
+            margin: 0 0 15px 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .hub-card.tech h2 {
+            background: linear-gradient(135deg, #ffffff 40%, var(--tech-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hub-card.legal h2 {
+            background: linear-gradient(135deg, #ffffff 40%, var(--legal-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hub-card.procurement h2 {
+            background: linear-gradient(135deg, #ffffff 40%, var(--procurement-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hub-card p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 300;
+            flex-grow: 1;
+        }
+
+        .btn-enter {
+            margin-top: 30px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+        }
+
+        .hub-card:hover .btn-enter {
+            background: #ffffff;
+            color: #0f172a;
+            border-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+        }
+
+        .hub-card.tech:hover .btn-enter {
+            background: var(--tech-color);
+            color: #080b11;
+            border-color: var(--tech-color);
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+        }
+
+        .hub-card.legal:hover .btn-enter {
+            background: var(--legal-color);
+            color: #080b11;
+            border-color: var(--legal-color);
+            box-shadow: 0 4px 15px rgba(246, 211, 101, 0.3);
+        }
+
+        .hub-card.procurement:hover .btn-enter {
+            background: var(--procurement-color);
+            color: #080b11;
+            border-color: var(--procurement-color);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            body {
+                padding: 10px;
+            }
+            .grid {
+                gap: 20px;
+            }
+            .hub-card {
+                height: auto;
+                min-height: 320px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <img src="https://github.com/graphyte-logic.png" width="90" alt="Graphyte Logo">
-        <h1>Graphyte AI Intelligence Hub</h1>
-        <p>Seleziona un canale verticale di rassegna stampa autonoma</p>
+    <div class="background-glows">
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
     </div>
 
-    <div class="grid">
-        <a href="tech.html" class="hub-card">
-            <div>
-                <h2>🌐 Tech & AI News</h2>
-                <p>Monitoraggio continuo su intelligenza artificiale, sviluppo software, innovazioni di frontiera e trend tecnologici globali.</p>
-            </div>
-            <div class="btn">Accedi al Canale →</div>
-        </a>
+    <div class="container">
+        <div class="header">
+            <img src="https://github.com/graphyte-logic.png" width="90" height="90" alt="Graphyte Logo">
+            <h1>Graphyte AI Intelligence Hub</h1>
+            <p>Ecosistema di monitoraggio ed elaborazione predittiva delle informazioni per l'intelligence aziendale strategica.</p>
+        </div>
 
-        <a href="legal.html" class="hub-card legal">
-            <div>
-                <h2>⚖️ Legal & Diritto</h2>
-                <p>Aggiornamenti normativi, sentenze rilevanti, diritto digitale, privacy e legislazione applicata alle nuove tecnologie.</p>
-            </div>
-            <div class="btn">Accedi al Canale →</div>
-        </a>
+        <div class="grid">
+            <a href="tech.html" class="hub-card tech">
+                <div>
+                    <span class="card-icon">🌐</span>
+                    <h2>Tech & AI News</h2>
+                    <p>Monitoraggio continuo su intelligenza artificiale, sviluppo software, innovazioni tecnologiche di frontiera e trend globali.</p>
+                </div>
+                <div class="btn-enter">Entra nella Stanza &rarr;</div>
+            </a>
 
-        <a href="procurement.html" class="hub-card" style="border-color: #1e2925;">
-            <div>
-                <h2 style="color: #10b981;">🏛️ Procurement & Compliance</h2>
-                <p>Analisi predittiva e monitoraggio bandi, requisiti EBA, impianto normativo DORA e gestione dei rischi della catena di fornitura ICT.</p>
-            </div>
-            <div class="btn" style="color: #10b981;">Accedi al Canale →</div>
-        </a>
+            <a href="legal.html" class="hub-card legal">
+                <div>
+                    <span class="card-icon">⚖️</span>
+                    <h2>Legal & Diritto</h2>
+                    <p>Analisi delle regolamentazioni digitali, privacy, cybersecurity, sentenze dei tribunali ed evoluzioni legislative per il tech.</p>
+                </div>
+                <div class="btn-enter">Entra nella Stanza &rarr;</div>
+            </a>
+
+            <a href="procurement.html" class="hub-card procurement">
+                <div>
+                    <span class="card-icon">🏛️</span>
+                    <h2>Procurement & Compliance</h2>
+                    <p>Reportistica ed alert su linee guida EBA, conformità DORA, gestione del rischio terze parti (TPRM) e continuità operativa.</p>
+                </div>
+                <div class="btn-enter">Entra nella Stanza &rarr;</div>
+            </a>
+        </div>
     </div>
-
-    
 
 </body>
 </html>

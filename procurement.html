@@ -3,53 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphyte Logic - Procurement Room</title>
+    <title>Graphyte Intelligence - Procurement & Compliance Room</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #141414; color: #e0e0e0; padding: 30px; margin: 0; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        .nav-back { display: inline-block; margin-bottom: 20px; color: #10b981; text-decoration: none; font-weight: bold; font-size: 0.95rem; transition: color 0.2s; }
-        .nav-back:hover { color: #66ffff; }
-        .header { border-bottom: 2px solid #003333; padding-bottom: 20px; margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-        .header h1 { margin: 0; font-size: 2.2rem; color: #10b981; }
-        .list-container { display: flex; flex-direction: column; gap: 25px; }
-        .card { background: #1e1e1e; border-radius: 6px; border: 1px solid #2d2d2d; padding: 25px; display: flex; flex-direction: column; gap: 15px; position: relative; }
-        .card.alert-border { border-left: 5px solid #ff4444; border-right: 1px solid #ff4444; border-top: 1px solid #ff4444; border-bottom: 1px solid #ff4444; background: #241818; }
-        .alert-banner { background: #ff4444; color: #141414; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
-        .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; }
-        .card-header h3 { margin: 0; font-size: 1.35rem; color: #ffffff; line-height: 1.4; }
-        .badges { display: flex; gap: 8px; }
-        .badge { padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
-        .badge.class { background: #003333; color: #00ffff; }
-        .badge.impact-high { background: #ff4444; color: #141414; }
-        .badge.impact-medium { background: #ffaa00; color: #141414; }
-        .badge.impact-low { background: #00aa55; color: #ffffff; }
-        .analysis-block { background: #252525; padding: 12px 15px; border-radius: 4px; font-size: 0.95rem; border-left: 3px solid #10b981; }
-        .analysis-block.action { border-left-color: #ffaa00; background: #28241c; }
-        .analysis-block strong { color: #ffffff; display: block; margin-bottom: 4px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .meta-info { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #2d2d2d; padding-top: 15px; font-size: 0.85rem; color: #777777; }
-        .btn { background: #252525; color: #10b981; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.85rem; border: 1px solid #10b981; transition: all 0.2s; }
-        .btn:hover { background: #10b981; color: #141414; }
-        .btn-refresh { background: transparent; border: 2px solid #10b981; color: #10b981; padding: 10px 20px; font-size: 1rem; font-weight: bold; border-radius: 5px; cursor: pointer; transition: all 0.2s; }
-        .btn-refresh:hover { background: #10b981; color: #141414; }
-        #refresh-status { font-size: 0.95rem; color: #888; font-weight: normal; margin-top: 5px; }
+        :root {
+            --bg-start: #040807;
+            --bg-end: #0a1412;
+            --proc-color: #10b981;
+            --proc-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --proc-glow: rgba(16, 185, 129, 0.15);
+            --card-bg: rgba(16, 26, 23, 0.75);
+            --card-border: rgba(255, 255, 255, 0.04);
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --alert-red: #ef4444;
+            --alert-bg: rgba(239, 68, 68, 0.08);
+            --alert-border: rgba(239, 68, 68, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            color: var(--proc-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        .nav-back:hover {
+            background: var(--proc-gradient);
+            color: #040807;
+            border-color: var(--proc-color);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+            transform: translateX(-4px);
+        }
+
+        .header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 25px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--proc-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        #refresh-status {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--proc-color);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px var(--proc-color);
+            animation: pulse 1.8s infinite;
+        }
+
+        #last-update {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        .btn-refresh {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--proc-color);
+            padding: 12px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-refresh:hover:not(:disabled) {
+            background: var(--proc-gradient);
+            color: #040807;
+            border-color: var(--proc-color);
+            box-shadow: 0 5px 20px var(--proc-glow);
+            transform: translateY(-2px);
+        }
+
+        .btn-refresh:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            border-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+        }
+
+        .list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .card { 
+            background: var(--card-bg); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 18px; 
+            border: 1px solid var(--card-border);
+            padding: 30px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.015) 0%, transparent 100%);
+            border-radius: 18px;
+            pointer-events: none;
+        }
+
+        .card:hover { 
+            border-color: var(--proc-color);
+            box-shadow: 0 12px 35px var(--proc-glow), 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px);
+        }
+
+        /* Alert warning styling */
+        .card.alert-card {
+            border: 1px solid var(--alert-border);
+            background: var(--alert-bg);
+        }
+
+        .card.alert-card:hover {
+            border-color: var(--alert-red);
+            box-shadow: 0 12px 35px rgba(239, 68, 68, 0.12), 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .alert-banner {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px dashed var(--alert-red);
+            color: #fca5a5;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card-header h3 { 
+            margin: 0; 
+            font-size: 1.4rem; 
+            color: #ffffff; 
+            line-height: 1.4;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge.class {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--proc-color);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .badge.impact-high {
+            background: rgba(239, 68, 68, 0.1);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.25);
+        }
+
+        .badge.impact-medium {
+            background: rgba(245, 158, 11, 0.1);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.25);
+        }
+
+        .badge.impact-low {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+        }
+
+        .analysis-block {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 18px 20px;
+            border-radius: 12px;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            border-left: 4px solid var(--proc-color);
+            font-weight: 300;
+        }
+
+        .analysis-block.action {
+            border-left-color: #fbbf24;
+            background: rgba(245, 158, 11, 0.02);
+        }
+
+        .analysis-block strong {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .meta-info { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-top: 1px solid rgba(255, 255, 255, 0.06); 
+            padding-top: 20px; 
+            font-size: 0.9rem; 
+            color: #64748b; 
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .source-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--proc-color);
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn:hover {
+            background: var(--proc-gradient);
+            color: #040807;
+            border-color: var(--proc-color);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        }
+
+        /* Spinner */
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--proc-color);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 10px 4px rgba(16, 185, 129, 0.2); }
+            100% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .btn-refresh {
+                width: 100%;
+                justify-content: center;
+            }
+            .card {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="nav-back">← Torna all'Hub Centrale</a>
+        <a href="index.html" class="nav-back">&larr; Torna all'Hub Centrale</a>
+        
         <div class="header">
             <div>
-                <h1>🏛️ Procurement & Compliance Room</h1>
-                <div id="refresh-status">Monitoraggio direttive EBA, DORA e gestione Terze Parti</div>
-                <div id="last-update" style="font-size: 0.85rem; color: #a0aec0; margin-top: 4px;"></div>
+                <h1>🏛️ Procurement & Compliance</h1>
+                <div id="refresh-status">
+                    <span class="pulse-dot"></span>
+                    <span>Monitoraggio EBA, DORA e gestione dei rischi Supply Chain</span>
+                </div>
+                <div id="last-update"></div>
             </div>
-            <button id="btn-refresh" class="btn-refresh" onclick="refreshData('procurement')">Aggiorna Ora</button>
+            <button id="btn-refresh" class="btn-refresh" onclick="refreshData('procurement')">
+                <span class="spinner" id="btn-spinner"></span>
+                <span id="btn-text">Aggiorna Ora</span>
+            </button>
         </div>
+
         <div id="news-container" class="list-container">Caricamento report analitici...</div>
     </div>
 
     <script>
-        // 🛡️ SANITIZZAZIONE XSS
         function escapeHTML(str) {
             if (!str) return '';
             return String(str).replace(/[&<>'"]/g, match => {
@@ -59,41 +399,56 @@
 
         async function refreshData(category) {
             const btn = document.getElementById('btn-refresh');
+            const spinner = document.getElementById('btn-spinner');
+            const btnText = document.getElementById('btn-text');
             const statusText = document.getElementById('refresh-status');
+
             btn.disabled = true;
-            statusText.innerHTML = "⏳ Avvio aggiornamento asincrono...";
+            spinner.style.display = 'block';
+            btnText.innerText = "Aggiornamento...";
+            statusText.querySelector('span:last-child').innerText = "Analisi fonti e generazione report in corso...";
 
             try {
-                const res = await fetch(`http://localhost:8000/api/refresh/${category}`, { method: 'POST' });
+                // Utilizza un percorso relativo anziché localhost hardcoded
+                const res = await fetch(`/api/refresh/${category}`, { method: 'POST' });
                 const data = await res.json();
 
                 if (data.status === "started" || data.status === "ignored") {
                     const pollInterval = setInterval(async () => {
                         try {
-                            const statusRes = await fetch(`http://localhost:8000/api/status/${category}`);
+                            // Utilizza un percorso relativo
+                            const statusRes = await fetch(`/api/status/${category}`);
                             const statusData = await statusRes.json();
                             
                             if (statusData.running) {
-                                statusText.innerHTML = `⏳ ${escapeHTML(statusData.message)}`;
+                                statusText.querySelector('span:last-child').innerText = statusData.message;
                             } else {
                                 clearInterval(pollInterval);
-                                statusText.innerHTML = `✅ ${escapeHTML(statusData.message)}`;
-                                fetchProcurementNews(); 
+                                statusText.querySelector('span:last-child').innerText = statusData.message;
+                                await fetchProcurementNews();
                                 btn.disabled = false;
+                                spinner.style.display = 'none';
+                                btnText.innerText = "Aggiorna Ora";
                             }
                         } catch (err) {
                             clearInterval(pollInterval);
-                            statusText.innerHTML = "❌ Errore di connessione durante il monitoraggio.";
+                            statusText.querySelector('span:last-child').innerText = "Errore di connessione durante il monitoraggio.";
                             btn.disabled = false;
+                            spinner.style.display = 'none';
+                            btnText.innerText = "Aggiorna Ora";
                         }
                     }, 2000);
                 } else {
-                    statusText.innerHTML = `❌ Errore: ${escapeHTML(data.message)}`;
+                    statusText.querySelector('span:last-child').innerText = `Errore: ${data.message}`;
                     btn.disabled = false;
+                    spinner.style.display = 'none';
+                    btnText.innerText = "Aggiorna Ora";
                 }
             } catch (error) {
-                statusText.innerHTML = "❌ Errore di connessione al server.";
+                statusText.querySelector('span:last-child').innerText = "Errore di connessione al server.";
                 btn.disabled = false;
+                spinner.style.display = 'none';
+                btnText.innerText = "Aggiorna Ora";
             }
         }
 
@@ -101,39 +456,57 @@
             try {
                 const res = await fetch('procurement_news.json?v=' + Date.now());
                 const data = await res.json();
+                const container = document.getElementById('news-container');
+                const updateText = document.getElementById('last-update');
                 
                 if (!data || data.length === 0) {
-                    document.getElementById('news-container').innerHTML = "<p>Nessun dato disponibile nel database JSON.</p>";
+                    container.innerHTML = "<div class='card' style='text-align: center;'><p>Nessun dato analitico disponibile.</p></div>";
                     return;
                 }
 
-                document.getElementById('news-container').innerHTML = data.map(n => `
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>${escapeHTML(n.title)}</h3>
-                            <div class="badges">
-                                <span class="badge class">${escapeHTML(n.classification || 'RISK')}</span>
-                                <span class="badge impact-${escapeHTML(n.impact || 'MEDIUM').toLowerCase()}">Impatto: ${escapeHTML(n.impact)}</span>
+                const adesso = new Date();
+                const dataFormattata = adesso.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: 'numeric' });
+                const oraFormattata = adesso.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+                
+                updateText.innerHTML = `Ultimo controllo locale: <strong>${dataFormattata}</strong> alle <strong>${oraFormattata}</strong>`;
+
+                container.innerHTML = data.map(n => {
+                    const isAlert = n.regulatory_alert === true;
+                    const alertCardClass = isAlert ? 'alert-card' : '';
+                    const alertBannerHtml = (isAlert && n.executive_warning) 
+                        ? `<div class="alert-banner">⚠️ <strong>EXECUTIVE WARNING:</strong> ${escapeHTML(n.executive_warning)}</div>` 
+                        : '';
+                    const impactValue = (n.impact || 'MEDIUM').toUpperCase();
+
+                    return `
+                        <div class="card ${alertCardClass}">
+                            ${alertBannerHtml}
+                            <div class="card-header">
+                                <h3>${escapeHTML(n.title)}</h3>
+                                <div class="badges">
+                                    <span class="badge class">${escapeHTML(n.classification || 'RISK')}</span>
+                                    <span class="badge impact-${impactValue.toLowerCase()}">Impatto: ${escapeHTML(impactValue)}</span>
+                                </div>
+                            </div>
+                            <p style="margin: 0; line-height: 1.6;">${escapeHTML(n.summary)}</p>
+                            <div class="analysis-block">
+                                <strong>Why It Matters (Rilevanza per l'ecosistema aziendale):</strong>
+                                ${escapeHTML(n.why_it_matters)}
+                            </div>
+                            <div class="analysis-block action">
+                                <strong>Azione Suggerita al C-Level / Procurement Leader:</strong>
+                                ${escapeHTML(n.action_item)}
+                            </div>
+                            <div class="meta-info">
+                                <span class="source-badge">📂 Fonte: ${escapeHTML(n.source)}</span>
+                                <a href="${escapeHTML(n.url)}" target="_blank" class="btn">Apri Documento &rarr;</a>
                             </div>
                         </div>
-                        <p style="color: #cbd5e1; margin: 0; line-height: 1.6;">${escapeHTML(n.summary)}</p>
-                        <div class="analysis-block">
-                            <strong>Why It Matters (Rilevanza per l'ecosistema aziendale):</strong>
-                            ${escapeHTML(n.why_it_matters)}
-                        </div>
-                        <div class="analysis-block action">
-                            <strong>Azione Suggerita al C-Level / Procurement Leader:</strong>
-                            ${escapeHTML(n.action_item)}
-                        </div>
-                        <div class="meta-info">
-                            <span>Fonte: 📂 ${escapeHTML(n.source)}</span>
-                            <a href="${escapeHTML(n.url)}" target="_blank" class="btn">Apri Documento →</a>
-                        </div>
-                    </div>
-                `).join('');
+                    `;
+                }).join('');
             } catch (e) {
-                console.error("Errore Json:", e);
-                document.getElementById('news-container').innerHTML = "<p style='color: #ff4444;'>Impossibile caricare il database analitico.</p>";
+                console.error("Errore JSON:", e);
+                document.getElementById('news-container').innerHTML = "<div class='card' style='text-align: center; border-color: #ff4444;'><p style='color: #ff4444;'>Impossibile caricare il database analitico.</p></div>";
             }
         }
         

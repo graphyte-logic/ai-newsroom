@@ -16,8 +16,8 @@ if not ANTHROPIC_API_KEY:
 
 client = Anthropic(api_key=ANTHROPIC_API_KEY)
 
-MODEL_HEAVY = "claude-opus-4-7"
-MODEL_LIGHT = "claude-haiku-4-5-20251001"
+MODEL_HEAVY = "claude-sonnet-4-6"
+MODEL_LIGHT = "claude-haiku-4-5"
 
 MAX_ARTICLES = 15
 MAX_PARALLEL = 8

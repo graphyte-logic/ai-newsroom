@@ -8,6 +8,7 @@ from datetime import datetime
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from apscheduler.schedulers.background import BackgroundScheduler
 import uvicorn
 
@@ -153,13 +154,8 @@ def background_refresh_task(category: str):
 # 🌐 ENDPOINTS ENDPOINTS API (REST INTEGRATE PER INTERFACCIA WEB)
 # ==============================================================================
 
-@app.get("/")
-def home():
-    return {
-        "status": "online",
-        "service": "Graphyte AI Intelligence Engine Backend",
-        "endpoints": ["/api/refresh/{category}", "/api/status/{category}"]
-    }
+# Static files serving (for front-end HTML/JS/JSON)
+app.mount("/", StaticFiles(directory=".", html=True), name="static")
 
 # --- M5: NUOVO ENDPOINT PER INTERROGARE LO STATO IN TEMPO REALE ---
 @app.get("/api/status/{category}")

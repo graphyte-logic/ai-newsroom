@@ -3,52 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphyte Logic - Tech & AI Room</title>
+    <title>Graphyte Intelligence - Tech & AI Room</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0c0f0e; color: #e2e8f0; padding: 30px; margin: 0; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        .nav-back { display: inline-block; margin-bottom: 20px; color: #00ffff; text-decoration: none; font-weight: bold; font-size: 0.95rem; }
-        .header { border-bottom: 1px solid #1e2925; padding-bottom: 20px; margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; }
-        .header h1 { margin: 0; font-size: 2rem; color: #f8fafc; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        :root {
+            --bg-start: #060913;
+            --bg-end: #0b1120;
+            --tech-color: #00f2fe;
+            --tech-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            --tech-glow: rgba(0, 242, 254, 0.2);
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            color: var(--tech-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: rgba(0, 242, 254, 0.05);
+            border: 1px solid rgba(0, 242, 254, 0.1);
+        }
+
+        .nav-back:hover {
+            background: var(--tech-gradient);
+            color: #060913;
+            border-color: var(--tech-color);
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2);
+            transform: translateX(-4px);
+        }
+
+        .header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 25px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--tech-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        #refresh-status {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--tech-color);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px var(--tech-color);
+            animation: pulse 1.8s infinite;
+        }
+
+        #last-update {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        .btn-refresh {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            color: var(--tech-color);
+            padding: 12px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-refresh:hover:not(:disabled) {
+            background: var(--tech-gradient);
+            color: #060913;
+            border-color: var(--tech-color);
+            box-shadow: 0 5px 20px var(--tech-glow);
+            transform: translateY(-2px);
+        }
+
+        .btn-refresh:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            border-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
         
         .card { 
-            background: #141917; 
-            border-radius: 8px; 
-            border-top: 1px solid #2d2d2d;
-            border-right: 2px solid #00ffff;
-            border-bottom: 2px solid #00ffff;
-            border-left: 2px solid #00ffff;
-            padding: 25px; 
+            background: var(--card-bg); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px; 
+            border: 1px solid var(--card-border);
+            padding: 30px; 
             display: flex; 
             flex-direction: column; 
             justify-content: space-between;
+            min-height: 260px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
-        .card h3 { margin: 0 0 10px 0; font-size: 1.15rem; color: #ffffff; line-height: 1.4; }
-        .card p { margin: 0 0 15px 0; font-size: 0.95rem; color: #94a3b8; line-height: 1.5; flex-grow: 1; }
-        
-        .meta-info { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1e2925; padding-top: 12px; font-size: 0.85rem; color: #64748b; }
-        .read-more { color: #00ffff; text-decoration: none; font-weight: bold; }
-        .read-more:hover { color: #ffffff; }
 
-        .btn-refresh { background: #1e1e1e; border: 1px solid #00ffff; color: #00ffff; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: all 0.2s; font-weight: bold; }
-        .btn-refresh:hover { background: #00ffff; color: #141414; }
-        #refresh-status { font-size: 0.95rem; color: #888; margin-top: 5px; }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+            border-radius: 16px;
+            pointer-events: none;
+        }
+
+        .card:hover { 
+            border-color: var(--tech-color);
+            box-shadow: 0 12px 30px var(--tech-glow), 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .card h3 { 
+            margin: 0 0 15px 0; 
+            font-size: 1.3rem; 
+            color: #ffffff; 
+            line-height: 1.4;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .card p { 
+            margin: 0 0 25px 0; 
+            font-size: 1rem; 
+            color: var(--text-secondary); 
+            line-height: 1.6; 
+            flex-grow: 1; 
+            font-weight: 300;
+        }
+        
+        .meta-info { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-top: 1px solid rgba(255, 255, 255, 0.06); 
+            padding-top: 20px; 
+            font-size: 0.9rem; 
+            color: #64748b; 
+        }
+
+        .source-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            color: #94a3b8;
+        }
+
+        .read-more { 
+            color: var(--tech-color); 
+            text-decoration: none; 
+            font-weight: 600; 
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .read-more:hover { 
+            color: #ffffff; 
+            text-shadow: 0 0 8px var(--tech-color);
+        }
+
+        /* Spinner */
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--tech-color);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.4); }
+            50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 10px 4px rgba(0, 242, 254, 0.2); }
+            100% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.4); }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .btn-refresh {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="nav-back">← Torna all'Hub</a>
+        <a href="index.html" class="nav-back">&larr; Torna all'Hub</a>
+        
         <div class="header">
             <div>
                 <h1>🌐 Tech & AI Intelligence</h1>
-                <div id="refresh-status">Sorgenti monitorate in tempo reale</div>
-                <div id="last-update" style="font-size: 0.85rem; color: #a0aec0; margin-top: 4px;"></div>
+                <div id="refresh-status">
+                    <span class="pulse-dot"></span>
+                    <span>Sorgenti monitorate in tempo reale</span>
+                </div>
+                <div id="last-update"></div>
             </div>
-            <button id="btn-refresh" class="btn-refresh" onclick="refreshData('tech')">Aggiorna Ora</button>
+            <button id="btn-refresh" class="btn-refresh" onclick="refreshData('tech')">
+                <span class="spinner" id="btn-spinner"></span>
+                <span id="btn-text">Aggiorna Ora</span>
+            </button>
         </div>
+
         <div id="news-container" class="grid">Caricamento notizie...</div>
     </div>
+
     <script>
         function escapeHTML(str) {
             if (!str) return '';
@@ -59,41 +295,56 @@
 
         async function refreshData(category) {
             const btn = document.getElementById('btn-refresh');
+            const spinner = document.getElementById('btn-spinner');
+            const btnText = document.getElementById('btn-text');
             const statusText = document.getElementById('refresh-status');
+
             btn.disabled = true;
-            statusText.innerText = "⏳ Avvio aggiornamento asincrono...";
+            spinner.style.display = 'block';
+            btnText.innerText = "Aggiornamento...";
+            statusText.querySelector('span:last-child').innerText = "Avvio aggiornamento asincrono...";
 
             try {
-                const res = await fetch(`http://localhost:8000/api/refresh/${category}`, { method: 'POST' });
+                // Utilizza un percorso relativo anziché localhost hardcoded
+                const res = await fetch(`/api/refresh/${category}`, { method: 'POST' });
                 const data = await res.json();
 
                 if (data.status === "started" || data.status === "ignored") {
                     const pollInterval = setInterval(async () => {
                         try {
-                            const statusRes = await fetch(`http://localhost:8000/api/status/${category}`);
+                            // Utilizza un percorso relativo
+                            const statusRes = await fetch(`/api/status/${category}`);
                             const statusData = await statusRes.json();
                             
                             if (statusData.running) {
-                                statusText.innerText = `⏳ ${statusData.message}`;
+                                statusText.querySelector('span:last-child').innerText = statusData.message;
                             } else {
                                 clearInterval(pollInterval);
-                                statusText.innerText = `✅ ${statusData.message}`;
-                                fetchNews();
+                                statusText.querySelector('span:last-child').innerText = statusData.message;
+                                await fetchNews();
                                 btn.disabled = false;
+                                spinner.style.display = 'none';
+                                btnText.innerText = "Aggiorna Ora";
                             }
                         } catch (err) {
                             clearInterval(pollInterval);
-                            statusText.innerText = "❌ Errore di connessione durante il monitoraggio.";
+                            statusText.querySelector('span:last-child').innerText = "Errore di connessione durante il monitoraggio.";
                             btn.disabled = false;
+                            spinner.style.display = 'none';
+                            btnText.innerText = "Aggiorna Ora";
                         }
                     }, 2000);
                 } else {
-                    statusText.innerText = `❌ Errore: ${data.message}`;
+                    statusText.querySelector('span:last-child').innerText = `Errore: ${data.message}`;
                     btn.disabled = false;
+                    spinner.style.display = 'none';
+                    btnText.innerText = "Aggiorna Ora";
                 }
             } catch (error) {
-                statusText.innerText = "❌ Errore di connessione al server.";
+                statusText.querySelector('span:last-child').innerText = "Errore di connessione al server.";
                 btn.disabled = false;
+                spinner.style.display = 'none';
+                btnText.innerText = "Aggiorna Ora";
             }
         }
 
@@ -106,7 +357,7 @@
                 const updateText = document.getElementById('last-update');
 
                 if (!data || data.length === 0) {
-                    container.innerHTML = "<p>Nessun dato disponibile.</p>";
+                    container.innerHTML = "<div class='card' style='grid-column: 1/-1; text-align: center;'><p>Nessuna notizia disponibile al momento.</p></div>";
                     return;
                 }
                 
@@ -114,8 +365,7 @@
                 const dataFormattata = adesso.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: 'numeric' });
                 const oraFormattata = adesso.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
                 
-                // Usiamo innerHTML solo qui perché i dati temporali sono sicuri e generati dal browser
-                updateText.innerHTML = `📅 Ultimo aggiornamento: <strong>${dataFormattata}</strong> alle <strong>${oraFormattata}</strong>`;
+                updateText.innerHTML = `Ultimo controllo locale: <strong>${dataFormattata}</strong> alle <strong>${oraFormattata}</strong>`;
                 
                 container.innerHTML = data.map(n => `
                     <div class="card">
@@ -124,14 +374,14 @@
                             <p>${escapeHTML(n.summary)}</p>
                         </div>
                         <div class="meta-info">
-                            <span>🌐 ${escapeHTML(n.source || 'Tech Source')}</span>
-                            <a href="${escapeHTML(n.url)}" target="_blank" class="read-more">Leggi di più →</a>
+                            <span class="source-badge">🌐 ${escapeHTML(n.source || 'Tech Source')}</span>
+                            <a href="${escapeHTML(n.url)}" target="_blank" class="read-more">Leggi di più &rarr;</a>
                         </div>
                     </div>
                 `).join('');
             } catch (e) { 
                 console.error("Errore nel caricamento del file JSON:", e);
-                document.getElementById('news-container').innerHTML = "<p style='color: #ff4444;'>Impossibile caricare i dati.</p>";
+                document.getElementById('news-container').innerHTML = "<div class='card' style='grid-column: 1/-1; text-align: center; border-color: #ff4444;'><p style='color: #ff4444;'>Impossibile caricare i dati delle notizie.</p></div>";
             }
         }
         
