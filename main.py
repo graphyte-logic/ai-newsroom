@@ -43,10 +43,16 @@ async def lifespan(app: FastAPI):
 # Inizializzazione FastAPI con il lifespan manager
 app = FastAPI(title="Graphyte Intelligence Hub Backend", lifespan=lifespan)
 
+@app.get("/ping-diagnostico")
+def ping_diagnostico():
+    return {"status": "success", "message": "FastAPI riceve correttamente le chiamate su Render!"}
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], 
-    allow_credentials=True,
+    allow_origins=["*"],
+    # allow_credentials DEVE essere False quando allow_origins=["*"], altrimenti il browser
+    # rigetta la risposta CORS per specifica. Gli endpoint non usano cookie/auth, quindi OK.
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -177,7 +183,7 @@ def trigger_refresh(category: str, background_tasks: BackgroundTasks):
 
 
 # Static files serving (for front-end HTML/JS/JSON) - Mounted at the end so it doesn't intercept API routes
-app.mount("/", StaticFiles(directory=".", html=True), name="static")
+#app.mount("/", StaticFiles(directory=".", html=True), name="static")
 
 # --- SCHEDULER AUTOMATICO INTERVALLATO ---
 scheduler = BackgroundScheduler()
