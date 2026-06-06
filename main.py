@@ -43,6 +43,10 @@ async def lifespan(app: FastAPI):
 # Inizializzazione FastAPI con il lifespan manager
 app = FastAPI(title="Graphyte Intelligence Hub Backend", lifespan=lifespan)
 
+@app.get("/healthcheck")
+def healthcheck():
+    return {"status": "online", "backend": "Graphyte Workflow Engine attivo"}
+
 @app.get("/ping-diagnostico")
 def ping_diagnostico():
     return {"status": "success", "message": "FastAPI riceve correttamente le chiamate su Render!"}
@@ -184,6 +188,7 @@ def trigger_refresh(category: str, background_tasks: BackgroundTasks):
 
 # Static files serving (for front-end HTML/JS/JSON) - Mounted at the end so it doesn't intercept API routes
 #app.mount("/", StaticFiles(directory=".", html=True), name="static")
+app.mount("/static", StaticFiles(directory=".", html=False), name="static")
 
 # --- SCHEDULER AUTOMATICO INTERVALLATO ---
 scheduler = BackgroundScheduler()
