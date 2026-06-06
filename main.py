@@ -8,12 +8,10 @@ from datetime import datetime
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from apscheduler.schedulers.background import BackgroundScheduler
 import uvicorn
 
 # --- C2: BLINDAGGIO ENCODING EMOJI PER WINDOWS / RENDER LOGS ---
-# Reconfigura lo stdout per usare tassativamente UTF-8 evitando errori di codifica 'charmap'/cp1252
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
@@ -29,7 +27,7 @@ GLOBAL_STATUS = {
     "procurement": {"running": False, "message": "In attesa", "updated_at": None}
 }
 
-# --- C11: LIFESPAN CONTEXT MANAGER (Risolve la deprecazione di on_event) ---
+# --- C11: LIFESPAN CONTEXT MANAGER ---
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Logica di Avvio (Startup)
@@ -43,19 +41,10 @@ async def lifespan(app: FastAPI):
 # Inizializzazione FastAPI con il lifespan manager
 app = FastAPI(title="Graphyte Intelligence Hub Backend", lifespan=lifespan)
 
-@app.get("/healthcheck")
-def healthcheck():
-    return {"status": "online", "backend": "Graphyte Workflow Engine attivo"}
-
-@app.get("/ping-diagnostico")
-def ping_diagnostico():
-    return {"status": "success", "message": "FastAPI riceve correttamente le chiamate su Render!"}
-
+# --- CONFIGURAZIONE CORS MIDDLEWARE (Aperto e sicuro per l'integrazione Web) ---
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    # allow_credentials DEVE essere False quando allow_origins=["*"], altrimenti il browser
-    # rigetta la risposta CORS per specifica. Gli endpoint non usano cookie/auth, quindi OK.
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -69,7 +58,6 @@ def auto_push_to_github(json_file: str, md_file: str):
     with git_lock:
         print(f"🔒 [Lock Git] Accesso esclusivo acquisito per il push di {json_file} e {md_file}")
         try:
-            # M13 Quick Win: Eseguiamo un pull preventivo con rebase per evitare collisioni se origin è avanti
             print("🔄 [Git] Esecuzione git pull --rebase preventivo...")
             subprocess.run(["git", "pull", "--rebase"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
             
@@ -97,14 +85,12 @@ def esegui_workflow_news(category: str):
             "summaries": [],
             "digest": ""
         }
-        # Invocazione diretta e corretta del grafo di LangGraph
+        
         final_state = news_graph.invoke(inputs)
         
-        # Estraiamo i risultati per i file fisici
         summaries = final_state.get("summaries", [])
         digest_md = final_state.get("digest", "")
         
-        # Salvataggio e allineamento file (C12 + Auto-push)
         json_file = f"{category}_news.json"
         md_file = f"data/{category}_digest.md"
         
@@ -114,10 +100,8 @@ def esegui_workflow_news(category: str):
         with open(md_file, "w", encoding="utf-8") as f:
             f.write(digest_md)
             
-        # Sincronizzazione automatica su GitHub
         auto_push_to_github(json_file, md_file)
-        
-        return f"Successo: elaborati {len(summaries)} articoli."
+        return f"Successo: elaborati {len(summaries)} articles."
     except Exception as e:
         print(f"❌ [Scheduler Errore] Fallimento nel workflow sincrono: {e}")
         traceback.print_exc()
@@ -139,8 +123,8 @@ def aggiornamento_automatico_totale():
             GLOBAL_STATUS[cat]["message"] = f"Errore: {str(e)}"
             print(f"🚨 [Scheduler] Fallimento aggiornamento automatico per {cat}: {e}")
 
-# --- M6: FUNZIONE DI TARGET PER BACKGROUND TASK ---
 def background_refresh_task(category: str):
+    """Esegue l'aggiornamento asincrono lanciato dalle API REST"""
     try:
         GLOBAL_STATUS[category]["running"] = True
         GLOBAL_STATUS[category]["message"] = "Analisi fonti e generazione riassunti AI in corso..."
@@ -157,12 +141,33 @@ def background_refresh_task(category: str):
         GLOBAL_STATUS[category]["updated_at"] = datetime.now().isoformat()
         print(f"❌ [API Task] Errore nel task in background per {category}: {e}")
 
+
 # ==============================================================================
-# 🌐 ENDPOINTS ENDPOINTS API (REST INTEGRATE PER INTERFACCIA WEB)
+# 🌐 ENDPOINTS API REST (GRAPH INTERFACE & MONITORING)
 # ==============================================================================
 
+@app.get("/")
+def home_root():
+    """Endpoint Radice: Evita il 404 del proxy e restituisce l'indice di salute dei nodi"""
+    return {
+        "status": "online",
+        "backend": "Graphyte Workflow Engine attivo",
+        "timestamp": datetime.now().isoformat(),
+        "channels": {
+            "tech": "/api/status/tech",
+            "legal": "/api/status/legal",
+            "procurement": "/api/status/procurement"
+        }
+    }
 
-# --- M5: NUOVO ENDPOINT PER INTERROGARE LO STATO IN TEMPO REALE ---
+@app.get("/healthcheck")
+def healthcheck():
+    return {"status": "online", "backend": "Graphyte Workflow Engine attivo"}
+
+@app.get("/ping-diagnostico")
+def ping_diagnostico():
+    return {"status": "success", "message": "FastAPI riceve correttamente le chiamate su Render!"}
+
 @app.get("/api/status/{category}")
 def get_status(category: str):
     cat = category.lower()
@@ -170,7 +175,6 @@ def get_status(category: str):
         return {"status": "error", "message": "Categoria non valida"}
     return GLOBAL_STATUS[cat]
 
-# --- M6: ENDPOINT REFRESH ASINCRONO CON BACKGROUND TASK (Risolve C12) ---
 @app.post("/api/refresh/{category}")
 def trigger_refresh(category: str, background_tasks: BackgroundTasks):
     cat = category.lower()
@@ -180,15 +184,9 @@ def trigger_refresh(category: str, background_tasks: BackgroundTasks):
     if GLOBAL_STATUS[cat]["running"]:
         return {"status": "ignored", "message": "Un aggiornamento per questa categoria è già in esecuzione"}
     
-    # Lanciamo il lavoro pesante in background liberando subito la risposta HTTP
     background_tasks.add_task(background_refresh_task, cat)
     return {"status": "started", "message": f"Aggiornamento asincrono avviato per {cat}"}
 
-
-
-# Static files serving (for front-end HTML/JS/JSON) - Mounted at the end so it doesn't intercept API routes
-#app.mount("/", StaticFiles(directory=".", html=True), name="static")
-app.mount("/static", StaticFiles(directory=".", html=False), name="static")
 
 # --- SCHEDULER AUTOMATICO INTERVALLATO ---
 scheduler = BackgroundScheduler()
@@ -197,14 +195,9 @@ scheduler.add_job(aggiornamento_automatico_totale, 'cron', hour=18, minute=0)
 
 
 # ==============================================================================
-# 🚀 AVVIO DIRETTO E FORZATO DEL SERVER
+# 🚀 AVVIO DIRETTO DEL SERVER SU PORTA DINAMICA
 # ==============================================================================
 if __name__ == "__main__":
     print("🖥️ Sincronizzazione inizializzata. Avvio server Uvicorn...")
-
-    # Se siamo su Render prende la porta dinamica, altrimenti usa la 8000 locale
     port = int(os.environ.get("PORT", 8000))
-    # Import string corretto: "<modulo>:<oggetto>", non "<file.py>:<oggetto>"
-    #uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
-    # ✅ NUOVA RIGA (Passiamo l'oggetto diretto senza virgolette):
     uvicorn.run(app, host="0.0.0.0", port=port)
