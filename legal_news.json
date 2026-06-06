@@ -3,7 +3,7 @@
         "title": "ESAs publish the first report on DORA major ICT-related incidents",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-publish-first-report-dora-major-ict-related-incidents",
         "source": "EBA News",
-        "summary": "Le autorità europee pubblicano il primo rapporto annuale su incidenti ICT nel settore finanziario secondo il meccanismo di segnalazione DORA.",
+        "summary": "YES - This article is highly relevant to regulatory updates and digital law.\n\n**Italian Summary (max 25 words):**\n\nDORA stabilisce obblighi di segnalazione incidenti ICT per enti finanziari, evidenziando rischi interconnessi e necessità rafforzamento cybersecurity contro minacce AI.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -12,7 +12,7 @@
         "title": "The EBA consults on amendments to the RTS on the assignment of risk weights to specialised lending exposures under the Supervisory Slotting Criteria Approach",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-consults-amendments-rts-assignment-risk-weights-specialised-lending-exposures-under-supervisory",
         "source": "EBA News",
-        "summary": "L'EBA aggiorna i criteri di ponderazione del rischio per esposizioni specializzate secondo l'approccio SSCA in conformità a CRR3.",
+        "summary": "This article IS related to regulatory updates and legislative frameworks applied to banking/financial technology.\n\n**Italian Summary:**\n\nL'EBA aggiorna gli standard tecnici sui coefficienti di rischio per i prestiti specializzati secondo l'approccio dei criteri di valutazione prudenziale.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -21,7 +21,7 @@
         "title": "The EBA streamlines its Guidelines on connected clients to align with new EU legislation",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-streamlines-its-guidelines-connected-clients-align-new-eu-legislation",
         "source": "EBA News",
-        "summary": "This article IS related to regulatory updates and legislative frameworks applied to banking.\n\n**Italian Summary:**\n\nL'EBA elimina sezioni delle Guidelines su clienti connessi per allinearsi alla nuova legislazione UE direttamente applicabile.",
+        "summary": "This article IS related to regulatory updates and legislative frameworks applied to banking.\n\n**Italian Summary:**\n\nL'EBA allinea le linee guida sui clienti collegati alla nuova legislazione UE direttamente applicabile per chiarezza normativa.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -30,7 +30,7 @@
         "title": "The EBA amends Guidelines on the definition of default",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-amends-guidelines-definition-default",
         "source": "EBA News",
-        "summary": "This article covers a regulatory update from the European Banking Authority (EBA), which is a relevant regulatory authority issuing guidelines on prudential matters.\n\n**APPROVED**\n\nL'EBA modifica le linee guida sulla definizione di insolvenza, chiarendo i criteri per il factoring non regresso e confermando la soglia NPV dell'1%.",
+        "summary": "This article IS related to regulatory updates - specifically EBA Guidelines, which are regulatory technical standards applicable to banking institutions across the EU.\n\n**Italian Summary:**\n\nL'EBA modifica le linee guida sulla definizione di insolvenza, adattando il trattamento prudenziale del factoring non ricorsivo e confermando la soglia NPV dell'1%.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -39,7 +39,7 @@
         "title": "The EBA publishes its final Guidelines on supervisory independence",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-supervisory-independence",
         "source": "EBA News",
-        "summary": "This article covers regulatory updates related to banking supervision and conflicts of interest governance under CRD, which is relevant to the regulatory framework applied to banking/financial institutions.\n\n**ACCEPT**\n\nL'EBA pubblica linee guida finali su indipendenza supervisoria per prevenire conflitti interesse presso autorità competenti bancarie.",
+        "summary": "# Analysis Result\n\n**ACCEPT**\n\nThis article covers regulatory updates from the EBA (European Banking Authority) regarding supervisory independence guidelines under the Capital Requirements Directive (CRD) - a core legislative framework applied to banking and financial regulation in the EU.\n\n---\n\n**Italian Summary (25 words max):**\n\nL'EBA pubblica linee guida sulla indipendenza dei supervisori bancari, disciplinando conflitti di interesse, dichiarazioni patrimoniali e limitazioni al trading degli strumenti finanziari.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -48,7 +48,7 @@
         "title": "The EBA issues an opinion about an Austrian macroprudential measure",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-issues-opinion-about-austrian-macroprudential-measure",
         "source": "EBA News",
-        "summary": "This article covers a regulatory update related to banking prudential measures and macroprudential policy within the EU regulatory framework.\n\n**ACCEPT**\n\nL'EBA autorizza l'aumento del buffer di rischio sistemico settoriale austriaco al 5% per mitigare rischi nel mercato immobiliare commerciale.",
+        "summary": "L'EBA approva l'aumento del buffer di rischio sistemico settoriale austriaco al 5% per mitigare i rischi del mercato immobiliare commerciale.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -57,7 +57,7 @@
         "title": "The EBA updates list of correlated currencies",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-updates-list-correlated-currencies-4",
         "source": "EBA News",
-        "summary": "This article IS related to regulatory updates in banking/financial law.\n\n**Italian Summary:**\n\nL'EBA aggiorna il 2026 della lista delle valute correlate per il calcolo dei requisiti patrimoniali nel rischio di cambio.",
+        "summary": "This article IS related to regulatory updates in banking and digital finance law. It addresses a technical regulatory update by the EBA affecting capital requirements under EU banking regulations.\n\n**Summary in Italian:**\n\nL'EBA aggiorna l'elenco delle valute correlate per il calcolo dei requisiti patrimoniali nel rischio di cambio secondo l'approccio standardizzato.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
