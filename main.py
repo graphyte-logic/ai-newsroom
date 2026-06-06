@@ -8,6 +8,7 @@ from datetime import datetime
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from apscheduler.schedulers.background import BackgroundScheduler
 import uvicorn
 
@@ -58,9 +59,17 @@ def auto_push_to_github(json_file: str, md_file: str):
     with git_lock:
         print(f"🔒 [Lock Git] Accesso esclusivo acquisito per il push di {json_file} e {md_file}")
         try:
+            # 📦 Salviamo momentaneamente eventuali modifiche locali sporche per prevenire il fallimento del pull
+            print("📦 [Git] Stash preventivo delle modifiche locali...")
+            subprocess.run(["git", "stash"], check=False)
+            
             print("🔄 [Git] Esecuzione git pull --rebase preventivo...")
             subprocess.run(["git", "pull", "--rebase"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
             
+            # Ripristiniamo le modifiche temporanee locali senza bloccare l'esecuzione dei file pronti
+            subprocess.run(["git", "stash", "pop"], check=False)
+            
+            # Forza l'aggiunta e il commit dei nuovi dati generati
             subprocess.run(["git", "add", json_file, md_file], check=True)
             subprocess.run([
                 "git", "commit", "-m", 
@@ -68,7 +77,7 @@ def auto_push_to_github(json_file: str, md_file: str):
             ], check=True)
             
             print("📤 [Git] Invio delle modifiche al repository remoto (git push)...")
-            subprocess.run(["git", "push", "origin", "master"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
+            subprocess.run(["git", "push", "origin", "main"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
             print(f"✅ [Git] Push completato con successo per {json_file} e {md_file}")
         except subprocess.CalledProcessError as e:
             print(f"❌ [Git] Errore critico durante le operazioni git: {e}")
@@ -101,7 +110,7 @@ def esegui_workflow_news(category: str):
             f.write(digest_md)
             
         auto_push_to_github(json_file, md_file)
-        return f"Successo: elaborati {len(summaries)} articles."
+        return f"Successo: elaborati {len(summaries)} articoli."
     except Exception as e:
         print(f"❌ [Scheduler Errore] Fallimento nel workflow sincrono: {e}")
         traceback.print_exc()
@@ -146,20 +155,6 @@ def background_refresh_task(category: str):
 # 🌐 ENDPOINTS API REST (GRAPH INTERFACE & MONITORING)
 # ==============================================================================
 
-@app.get("/")
-def home_root():
-    """Endpoint Radice: Evita il 404 del proxy e restituisce l'indice di salute dei nodi"""
-    return {
-        "status": "online",
-        "backend": "Graphyte Workflow Engine attivo",
-        "timestamp": datetime.now().isoformat(),
-        "channels": {
-            "tech": "/api/status/tech",
-            "legal": "/api/status/legal",
-            "procurement": "/api/status/procurement"
-        }
-    }
-
 @app.get("/healthcheck")
 def healthcheck():
     return {"status": "online", "backend": "Graphyte Workflow Engine attivo"}
@@ -186,6 +181,14 @@ def trigger_refresh(category: str, background_tasks: BackgroundTasks):
     
     background_tasks.add_task(background_refresh_task, cat)
     return {"status": "started", "message": f"Aggiornamento asincrono avviato per {cat}"}
+
+
+# ==============================================================================
+# 📁 MOUNT FILE STATICI (FRONTEND & DATABASE JSON)
+# ==============================================================================
+# Mappando la directory radice su "/" con html=True, permettiamo l'uso corretto 
+# dei percorsi relativi sia localmente che nel cloud di Render.
+app.mount("/", StaticFiles(directory=".", html=True), name="static")
 
 
 # --- SCHEDULER AUTOMATICO INTERVALLATO ---
