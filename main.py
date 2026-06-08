@@ -59,19 +59,30 @@ def auto_push_to_github(json_file: str, md_file: str):
     with git_lock:
         print(f"🔒 [Lock Git] Accesso esclusivo acquisito per il push di {json_file} e {md_file}")
         try:
-            # 📦 Salviamo momentaneamente eventuali modifiche locali sporche per prevenire il fallimento del pull
+            # 📦 Salviamo momentaneamente eventuali modifiche locali sporche
             print("📦 [Git] Stash preventivo delle modifiche locali...")
             subprocess.run(["git", "stash"], check=False)
             
-            # 🌿 [FIX DEFINITIVO PER RENDER]: Forza il server a posizionarsi e creare il branch locale main
+            # 🔗 RECUPERO URL REMOTO: Dinamico tramite variabile d'ambiente o fallback locale
+            # Su Render configureremo REPO_URL nelle impostazioni, in locale userà l'origin esistente
+            repo_url = os.environ.get("REPO_URL")
+            
+            if repo_url:
+                print(f"🔗 [Git] Rilevato URL remoto dall'ambiente: {repo_url}")
+                subprocess.run(["git", "remote", "remove", "origin"], check=False)
+                subprocess.run(["git", "remote", "add", "origin", repo_url], check=True)
+            else:
+                print("🏠 [Git] Nessuna variabile REPO_URL trovata. Si utilizza l'origin locale.")
+            
+            # 🌿 Forza il server a posizionarsi e creare il branch locale main
             print("🌿 [Git] Forzatura checkout su branch main...")
             subprocess.run(["git", "checkout", "-B", "main"], check=True)
             
-            # 🔄 Eseguiamo il pull specificando esattamente l'origine e il branch per evitare lo stato orfano
+            # 🔄 Eseguiamo il pull specificando esattamente l'origine e il branch
             print("🔄 [Git] Esecuzione git pull origin main --rebase preventivo...")
             subprocess.run(["git", "pull", "origin", "main", "--rebase"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
             
-            # Ripristiniamo le modifiche temporanee locali senza bloccare l'esecuzione dei file pronti
+            # Ripristiniamo le modifiche temporanee locali
             subprocess.run(["git", "stash", "pop"], check=False)
             
             # Forza l'aggiunta e il commit dei nuovi dati generati
