@@ -1,49 +1,41 @@
 # 📊 Executive Intelligence Digest — Canale TECH
-*Ecosistema informativo Graphyte Logic — Report del 06/06/2026*
+*Ecosistema informativo Graphyte Logic — Report del 08/06/2026*
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 
-**1. ⚡ [SIGNAL] My LLM pipeline passed every eval. Then it started lying to users in production.**
+**1. ⚡ [SIGNAL] Agent Retrieval Above the Crossover: A First-Principles Read of CodeGraph**
 └─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
 YES
 
-I sistemi RAG richiedono valutazione in produzione poiché gli eval su dataset limitati non catturano allucinazioni in scenari reali.
-> [🔗 Apri Documentazione Originale](https://dev.to/imtiaz_ahmad004/my-llm-pipeline-passed-every-eval-then-it-started-lying-to-users-in-production-12f)
+L'articolo analizza come CodeGraph soddisfa i requisiti critici per l'ottimizzazione del recupero simbolico in sistemi LLM, risolvendo il problema del costo computazionale.
+> [🔗 Apri Documentazione Originale](https://dev.to/harrisonsec/agent-retrieval-above-the-crossover-a-first-principles-read-of-codegraph-1gd7)
 
-**2. ⚡ [SIGNAL] Key Infrastructure Insights for Multi-Tenant AI Platforms**
+**2. ⚡ [SIGNAL] 🚀 Build a Fully Local AI Agent with Hermes Agent, Ollama, Qwen 3.5, and SearXNG (100% Private & $0 Cost)**
 └─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
-Le piattaforme AI multi-tenant ottimizzano risorse condivise garantendo isolamento dati, riducendo costi operativi significativamente.
-> [🔗 Apri Documentazione Originale](https://dev.to/ravi_roy_1222f9e6b2ea51bd/key-infrastructure-insights-for-multi-tenant-ai-platforms-1pfi)
+Questo articolo illustra come costruire un agente AI completamente locale utilizzando modelli open-source senza dipendenze da servizi cloud commerciali.
+> [🔗 Apri Documentazione Originale](https://dev.to/vivek_shetye/build-a-fully-local-ai-agent-with-hermes-agent-ollama-qwen-35-and-searxng-100-private-0-568d)
 
-**3. ⚡ [SIGNAL] AI Agents: The Future of Autonomous Intelligence**
-└─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
-Gli agenti AI autonomi rappresentano l'evoluzione oltre i chatbot, eseguendo azioni complesse come ricerca web, codifica e integrazione API con minimo intervento umano.
-> [🔗 Apri Documentazione Originale](https://dev.to/kielltampubolon/ai-agents-the-future-of-autonomous-intelligence-onp)
-
-**4. ⚡ [SIGNAL] CloakBrowser MCP: Playwright MCP tools with a CloakBrowser Chromium runtime**
+**3. ⚡ [SIGNAL] Beyond the Prompt: Building Self-Evolving AI Agents for Deep Research and CI/CD Automation**
 └─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
 YES
 
-Gli agenti AI automatizzano compiti frontend complessi integrando browser automation con modelli linguistici per debugging, testing e validazione dell'interfaccia utente.
-> [🔗 Apri Documentazione Originale](https://dev.to/swimmwatch/cloakbrowser-mcp-playwright-mcp-tools-with-a-cloakbrowser-chromium-runtime-3ec8)
+Gli agenti AI autonomi con capacità di auto-evoluzione superano i limiti dei prompt singoli, abilitando automazione complessa in ricerca e CI/CD.
+> [🔗 Apri Documentazione Originale](https://dev.to/programmingcentral/beyond-the-prompt-building-self-evolving-ai-agents-for-deep-research-and-cicd-automation-1gn0)
 
-**5. ⚡ [SIGNAL] Police in England and Wales told to halt AI use in court statements**
+**4. ⚡ [SIGNAL] Mina Meeting Assistant Guide: How to Use It, Best Prompts & Use Cases (2026)**
+└─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
+Mina Meeting Assistant è un'IA conversazionale che partecipa attivamente alle riunioni virtuali, eseguendo compiti e integrando strumenti in tempo reale.
+> [🔗 Apri Documentazione Originale](https://dev.to/maestro_morty_cc62e2c85ae/mina-meeting-assistant-guide-how-to-use-it-best-prompts-use-cases-2026-477m)
+
+**5. ⚡ [SIGNAL] What Apple's WWDC Just Taught Us About AI Model Routing**
+└─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
+Apple ha scelto di integrare modelli IA esterni anziché costruire il proprio, prioritizzando l'orchestrazione rispetto al controllo della tecnologia.
+> [🔗 Apri Documentazione Originale](https://dev.to/aplomb2/what-apples-wwdc-just-taught-us-about-ai-model-routing-22p6)
+
+**6. ⚡ [SIGNAL] Apple reveals new AI architecture built around Google Gemini models**
 └─ 🌍 Ambito: *global* | Canale: *Core Tech* | Fonte: *HackerNews*
-La polizia inglese deve interrompere l'uso dell'IA nelle dichiarazioni processuali a causa di problemi di affidabilità e trasparenza legale.
-> [🔗 Apri Documentazione Originale](https://www.ft.com/content/229e5949-3ebc-4151-8a86-a01b5e259241)
-
-**6. ⚡ [SIGNAL] US House lawmakers release draft bill to prohibit state AI rules**
-└─ 🌍 Ambito: *global* | Canale: *Core Tech* | Fonte: *HackerNews*
-I need to evaluate whether this article is strictly about AI technology.
-
-The article title indicates it's about US House lawmakers releasing a draft bill to prohibit state AI rules. This is fundamentally a **policy/regulatory article** about AI governance and legislation, not about AI technology itself, AI innovation, generative AI, LLMs, hardware accelerators, or AI infrastructure.
-
-While it discusses AI in a regulatory context, it does not address:
-- AI technical developments
-- Generative AI capabilities or improvements
-- LLM architecture or performance
-- Hardware accelerators for
-> [🔗 Apri Documentazione Originale](https://www.reuters.com/business/us-house-lawmakers-release-draft-bill-regulate-ai-2026-06-04/)
+Apple ha integrato i modelli Gemini di Google nella sua nuova architettura AI, ampliando le capacità di intelligenza artificiale sui dispositivi.
+> [🔗 Apri Documentazione Originale](https://www.macrumors.com/2026/06/08/apple-reveals-new-ai-architecture/)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 *Generato autonomamente dal sistema Graphyte Workflow Engine*

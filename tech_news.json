@@ -1,54 +1,54 @@
 [
     {
-        "title": "My LLM pipeline passed every eval. Then it started lying to users in production.",
-        "url": "https://dev.to/imtiaz_ahmad004/my-llm-pipeline-passed-every-eval-then-it-started-lying-to-users-in-production-12f",
+        "title": "Agent Retrieval Above the Crossover: A First-Principles Read of CodeGraph",
+        "url": "https://dev.to/harrisonsec/agent-retrieval-above-the-crossover-a-first-principles-read-of-codegraph-1gd7",
         "source": "Dev.to AI",
-        "summary": "YES\n\nI sistemi RAG richiedono valutazione in produzione poiché gli eval su dataset limitati non catturano allucinazioni in scenari reali.",
+        "summary": "YES\n\nL'articolo analizza come CodeGraph soddisfa i requisiti critici per l'ottimizzazione del recupero simbolico in sistemi LLM, risolvendo il problema del costo computazionale.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Key Infrastructure Insights for Multi-Tenant AI Platforms",
-        "url": "https://dev.to/ravi_roy_1222f9e6b2ea51bd/key-infrastructure-insights-for-multi-tenant-ai-platforms-1pfi",
+        "title": "🚀 Build a Fully Local AI Agent with Hermes Agent, Ollama, Qwen 3.5, and SearXNG (100% Private & $0 Cost)",
+        "url": "https://dev.to/vivek_shetye/build-a-fully-local-ai-agent-with-hermes-agent-ollama-qwen-35-and-searxng-100-private-0-568d",
         "source": "Dev.to AI",
-        "summary": "Le piattaforme AI multi-tenant ottimizzano risorse condivise garantendo isolamento dati, riducendo costi operativi significativamente.",
+        "summary": "Questo articolo illustra come costruire un agente AI completamente locale utilizzando modelli open-source senza dipendenze da servizi cloud commerciali.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "AI Agents: The Future of Autonomous Intelligence",
-        "url": "https://dev.to/kielltampubolon/ai-agents-the-future-of-autonomous-intelligence-onp",
+        "title": "Beyond the Prompt: Building Self-Evolving AI Agents for Deep Research and CI/CD Automation",
+        "url": "https://dev.to/programmingcentral/beyond-the-prompt-building-self-evolving-ai-agents-for-deep-research-and-cicd-automation-1gn0",
         "source": "Dev.to AI",
-        "summary": "Gli agenti AI autonomi rappresentano l'evoluzione oltre i chatbot, eseguendo azioni complesse come ricerca web, codifica e integrazione API con minimo intervento umano.",
+        "summary": "YES\n\nGli agenti AI autonomi con capacità di auto-evoluzione superano i limiti dei prompt singoli, abilitando automazione complessa in ricerca e CI/CD.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "CloakBrowser MCP: Playwright MCP tools with a CloakBrowser Chromium runtime",
-        "url": "https://dev.to/swimmwatch/cloakbrowser-mcp-playwright-mcp-tools-with-a-cloakbrowser-chromium-runtime-3ec8",
+        "title": "Mina Meeting Assistant Guide: How to Use It, Best Prompts & Use Cases (2026)",
+        "url": "https://dev.to/maestro_morty_cc62e2c85ae/mina-meeting-assistant-guide-how-to-use-it-best-prompts-use-cases-2026-477m",
         "source": "Dev.to AI",
-        "summary": "YES\n\nGli agenti AI automatizzano compiti frontend complessi integrando browser automation con modelli linguistici per debugging, testing e validazione dell'interfaccia utente.",
+        "summary": "Mina Meeting Assistant è un'IA conversazionale che partecipa attivamente alle riunioni virtuali, eseguendo compiti e integrando strumenti in tempo reale.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Police in England and Wales told to halt AI use in court statements",
-        "url": "https://www.ft.com/content/229e5949-3ebc-4151-8a86-a01b5e259241",
+        "title": "What Apple's WWDC Just Taught Us About AI Model Routing",
+        "url": "https://dev.to/aplomb2/what-apples-wwdc-just-taught-us-about-ai-model-routing-22p6",
+        "source": "Dev.to AI",
+        "summary": "Apple ha scelto di integrare modelli IA esterni anziché costruire il proprio, prioritizzando l'orchestrazione rispetto al controllo della tecnologia.",
+        "geo": "global",
+        "signal_type": "trend",
+        "sub_category": "AI Development"
+    },
+    {
+        "title": "Apple reveals new AI architecture built around Google Gemini models",
+        "url": "https://www.macrumors.com/2026/06/08/apple-reveals-new-ai-architecture/",
         "source": "HackerNews",
-        "summary": "La polizia inglese deve interrompere l'uso dell'IA nelle dichiarazioni processuali a causa di problemi di affidabilità e trasparenza legale.",
-        "geo": "global",
-        "signal_type": "weak_signal",
-        "sub_category": "Core Tech"
-    },
-    {
-        "title": "US House lawmakers release draft bill to prohibit state AI rules",
-        "url": "https://www.reuters.com/business/us-house-lawmakers-release-draft-bill-regulate-ai-2026-06-04/",
-        "source": "HackerNews",
-        "summary": "I need to evaluate whether this article is strictly about AI technology.\n\nThe article title indicates it's about US House lawmakers releasing a draft bill to prohibit state AI rules. This is fundamentally a **policy/regulatory article** about AI governance and legislation, not about AI technology itself, AI innovation, generative AI, LLMs, hardware accelerators, or AI infrastructure.\n\nWhile it discusses AI in a regulatory context, it does not address:\n- AI technical developments\n- Generative AI capabilities or improvements\n- LLM architecture or performance\n- Hardware accelerators for",
+        "summary": "Apple ha integrato i modelli Gemini di Google nella sua nuova architettura AI, ampliando le capacità di intelligenza artificiale sui dispositivi.",
         "geo": "global",
         "signal_type": "weak_signal",
         "sub_category": "Core Tech"
