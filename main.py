@@ -64,9 +64,7 @@ def auto_push_to_github(json_file: str, md_file: str):
             subprocess.run(["git", "stash"], check=False)
             
             # 🔗 RECUPERO URL REMOTO: Dinamico tramite variabile d'ambiente o fallback locale
-            # Su Render configureremo REPO_URL nelle impostazioni, in locale userà l'origin esistente
             repo_url = os.environ.get("REPO_URL")
-            
             if repo_url:
                 print(f"🔗 [Git] Rilevato URL remoto dall'ambiente: {repo_url}")
                 subprocess.run(["git", "remote", "remove", "origin"], check=False)
@@ -74,7 +72,7 @@ def auto_push_to_github(json_file: str, md_file: str):
             else:
                 print("🏠 [Git] Nessuna variabile REPO_URL trovata. Si utilizza l'origin locale.")
             
-            # 🌿 Forza il server a posizionarsi e creare il branch locale main
+            # 🌿 [FIX DETACHED HEAD]: Forza il server a posizionarsi e creare il branch locale main
             print("🌿 [Git] Forzatura checkout su branch main...")
             subprocess.run(["git", "checkout", "-B", "main"], check=True)
             
@@ -85,22 +83,32 @@ def auto_push_to_github(json_file: str, md_file: str):
             # Ripristiniamo le modifiche temporanee locali
             subprocess.run(["git", "stash", "pop"], check=False)
             
-            # Forza l'aggiunta e il commit dei nuovi dati generati
+            # Forza l'aggiunta dei nuovi file generati all'area di staging
             subprocess.run(["git", "add", json_file, md_file], check=True)
+            
+            # 🆔 [FIX IDENTITÀ AUTORE]: Configura l'identità locale per l'istanza del server
+            print("🆔 [Git] Configurazione identità autore temporanea per il server...")
+            subprocess.run(["git", "config", "user.email", "bot@graphyte-newsroom.local"], check=True)
+            subprocess.run(["git", "config", "user.name", "Newsroom Bot"], check=True)
+            
+            # Esecuzione del commit sicuro con timestamp aggiornato
+            print("📝 [Git] Creazione del commit automatico...")
             subprocess.run([
                 "git", "commit", "-m", 
                 f"⚡ Auto-update {json_file}/{md_file}: {datetime.now().strftime('%H:%M:%S')}"
             ], check=True)
             
-            # 📤 Invio delle modifiche al repository remoto su branch main
+            # 📤 Invio definitivo delle modifiche al repository remoto su branch main
             print("📤 [Git] Invio delle modifiche al repository remoto (git push)...")
             subprocess.run(["git", "push", "origin", "main"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
             print(f"✅ [Git] Push completato con successo per {json_file} e {md_file}")
+            
         except subprocess.CalledProcessError as e:
             print(f"❌ [Git] Errore critico durante le operazioni git: {e}")
         except Exception as ex:
             print(f"❌ [Git] Errore imprevisto nella pipeline Git: {ex}")
-
+            
+            
 def esegui_workflow_news(category: str):
     """Esegue il workflow in modalità sincrona (usato dallo scheduler o dai cron job)"""
     print(f"🔄 [Scheduler] Avvio workflow sincrono per la categoria: {category}")
