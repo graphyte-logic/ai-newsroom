@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graphyte Intelligence - Procurement & Compliance Room</title>
-    <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -174,21 +173,36 @@
             pointer-events: none;
         }
 
-        .card:hover { 
-            border-color: var(--proc-color);
-            box-shadow: 0 12px 35px var(--proc-glow), 0 5px 15px rgba(0, 0, 0, 0.3);
+        /* 🔴 CARD IMPATTO ALTO - ROSSO */
+        .card.card-high {
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            background: rgba(239, 68, 68, 0.04);
+        }
+        .card.card-high:hover {
+            border-color: var(--alert-red);
+            box-shadow: 0 12px 35px rgba(239, 68, 68, 0.15), 0 5px 15px rgba(0, 0, 0, 0.3);
             transform: translateY(-4px);
         }
 
-        /* Alert warning styling */
-        .card.alert-card {
-            border: 1px solid var(--alert-border);
-            background: var(--alert-bg);
+        /* 🟡 CARD IMPATTO MEDIO - ARANCIONE / GIALLO */
+        .card.card-medium {
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            background: rgba(245, 158, 11, 0.02);
+        }
+        .card.card-medium:hover {
+            border-color: #fbbf24;
+            box-shadow: 0 12px 35px rgba(245, 158, 11, 0.12), 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px);
         }
 
-        .card.alert-card:hover {
-            border-color: var(--alert-red);
-            box-shadow: 0 12px 35px rgba(239, 68, 68, 0.12), 0 5px 15px rgba(0, 0, 0, 0.3);
+        /* 🟢 CARD IMPATTO BASSO - VERDE STANDARD */
+        .card.card-low {
+            border: 1px solid var(--card-border);
+        }
+        .card.card-low:hover { 
+            border-color: var(--proc-color);
+            box-shadow: 0 12px 35px var(--proc-glow), 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px);
         }
 
         .alert-banner {
@@ -409,14 +423,12 @@
             statusText.querySelector('span:last-child').innerText = "Analisi fonti e generazione report in corso...";
 
             try {
-                // Utilizza un percorso relativo anziché localhost hardcoded
                 const res = await fetch(`/api/refresh/${category}`, { method: 'POST' });
                 const data = await res.json();
 
                 if (data.status === "started" || data.status === "ignored") {
                     const pollInterval = setInterval(async () => {
                         try {
-                            // Utilizza un percorso relativo
                             const statusRes = await fetch(`/api/status/${category}`);
                             const statusData = await statusRes.json();
                             
@@ -471,15 +483,23 @@
                 updateText.innerHTML = `Ultimo controllo locale: <strong>${dataFormattata}</strong> alle <strong>${oraFormattata}</strong>`;
 
                 container.innerHTML = data.map(n => {
+                    const impactValue = (n.impact || 'MEDIUM').toUpperCase();
+                    
+                    // Assegnazione della classe del bordo in base al valore dell'IMPATTO
+                    let impactCardClass = 'card-low';
+                    if (impactValue === 'HIGH') {
+                        impactCardClass = 'card-high';
+                    } else if (impactValue === 'MEDIUM') {
+                        impactCardClass = 'card-medium';
+                    }
+
                     const isAlert = n.regulatory_alert === true;
-                    const alertCardClass = isAlert ? 'alert-card' : '';
                     const alertBannerHtml = (isAlert && n.executive_warning) 
                         ? `<div class="alert-banner">⚠️ <strong>EXECUTIVE WARNING:</strong> ${escapeHTML(n.executive_warning)}</div>` 
                         : '';
-                    const impactValue = (n.impact || 'MEDIUM').toUpperCase();
 
                     return `
-                        <div class="card ${alertCardClass}">
+                        <div class="card ${impactCardClass}">
                             ${alertBannerHtml}
                             <div class="card-header">
                                 <h3>${escapeHTML(n.title)}</h3>
