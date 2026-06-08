@@ -63,8 +63,13 @@ def auto_push_to_github(json_file: str, md_file: str):
             print("📦 [Git] Stash preventivo delle modifiche locali...")
             subprocess.run(["git", "stash"], check=False)
             
-            print("🔄 [Git] Esecuzione git pull --rebase preventivo...")
-            subprocess.run(["git", "pull", "--rebase"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
+            # 🌿 [FIX DEFINITIVO PER RENDER]: Forza il server a posizionarsi e creare il branch locale main
+            print("🌿 [Git] Forzatura checkout su branch main...")
+            subprocess.run(["git", "checkout", "-B", "main"], check=True)
+            
+            # 🔄 Eseguiamo il pull specificando esattamente l'origine e il branch per evitare lo stato orfano
+            print("🔄 [Git] Esecuzione git pull origin main --rebase preventivo...")
+            subprocess.run(["git", "pull", "origin", "main", "--rebase"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
             
             # Ripristiniamo le modifiche temporanee locali senza bloccare l'esecuzione dei file pronti
             subprocess.run(["git", "stash", "pop"], check=False)
@@ -76,6 +81,7 @@ def auto_push_to_github(json_file: str, md_file: str):
                 f"⚡ Auto-update {json_file}/{md_file}: {datetime.now().strftime('%H:%M:%S')}"
             ], check=True)
             
+            # 📤 Invio delle modifiche al repository remoto su branch main
             print("📤 [Git] Invio delle modifiche al repository remoto (git push)...")
             subprocess.run(["git", "push", "origin", "main"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
             print(f"✅ [Git] Push completato con successo per {json_file} e {md_file}")
