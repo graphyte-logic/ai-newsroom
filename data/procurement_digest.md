@@ -3,35 +3,35 @@
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 
-**1. 🔴 [REGULATORY] ESAs: primo report DORA su incidenti ICT nel settore finanziario**
+**1. 🔴 [REGULATORY] ESAs: primo rapporto DORA sugli incidenti ICT nel settore finanziario**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-Le Autorità di Vigilanza Europee (EBA, EIOPA, ESMA) hanno pubblicato il primo rapporto annuale sugli incidenti ICT rilevanti nel settore finanziario UE, ai sensi del DORA. Il report evidenzia che i rischi ICT sono sempre più transfrontalieri e interconnessi, e segnala che l'evoluzione degli strumenti AI potenziati impone alle entità finanziarie un rafforzamento immediato delle misure di cybersecurity e della resilienza operativa digitale.
+Le Autorità di Vigilanza Europee (EBA, EIOPA, ESMA) hanno pubblicato il primo rapporto annuale DORA sugli incidenti ICT significativi nel settore finanziario UE. Il documento evidenzia che i rischi ICT sono sempre più transfrontalieri e interconnessi, e che l'evoluzione degli strumenti AI richiede un rafforzamento delle misure di cybersecurity. Le implicazioni per la catena di fornitura tecnologica e i fornitori terzi sono rilevanti e immediate.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/esas-publish-first-report-dora-major-ict-related-incidents)
 
-**2. 🔴 [REGULATORY] EBA aggiorna linee guida su clienti collegati: allineamento normativo UE**
+**2. 🔴 [REGULATORY] EBA aggiorna RTS sui pesi di rischio per esposizioni specializzate**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-L'EBA ha parzialmente eliminato sezioni delle proprie Linee Guida sui clienti collegati, a seguito dell'entrata in vigore di nuova legislazione UE direttamente applicabile. L'obiettivo è garantire chiarezza, coerenza e allineamento nel framework utilizzato dagli istituti di credito per identificare gruppi di clienti collegati. Le modifiche riflettono un processo di razionalizzazione normativa con impatti diretti sui processi di valutazione del rischio di controparte e sulla gestione dei fornitori strategici.
+L'EBA avvia una consultazione pubblica sulle modifiche agli RTS relativi all'assegnazione dei pesi di rischio per le esposizioni di prestito specializzato (project finance, real estate, ecc.) nell'ambito del Supervisory Slotting Criteria Approach. Le modifiche recepiscono le novità introdotte da CRR 3, migliorando la sensibilità al rischio e la chiarezza normativa. Le istituzioni finanziarie devono rivedere i propri modelli interni di valutazione del rischio creditizio e i framework di procurement associati.
+> [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-consults-amendments-rts-assignment-risk-weights-specialised-lending-exposures-under-supervisory)
+
+**3. 🔴 [REGULATORY] EBA aggiorna linee guida sui clienti connessi: allineamento normativo UE**
+└─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
+L'EBA ha eliminato parzialmente sezioni delle proprie Linee Guida sui clienti connessi, in seguito all'entrata in vigore di nuova legislazione UE direttamente applicabile. L'obiettivo è garantire chiarezza, coerenza e allineamento nel framework utilizzato dagli istituti di credito per identificare gruppi di clienti connessi. Le modifiche riducono la sovrapposizione normativa e rafforzano la certezza giuridica nel contesto della gestione del rischio di concentrazione creditizia.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-streamlines-its-guidelines-connected-clients-align-new-eu-legislation)
 
-**3. 🔴 [REGULATORY] EBA aggiorna linee guida sulla definizione di default bancario**
+**4. 🔴 [REGULATORY] EBA aggiorna linee guida sulla definizione di default bancario**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-L'EBA ha pubblicato il report finale che modifica le linee guida sulla definizione di default, introducendo aggiustamenti mirati per il factoring pro-soluto e confermando la soglia dell'1% sul valore attuale netto (NPV) nelle ristrutturazioni del debito. Le modifiche impattano direttamente i criteri prudenziali di riconoscimento del default, con implicazioni per istituti finanziari, fornitori di servizi bancari e catene di approvvigionamento finanziario regolamentato.
+L'EBA ha pubblicato il report finale che modifica le Linee Guida sulla definizione di default, introducendo aggiustamenti specifici per il factoring pro soluto e confermando la soglia dell'1% per le riduzioni del valore attuale netto (NPV) nelle ristrutturazioni del debito. Le modifiche mirano a rafforzare la coerenza prudenziale nel riconoscimento del default, con impatti diretti sulla gestione del rischio di credito e sui fornitori finanziari.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-amends-guidelines-definition-default)
 
-**4. 🔴 [REGULATORY] EBA: Linee Guida Finali sull'Indipendenza di Vigilanza Bancaria**
+**5. 🔴 [REGULATORY] EBA: Linee guida finali sull'indipendenza delle autorità di vigilanza**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-L'EBA ha pubblicato le linee guida definitive sull'indipendenza di vigilanza ai sensi della CRD. Le norme chiariscono i requisiti per le autorità competenti nella gestione dei conflitti di interesse, introducendo obblighi di dichiarazione degli interessi, restrizioni al trading di strumenti finanziari e vincoli di cooling-off per staff e organi di governance. L'impatto si estende ai processi di procurement e TPRM degli enti vigilati.
+L'EBA ha pubblicato le linee guida definitive sull'indipendenza di vigilanza ai sensi della CRD. Le disposizioni chiariscono come le autorità competenti debbano prevenire e gestire i conflitti di interesse per il personale e i membri degli organi di governance, introducendo obblighi di dichiarazione degli interessi, restrizioni al trading di strumenti finanziari e vincoli di cooling-off.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-supervisory-independence)
 
-**5. ⚡ [SIGNAL] Banche e SaaS Cloud: Trasformazione Digitale e Rischi di Governance**
+**6. ⚡ [SIGNAL] Banche e SaaS: trasformazione cloud tra AWS e Temenos**
 └─ 🌍 Ambito: *global* | Canale: *Procurement Technology* | Fonte: *Finextra Payments / Tech*
-Temenos e AWS discutono l'adozione del SaaS nel settore bancario, evidenziando come le banche scelgano tra modelli SaaS chiavi-in-mano e soluzioni cloud personalizzate. La vera barriera all'adozione non è tecnologica né regolatoria, ma culturale e organizzativa. Questo scenario impatta direttamente le strategie di approvvigionamento IT, la gestione dei fornitori critici e la conformità ai framework DORA e EBA sulle esternalizzazioni ICT.
+Temenos e AWS discutono l'adozione crescente di SaaS e cloud nelle banche. Le istituzioni finanziarie si trovano a scegliere tra soluzioni SaaS standardizzate per rapidità di adozione e architetture cloud proprietarie per differenziazione competitiva. Il vero ostacolo non è tecnologico né regolatorio, ma culturale e organizzativo. Il trend segnala una accelerazione nella concentrazione tecnologica verso pochi hyperscaler e vendor core banking, con implicazioni dirette per TPRM e DORA.
 > [🔗 Apri Documentazione Originale](https://www.finextra.com/videoarticle/3522/how-banks-are-transforming-their-business-through-saas?utm_medium=rssfinextra&utm_source=finextrafeed)
-
-**6. ⚡ [SIGNAL] Agenti AI di compliance: il rischio di compromettere l'audit trail**
-└─ 🌍 Ambito: *global* | Canale: *AI in Procurement* | Fonte: *Finextra AI*
-Gli agenti AI venduti ai team di compliance come analisti automatizzati rischiano di alterare o interrompere la catena di audit che dovrebbero proteggere. Quando un sistema agisce autonomamente — modificando record, eseguendo valutazioni, attivando flussi — genera azioni difficilmente tracciabili e verificabili. Questo crea una tensione diretta con i requisiti di DORA e EBA, che impongono trasparenza, tracciabilità e responsabilità umana nelle decisioni critiche sui fornitori e sui rischi ICT.
-> [🔗 Apri Documentazione Originale](https://www.finextra.com/blogposting/31955/an-ai-compliance-agent-that-acts-breaks-the-audit-trail-it-was-meant-to-protect?utm_medium=rssfinextra&utm_source=finextrafeed)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 *Generato autonomamente dal sistema Graphyte Workflow Engine*
