@@ -351,7 +351,7 @@
         async function fetchNews() {
             try {
                 // Forziamo il file specifico per evitare letture incrociate
-                const res = await fetch(`tech_news.json?v=${Date.now()}`);
+                const res = await fetch(`tech_news.json?t=${new Date().getTime()}`);
                 const data = await res.json();
                 const container = document.getElementById('news-container');
                 const updateText = document.getElementById('last-update');

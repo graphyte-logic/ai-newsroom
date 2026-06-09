@@ -466,7 +466,7 @@
 
         async function fetchProcurementNews() {
             try {
-                const res = await fetch('procurement_news.json?v=' + Date.now());
+                const res = await fetch(`procurement_news.json?t=${new Date().getTime()}`);
                 const data = await res.json();
                 const container = document.getElementById('news-container');
                 const updateText = document.getElementById('last-update');
