@@ -59,37 +59,39 @@ def auto_push_to_github(json_file: str, md_file: str):
     with git_lock:
         print(f"🔒 [Lock Git] Accesso esclusivo acquisito per il push di {json_file} e {md_file}")
         try:
-            # 📦 Salviamo momentaneamente eventuali modifiche locali sporche
-            print("📦 [Git] Stash preventivo delle modifiche locali...")
-            subprocess.run(["git", "stash"], check=False)
+            # 🆔 [FIX IDENTITÀ AUTORE]: Configura subito l'identità locale per l'istanza del server
+            print("🆔 [Git] Configurazione identità autore per il server...")
+            subprocess.run(["git", "config", "user.email", "bot@graphyte-newsroom.local"], check=True)
+            subprocess.run(["git", "config", "user.name", "Newsroom Bot"], check=True)
             
-            # 🔗 RECUPERO URL REMOTO: Dinamico tramite variabile d'ambiente o fallback locale
-            repo_url = os.environ.get("REPO_URL")
+            # 🔗 RECUPERO E PULIZIA URL REMOTO: Rimuove spazi, virgolette e invii a capo accidentali da Render
+            repo_url = os.environ.get("REPO_URL", "").strip().strip("'\"")
             if repo_url:
-                print(f"🔗 [Git] Rilevato URL remoto dall'ambiente: {repo_url}")
-                subprocess.run(["git", "remote", "remove", "origin"], check=False)
+                print("🔗 [Git] Rilevato URL remoto dall'ambiente. Configurazione origin...")
+                # Rimuove il vecchio origin in modo silente (evita scritte rosse di errore se non esiste)
+                subprocess.run(["git", "remote", "remove", "origin"], capture_output=True)
                 subprocess.run(["git", "remote", "add", "origin", repo_url], check=True)
             else:
                 print("🏠 [Git] Nessuna variabile REPO_URL trovata. Si utilizza l'origin locale.")
             
-            # 🌿 [FIX DETACHED HEAD]: Forza il server a posizionarsi e creare il branch locale main
-            print("🌿 [Git] Forzatura checkout su branch main...")
+            # 🔄 SCARICAMENTO CRONOLOGIA: Scarica lo stato remoto di GitHub senza spostare l'indice locale
+            print("🔄 [Git] Esecuzione git fetch origin main...")
+            subprocess.run(["git", "fetch", "origin", "main"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
+            
+            # 🌿 [FIX DETACHED HEAD]: Sgancia l'ambiente dal commit fantasma e lo ancora al branch main di GitHub
+            # Mantiene intatti e non modificati i file JSON/MD appena scritti nella cartella locale
+            print("🌿 [Git] Forzatura checkout e allineamento controllato su branch main...")
             subprocess.run(["git", "checkout", "-B", "main"], check=True)
+            subprocess.run(["git", "reset", "--mixed", "origin/main"], check=True)
             
-            # 🔄 Eseguiamo il pull specificando esattamente l'origine e il branch
-            print("🔄 [Git] Esecuzione git pull origin main --rebase preventivo...")
-            subprocess.run(["git", "pull", "origin", "main", "--rebase"], check=True, env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
-            
-            # Ripristiniamo le modifiche temporanee locali
-            subprocess.run(["git", "stash", "pop"], check=False)
-            
-            # Forza l'aggiunta dei nuovi file generati all'area di staging
+            # Forza l'aggiunta dei file appena generati all'area di staging
             subprocess.run(["git", "add", json_file, md_file], check=True)
             
-            # 🆔 [FIX IDENTITÀ AUTORE]: Configura l'identità locale per l'istanza del server
-            print("🆔 [Git] Configurazione identità autore temporanea per il server...")
-            subprocess.run(["git", "config", "user.email", "bot@graphyte-newsroom.local"], check=True)
-            subprocess.run(["git", "config", "user.name", "Newsroom Bot"], check=True)
+            # 🔍 VERIFICA MODIFICHE REALI: Evita commit vuoti se Claude produce gli stessi identici risultati
+            status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
+            if not status.stdout.strip():
+                print("💤 [Git] Nessuna reale variazione di dati rispetto a GitHub. Salto il push.")
+                return
             
             # Esecuzione del commit sicuro con timestamp aggiornato
             print("📝 [Git] Creazione del commit automatico...")
@@ -161,7 +163,7 @@ def background_refresh_task(category: str):
     """Esegue l'aggiornamento asincrono lanciato dalle API REST"""
     try:
         GLOBAL_STATUS[category]["running"] = True
-        GLOBAL_STATUS[category]["message"] = "Analisi fonti e generazione riassunti AI in corso..."
+        GLOBAL_STATUS[category]["message"] = "Analisi fontes e generazione riassunti AI in corso..."
         GLOBAL_STATUS[category]["updated_at"] = None
         
         esegui_workflow_news(category)
@@ -211,8 +213,6 @@ def trigger_refresh(category: str, background_tasks: BackgroundTasks):
 # ==============================================================================
 # 📁 MOUNT FILE STATICI (FRONTEND & DATABASE JSON)
 # ==============================================================================
-# Mappando la directory radice su "/" con html=True, permettiamo l'uso corretto 
-# dei percorsi relativi sia localmente che nel cloud di Render.
 app.mount("/", StaticFiles(directory=".", html=True), name="static")
 
 
