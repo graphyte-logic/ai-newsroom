@@ -1,41 +1,42 @@
 # 📊 Executive Intelligence Digest — Canale TECH
-*Ecosistema informativo Graphyte Logic — Report del 08/06/2026*
+*Ecosistema informativo Graphyte Logic — Report del 13/06/2026*
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 
-**1. ⚡ [SIGNAL] Agent Retrieval Above the Crossover: A First-Principles Read of CodeGraph**
+**1. ⚡ [SIGNAL] I Tested GLM-4 Plus and DeepSeek V4 Side by Side — Here's the Truth**
 └─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
 YES
 
-L'articolo analizza come CodeGraph soddisfa i requisiti critici per l'ottimizzazione del recupero simbolico in sistemi LLM, risolvendo il problema del costo computazionale.
-> [🔗 Apri Documentazione Originale](https://dev.to/harrisonsec/agent-retrieval-above-the-crossover-a-first-principles-read-of-codegraph-1gd7)
+Un ingegnere riduce i costi operativi del 95% migrando da GPT-4o a GLM-4 Plus e DeepSeek V4 mantenendo prestazioni equivalenti.
+> [🔗 Apri Documentazione Originale](https://dev.to/fiercedash/i-tested-glm-4-plus-and-deepseek-v4-side-by-side-heres-the-truth-54di)
 
-**2. ⚡ [SIGNAL] 🚀 Build a Fully Local AI Agent with Hermes Agent, Ollama, Qwen 3.5, and SearXNG (100% Private & $0 Cost)**
+**2. ⚡ [SIGNAL] Three prompt injection stories from this week that your guardrail probably missed**
 └─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
-Questo articolo illustra come costruire un agente AI completamente locale utilizzando modelli open-source senza dipendenze da servizi cloud commerciali.
-> [🔗 Apri Documentazione Originale](https://dev.to/vivek_shetye/build-a-fully-local-ai-agent-with-hermes-agent-ollama-qwen-35-and-searxng-100-private-0-568d)
+I need to evaluate whether this article is strictly about Artificial Intelligence, Generative AI, LLMs, hardware accelerators, or closely related AI infrastructure.
 
-**3. ⚡ [SIGNAL] Beyond the Prompt: Building Self-Evolving AI Agents for Deep Research and CI/CD Automation**
+The article discusses:
+- Prompt injection attacks against AI systems (Cursor)
+- LiteLLM supply-chain vulnerabilities
+- Image-based prompt injection attacks
+- AI agent security and guardrails
+- LLM safety and production deployment
+
+**YES** - This article is strictly about AI/LLM security and infrastructure.
+
+**Italian summary:**
+
+Gli attacchi di prompt
+> [🔗 Apri Documentazione Originale](https://dev.to/oraclestech/three-prompt-injection-stories-from-this-week-that-your-guardrail-probably-missed-2iil)
+
+**3. ⚡ [SIGNAL] Review: Spellar 3.0 - AI Meeting companion with cross-meeting memory**
 └─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
-YES
+Spellar 3.0 utilizza memoria cross-meeting con modelli AI selezionabili per trasformare la gestione delle riunioni aziendali attraverso contesto persistente.
+> [🔗 Apri Documentazione Originale](https://dev.to/ai-tool-hunter/review-spellar-30-ai-meeting-companion-with-cross-meeting-memory-1lk0)
 
-Gli agenti AI autonomi con capacità di auto-evoluzione superano i limiti dei prompt singoli, abilitando automazione complessa in ricerca e CI/CD.
-> [🔗 Apri Documentazione Originale](https://dev.to/programmingcentral/beyond-the-prompt-building-self-evolving-ai-agents-for-deep-research-and-cicd-automation-1gn0)
-
-**4. ⚡ [SIGNAL] Mina Meeting Assistant Guide: How to Use It, Best Prompts & Use Cases (2026)**
+**4. ⚡ [SIGNAL] I Built a Nigerian AI That Does SEO Audits and Writes Code — Here's the Stack**
 └─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
-Mina Meeting Assistant è un'IA conversazionale che partecipa attivamente alle riunioni virtuali, eseguendo compiti e integrando strumenti in tempo reale.
-> [🔗 Apri Documentazione Originale](https://dev.to/maestro_morty_cc62e2c85ae/mina-meeting-assistant-guide-how-to-use-it-best-prompts-use-cases-2026-477m)
-
-**5. ⚡ [SIGNAL] What Apple's WWDC Just Taught Us About AI Model Routing**
-└─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
-Apple ha scelto di integrare modelli IA esterni anziché costruire il proprio, prioritizzando l'orchestrazione rispetto al controllo della tecnologia.
-> [🔗 Apri Documentazione Originale](https://dev.to/aplomb2/what-apples-wwdc-just-taught-us-about-ai-model-routing-22p6)
-
-**6. ⚡ [SIGNAL] Apple reveals new AI architecture built around Google Gemini models**
-└─ 🌍 Ambito: *global* | Canale: *Core Tech* | Fonte: *HackerNews*
-Apple ha integrato i modelli Gemini di Google nella sua nuova architettura AI, ampliando le capacità di intelligenza artificiale sui dispositivi.
-> [🔗 Apri Documentazione Originale](https://www.macrumors.com/2026/06/08/apple-reveals-new-ai-architecture/)
+L'articolo descrive un assistente AI open-source nigeriano che integra ricerca web, ragionamento avanzato e generazione di codice senza richiedere registrazione.
+> [🔗 Apri Documentazione Originale](https://dev.to/anointed_6b54581b93b80677/i-built-a-nigerian-ai-that-does-seo-audits-and-writes-code-heres-the-stack-4c3c)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 *Generato autonomamente dal sistema Graphyte Workflow Engine*
