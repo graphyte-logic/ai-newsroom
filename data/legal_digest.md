@@ -5,48 +5,50 @@
 
 **1. 🔴 [REGULATORY] ESAs publish the first report on DORA major ICT-related incidents**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-Le autorità europee pubblicano il primo rapporto annuale sugli incidenti ICT nel settore finanziario secondo il regolamento DORA.
+Le Autorità di Vigilanza Europee pubblicano il primo rapporto annuale sugli incidenti ICT nel settore finanziario secondo DORA.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/esas-publish-first-report-dora-major-ict-related-incidents)
 
 **2. 🔴 [REGULATORY] The EBA consults on amendments to the RTS on the assignment of risk weights to specialised lending exposures under the Supervisory Slotting Criteria Approach**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-This article IS related to regulatory updates and consultation papers relevant to banking/tech regulation.
+This article IS related to regulatory updates and consultation papers relevant to banking/financial regulation.
 
 **Italian Summary:**
 
-L'EBA consulta emendamenti sui criteri di ponderazione del rischio per esposizioni di prestiti specializzati secondo l'approccio SSCA.
+L'EBA aggiorna i criteri di ponderazione del rischio per esposizioni creditizie specializzate secondo il nuovo quadro normativo CRR3.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-consults-amendments-rts-assignment-risk-weights-specialised-lending-exposures-under-supervisory)
 
 **3. 🔴 [REGULATORY] The EBA amends Guidelines on the definition of default**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-This article IS related to regulatory updates - specifically EBA Guidelines on default definitions, which are relevant to banking regulatory compliance frameworks.
+This article covers regulatory updates relevant to banking and financial regulation.
 
-**SINGLE SENTENCE SUMMARY IN ITALIAN:**
+**Single impactful summary in Italian (max 25 words):**
 
-L'EBA modifica le linee guida sulla definizione di insolvenza per chiarire il trattamento prudenziale del factoring non recourse e conferma la soglia NPV dell'1%.
+L'EBA modifica le linee guida sulla definizione di insolvenza, chiarendo il factoring non ricorsivo e confermando la soglia NPV dell'1% per la ristrutturazione del debito.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-amends-guidelines-definition-default)
 
 **4. 🔴 [REGULATORY] The EBA publishes its final Guidelines on supervisory independence**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-This article covers regulatory updates relevant to banking supervision and governance compliance under CRD framework.
+This article IS related to regulatory updates and legislative frameworks applied to banking.
 
-**APPROVED**
+**Italian Summary (max 25 words):**
 
-L'EBA stabilisce linee guida finali sull'indipendenza dei supervisori bancari per prevenire conflitti di interesse del personale e dei vertici.
+L'EBA pubblica linee guida finali sull'indipendenza dei supervisori bancari, disciplinando conflitti d'interesse, dichiarazioni patrimoniali e limitazioni commerciali.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-supervisory-independence)
 
 **5. 🔴 [REGULATORY] ​The EBA launches early consultation on simplified EU-wide stress test, with climate risk integration**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-This article covers regulatory updates and consultation papers from the EBA (European Banking Authority), which are directly relevant to banking regulation and compliance frameworks.
-
 **ACCEPT**
 
-L'EBA introduce metodologie semplificate per lo stress test 2027 integrando rischi climatici e armonizzando i requisiti di reporting prudenziale.
+L'EBA integra rischi climatici nelle prove di stress bancarie 2027, semplificando requisiti dati e allineando la reportistica supervisoria armonizzata.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-launches-early-consultation-simplified-eu-wide-stress-test-climate-risk-integration)
 
 **6. 🔴 [REGULATORY] The EBA issues an opinion about an Austrian macroprudential measure**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-L'EBA autorizza l'Austria ad aumentare il buffer di rischio sistemico sui mutui immobiliari commerciali oltre il 5% per banche rilevanti.
+This article covers a regulatory update regarding macroprudential banking measures and systemic risk buffers under EU banking law framework.
+
+**ACCEPT**
+
+L'EBA fornisce parere sulla misura macroprudenziale austriaca di aumento del buffer di rischio sistemico per il mercato immobiliare commerciale.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-issues-opinion-about-austrian-macroprudential-measure)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
