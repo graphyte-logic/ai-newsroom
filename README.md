@@ -27,7 +27,7 @@ Open the web interface to view live analyses and request manual on-demand update
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-newsroom.git
+git clone [https://github.com/YOUR_USERNAME/ai-newsroom.git](https://github.com/YOUR_USERNAME/ai-newsroom.git)
 cd ai-newsroom
 python -m venv venv
 source venv/bin/activate  # macOS/Linux
@@ -47,7 +47,6 @@ cp .env.example .env
 Edit `.env` and configure:
 ```env
 ANTHROPIC_API_KEY=sk-ant-your-key-here
-DATABASE_URL=postgresql://user:pass@host/dbname
 ```
 
 ### 3. Run Locally
