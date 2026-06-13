@@ -1,27 +1,36 @@
 [
     {
-        "title": "AI Readiness Isn't About Prompts. It's About Real Work.",
-        "url": "https://dev.to/parampreet_singh_1d40dcd6/ai-readiness-isnt-about-prompts-its-about-real-work-d6c",
+        "title": "A Pulled KPMG AI Report Puts Its Trust Pitch on Trial",
+        "url": "https://dev.to/xoomar/a-pulled-kpmg-ai-report-puts-its-trust-pitch-on-trial-51j6",
         "source": "Dev.to AI",
-        "summary": "La valutazione della competenza AI richiede test pratici su veri compiti di ingegneria, non solo quiz teorici su prompt e modelli.",
+        "summary": "YES\n\nLa credibilità dei consulenti AI dipende dalla trasparenza dei loro controlli di qualità su sistemi generativi per garantire affidabilità cliente.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Three prompt injection stories from this week that your guardrail probably missed",
-        "url": "https://dev.to/oraclestech/three-prompt-injection-stories-from-this-week-that-your-guardrail-probably-missed-2iil",
+        "title": "I Ran Kimi Against GPT-4 for a Week — Here's What Happened",
+        "url": "https://dev.to/rarenode/i-ran-kimi-against-gpt-4-for-a-week-heres-what-happened-23ck",
         "source": "Dev.to AI",
-        "summary": "Gli attacchi di prompt injection rappresentano una minaccia critica per gli agenti AI in produzione, richiedendo difese più sofisticate.",
+        "summary": "This article is about comparing LLM performance and costs (Kimi vs GPT-4), which is directly about Artificial Intelligence and Large Language Models.\n\nL'autore ha testato Kimi come alternativa a GPT-4 per ridurre i costi operativi dell'elaborazione testuale nell'IA generativa.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Review: Spellar 3.0 - AI Meeting companion with cross-meeting memory",
-        "url": "https://dev.to/ai-tool-hunter/review-spellar-30-ai-meeting-companion-with-cross-meeting-memory-1lk0",
+        "title": "Your First AI Pilot Should Be More Boring Than You Want",
+        "url": "https://dev.to/alexander_iwizard/your-first-ai-pilot-should-be-more-boring-than-you-want-3a7c",
         "source": "Dev.to AI",
-        "summary": "Spellar 3.0 utilizza modelli AI (OpenAI, Anthropic) per creare memoria cross-meeting intelligente che risolve problemi di tracciamento conversazionale.",
+        "summary": "YES\n\nIl primo pilot AI deve essere noioso per garantire successo: ambizioni limitate prevengono fallimenti e assicurano implementazione pratica e sostenibile.",
+        "geo": "global",
+        "signal_type": "trend",
+        "sub_category": "AI Development"
+    },
+    {
+        "title": "Prompt engineering for non-developers",
+        "url": "https://dev.to/eternalsix/prompt-engineering-for-non-developers-4f05",
+        "source": "Dev.to AI",
+        "summary": "YES\n\nL'ingegneria dei prompt efficace richiede semplicità e chiarezza, non verbosità eccessiva, democratizzando l'accesso all'IA per i non sviluppatori.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
