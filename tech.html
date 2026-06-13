@@ -21,9 +21,8 @@
             --text-secondary: #94a3b8;
         }
 
-        * {
+        *, *::before, *::after {
             box-sizing: border-box;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         body {
@@ -53,6 +52,8 @@
             border-radius: 8px;
             background: rgba(0, 242, 254, 0.05);
             border: 1px solid rgba(0, 242, 254, 0.1);
+            transition: background 0.25s ease, color 0.25s ease,
+                        border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
         }
 
         .nav-back:hover {
@@ -121,6 +122,9 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            font-family: 'Outfit', sans-serif;
+            transition: background 0.25s ease, color 0.25s ease,
+                        border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
         }
 
         .btn-refresh:hover:not(:disabled) {
@@ -157,6 +161,7 @@
             min-height: 260px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .card::before {
@@ -220,6 +225,7 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
         }
 
         .read-more:hover { 
@@ -227,7 +233,24 @@
             text-shadow: 0 0 8px var(--tech-color);
         }
 
-        /* Spinner */
+        /* Focus visible */
+        .nav-back:focus-visible,
+        .btn-refresh:focus-visible {
+            outline: 2px solid var(--tech-color);
+            outline-offset: 3px;
+        }
+
+        .card:focus-visible {
+            outline: 2px solid var(--tech-color);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pulse-dot { animation: none; opacity: 1; }
+            .spinner { animation: none; }
+        }
+
+        @media (max-width: 768px) {
         .spinner {
             width: 18px;
             height: 18px;
@@ -265,19 +288,19 @@
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="nav-back">&larr; Torna all'Hub</a>
+        <a href="index.html" class="nav-back" aria-label="Torna all'Hub principale">&larr; Torna all'Hub</a>
         
         <div class="header">
             <div>
-                <h1>🌐 Tech & AI Intelligence</h1>
+                <h1>Tech & AI Intelligence</h1>
                 <div id="refresh-status">
-                    <span class="pulse-dot"></span>
+                    <span class="pulse-dot" aria-hidden="true"></span>
                     <span>Sorgenti monitorate in tempo reale</span>
                 </div>
                 <div id="last-update"></div>
             </div>
-            <button id="btn-refresh" class="btn-refresh" onclick="refreshData('tech')">
-                <span class="spinner" id="btn-spinner"></span>
+            <button id="btn-refresh" class="btn-refresh" onclick="refreshData('tech')" aria-label="Avvia aggiornamento manuale Tech & AI">
+                <span class="spinner" id="btn-spinner" aria-hidden="true"></span>
                 <span id="btn-text">Aggiorna Ora</span>
             </button>
         </div>
@@ -286,6 +309,12 @@
     </div>
 
     <script>
+        function safeUrl(url) {
+            if (!url) return '#';
+            const u = String(url).trim();
+            return (u.startsWith('http://') || u.startsWith('https://')) ? u : '#';
+        }
+
         function escapeHTML(str) {
             if (!str) return '';
             return String(str).replace(/[&<>'"]/g, match => {
@@ -375,7 +404,7 @@
                         </div>
                         <div class="meta-info">
                             <span class="source-badge">🌐 ${escapeHTML(n.source || 'Tech Source')}</span>
-                            <a href="${escapeHTML(n.url)}" target="_blank" class="read-more">Leggi di più &rarr;</a>
+                            <a href="${safeUrl(n.url)}" target="_blank" rel="noopener noreferrer" class="read-more">Leggi di più &rarr;</a>
                         </div>
                     </div>
                 `).join('');

@@ -22,9 +22,8 @@
             --procurement-glow: rgba(16, 185, 129, 0.15);
         }
 
-        * {
+        *, *::before, *::after {
             box-sizing: border-box;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         body {
@@ -134,7 +133,10 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
-            height: 380px;
+            min-height: 340px;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                        box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                        border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .hub-card::before {
@@ -223,6 +225,8 @@
             align-items: center;
             gap: 8px;
             width: fit-content;
+            transition: background 0.25s ease, color 0.25s ease,
+                        border-color 0.25s ease, box-shadow 0.25s ease;
         }
 
         .hub-card:hover .btn-enter {
@@ -276,6 +280,53 @@
             }
         }
 
+        /* Focus visible per navigazione da tastiera */
+        .hub-card:focus-visible {
+            outline: 2px solid rgba(255, 255, 255, 0.45);
+            outline-offset: 4px;
+        }
+
+        .hub-card.tech:focus-visible  { outline-color: var(--tech-color); }
+        .hub-card.legal:focus-visible  { outline-color: var(--legal-color); }
+        .hub-card.procurement:focus-visible { outline-color: var(--procurement-color); }
+
+        /* Badge contatore articoli */
+        .card-header {
+            position: relative;
+        }
+
+        .article-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #94a3b8;
+            padding: 4px 10px;
+            display: none; /* mostrato via JS quando il dato è disponibile */
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        .hub-card.tech:hover .article-badge    { background: rgba(0, 242, 254, 0.1); color: var(--tech-color); border-color: rgba(0, 242, 254, 0.2); }
+        .hub-card.legal:hover .article-badge   { background: rgba(246, 211, 101, 0.1); color: var(--legal-color); border-color: rgba(246, 211, 101, 0.2); }
+        .hub-card.procurement:hover .article-badge { background: rgba(16, 185, 129, 0.1); color: var(--procurement-color); border-color: rgba(16, 185, 129, 0.2); }
+
+        /* Ultimo aggiornamento */
+        .last-update {
+            font-size: 0.72rem;
+            color: #64748b;
+            margin-top: 8px;
+            display: none;
+            font-weight: 400;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .header, .grid { animation: none; }
+        }
+
         @media (max-width: 640px) {
             .header h1 {
                 font-size: 2.2rem;
@@ -287,8 +338,7 @@
                 gap: 20px;
             }
             .hub-card {
-                height: auto;
-                min-height: 320px;
+                min-height: 280px;
             }
         }
     </style>
@@ -302,40 +352,88 @@
 
     <div class="container">
         <div class="header">
-            <img src="https://github.com/graphyte-logic.png" width="90" height="90" alt="Graphyte Logo">
+            <img src="https://github.com/graphyte-logic.png"
+                 width="90" height="90" alt="Graphyte Logo"
+                 loading="lazy"
+                 onerror="this.onerror=null; this.src='assets/logo.png'; this.style.background='rgba(255,255,255,0.05)'">
             <h1>Graphyte AI Intelligence Hub</h1>
             <p>Ecosistema di monitoraggio ed elaborazione predittiva delle informazioni per l'intelligence aziendale strategica.</p>
         </div>
 
         <div class="grid">
-            <a href="tech.html" class="hub-card tech">
-                <div>
+            <a href="tech.html" class="hub-card tech" aria-label="Vai alla stanza Tech & AI News">
+                <div class="card-header">
+                    <span class="article-badge" id="badge-tech">— articoli</span>
                     <span class="card-icon">🌐</span>
                     <h2>Tech & AI News</h2>
                     <p>Monitoraggio continuo su intelligenza artificiale, sviluppo software, innovazioni tecnologiche di frontiera e trend globali.</p>
+                    <span class="last-update" id="update-tech"></span>
                 </div>
                 <div class="btn-enter">Entra nella Stanza &rarr;</div>
             </a>
 
-            <a href="legal.html" class="hub-card legal">
-                <div>
+            <a href="legal.html" class="hub-card legal" aria-label="Vai alla stanza Legal & Diritto">
+                <div class="card-header">
+                    <span class="article-badge" id="badge-legal">— articoli</span>
                     <span class="card-icon">⚖️</span>
                     <h2>Legal & Diritto</h2>
                     <p>Analisi delle regolamentazioni digitali, privacy, cybersecurity, sentenze dei tribunali ed evoluzioni legislative per il tech.</p>
+                    <span class="last-update" id="update-legal"></span>
                 </div>
                 <div class="btn-enter">Entra nella Stanza &rarr;</div>
             </a>
 
-            <a href="procurement.html" class="hub-card procurement">
-                <div>
+            <a href="procurement.html" class="hub-card procurement" aria-label="Vai alla stanza Procurement & Compliance">
+                <div class="card-header">
+                    <span class="article-badge" id="badge-procurement">— articoli</span>
                     <span class="card-icon">🏛️</span>
                     <h2>Procurement & Compliance</h2>
                     <p>Reportistica ed alert su linee guida EBA, conformità DORA, gestione del rischio terze parti (TPRM) e continuità operativa.</p>
+                    <span class="last-update" id="update-procurement"></span>
                 </div>
                 <div class="btn-enter">Entra nella Stanza &rarr;</div>
             </a>
         </div>
     </div>
+    <script>
+        // Carica contatori articoli e ultimo aggiornamento dai JSON delle stanze
+        const channels = [
+            { id: 'tech',        file: 'tech_news.json',        badge: 'badge-tech',        update: 'update-tech' },
+            { id: 'legal',       file: 'legal_news.json',       badge: 'badge-legal',       update: 'update-legal' },
+            { id: 'procurement', file: 'procurement_news.json', badge: 'badge-procurement', update: 'update-procurement' },
+        ];
 
+        channels.forEach(({ file, badge, update }) => {
+            fetch(`${file}?t=${Date.now()}`)
+                .then(r => r.ok ? r.json() : null)
+                .then(data => {
+                    if (!data) return;
+                    const items = Array.isArray(data) ? data : (data.articles || data.news || []);
+                    if (!items.length) return;
+
+                    // Badge contatore
+                    const badgeEl = document.getElementById(badge);
+                    if (badgeEl) {
+                        badgeEl.textContent = `${items.length} articol${items.length === 1 ? 'o' : 'i'}`;
+                        badgeEl.style.display = 'inline-block';
+                    }
+
+                    // Ultimo aggiornamento: cerca campo data nel primo elemento
+                    const first = items[0];
+                    const rawDate = first?.date || first?.published || first?.timestamp || first?.updated_at;
+                    if (rawDate) {
+                        const d = new Date(rawDate);
+                        if (!isNaN(d)) {
+                            const updateEl = document.getElementById(update);
+                            if (updateEl) {
+                                updateEl.textContent = `Aggiornato: ${d.toLocaleDateString('it-IT', { day: '2-digit', month: 'short' })} ${d.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}`;
+                                updateEl.style.display = 'block';
+                            }
+                        }
+                    }
+                })
+                .catch(() => {}); // silenzioso se i file non esistono
+        });
+    </script>
 </body>
 </html>
