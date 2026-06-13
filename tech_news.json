@@ -1,9 +1,9 @@
 [
     {
-        "title": "I Tested GLM-4 Plus and DeepSeek V4 Side by Side — Here's the Truth",
-        "url": "https://dev.to/fiercedash/i-tested-glm-4-plus-and-deepseek-v4-side-by-side-heres-the-truth-54di",
+        "title": "AI Readiness Isn't About Prompts. It's About Real Work.",
+        "url": "https://dev.to/parampreet_singh_1d40dcd6/ai-readiness-isnt-about-prompts-its-about-real-work-d6c",
         "source": "Dev.to AI",
-        "summary": "YES\n\nUn ingegnere riduce i costi operativi del 95% migrando da GPT-4o a GLM-4 Plus e DeepSeek V4 mantenendo prestazioni equivalenti.",
+        "summary": "La valutazione della competenza AI richiede test pratici su veri compiti di ingegneria, non solo quiz teorici su prompt e modelli.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
@@ -12,7 +12,7 @@
         "title": "Three prompt injection stories from this week that your guardrail probably missed",
         "url": "https://dev.to/oraclestech/three-prompt-injection-stories-from-this-week-that-your-guardrail-probably-missed-2iil",
         "source": "Dev.to AI",
-        "summary": "I need to evaluate whether this article is strictly about Artificial Intelligence, Generative AI, LLMs, hardware accelerators, or closely related AI infrastructure.\n\nThe article discusses:\n- Prompt injection attacks against AI systems (Cursor)\n- LiteLLM supply-chain vulnerabilities\n- Image-based prompt injection attacks\n- AI agent security and guardrails\n- LLM safety and production deployment\n\n**YES** - This article is strictly about AI/LLM security and infrastructure.\n\n**Italian summary:**\n\nGli attacchi di prompt",
+        "summary": "Gli attacchi di prompt injection rappresentano una minaccia critica per gli agenti AI in produzione, richiedendo difese più sofisticate.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
@@ -21,16 +21,7 @@
         "title": "Review: Spellar 3.0 - AI Meeting companion with cross-meeting memory",
         "url": "https://dev.to/ai-tool-hunter/review-spellar-30-ai-meeting-companion-with-cross-meeting-memory-1lk0",
         "source": "Dev.to AI",
-        "summary": "Spellar 3.0 utilizza memoria cross-meeting con modelli AI selezionabili per trasformare la gestione delle riunioni aziendali attraverso contesto persistente.",
-        "geo": "global",
-        "signal_type": "trend",
-        "sub_category": "AI Development"
-    },
-    {
-        "title": "I Built a Nigerian AI That Does SEO Audits and Writes Code — Here's the Stack",
-        "url": "https://dev.to/anointed_6b54581b93b80677/i-built-a-nigerian-ai-that-does-seo-audits-and-writes-code-heres-the-stack-4c3c",
-        "source": "Dev.to AI",
-        "summary": "L'articolo descrive un assistente AI open-source nigeriano che integra ricerca web, ragionamento avanzato e generazione di codice senza richiedere registrazione.",
+        "summary": "Spellar 3.0 utilizza modelli AI (OpenAI, Anthropic) per creare memoria cross-meeting intelligente che risolve problemi di tracciamento conversazionale.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
