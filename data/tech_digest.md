@@ -1,35 +1,38 @@
 # 📊 Executive Intelligence Digest — Canale TECH
-*Ecosistema informativo Graphyte Logic — Report del 13/06/2026*
+*Ecosistema informativo Graphyte Logic — Report del 15/06/2026*
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 
-**1. ⚡ [SIGNAL] A Pulled KPMG AI Report Puts Its Trust Pitch on Trial**
+**1. ⚡ [SIGNAL] How to Make AI Skill Quality Measurable? Benchmark-Driven Evaluation Framework Design**
 └─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
 YES
 
-La credibilità dei consulenti AI dipende dalla trasparenza dei loro controlli di qualità su sistemi generativi per garantire affidabilità cliente.
-> [🔗 Apri Documentazione Originale](https://dev.to/xoomar/a-pulled-kpmg-ai-report-puts-its-trust-pitch-on-trial-51j6)
+La misurazione quantitativa delle competenze AI tramite benchmark standardizzati abilita il rilevamento delle regressioni e migliora la qualità iterativa dei sistemi.
+> [🔗 Apri Documentazione Originale](https://dev.to/wonderlab/how-to-make-ai-skill-quality-measurable-benchmark-driven-evaluation-framework-design-2728)
 
-**2. ⚡ [SIGNAL] I Ran Kimi Against GPT-4 for a Week — Here's What Happened**
-└─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
-This article is about comparing LLM performance and costs (Kimi vs GPT-4), which is directly about Artificial Intelligence and Large Language Models.
+**2. ⚡ [SIGNAL] Rio de Janeiro's "homegrown" LLM appears to be a merge of an existing model**
+└─ 🌍 Ambito: *global* | Canale: *Core Tech* | Fonte: *HackerNews*
+Un modello linguistico brasiliano presentato come innovazione locale si rivela essere una fusione di modelli esistenti, sollevando questioni di originalità.
+> [🔗 Apri Documentazione Originale](https://github.com/nex-agi/Nex-N2/issues/4)
 
-L'autore ha testato Kimi come alternativa a GPT-4 per ridurre i costi operativi dell'elaborazione testuale nell'IA generativa.
-> [🔗 Apri Documentazione Originale](https://dev.to/rarenode/i-ran-kimi-against-gpt-4-for-a-week-heres-what-happened-23ck)
-
-**3. ⚡ [SIGNAL] Your First AI Pilot Should Be More Boring Than You Want**
+**3. ⚡ [SIGNAL] Anthropic Proposed a Global AI Pause. $7.6 Trillion in Committed Infrastructure Makes It Nearly Impossible. Here Is What That Tension Means.**
 └─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
 YES
 
-Il primo pilot AI deve essere noioso per garantire successo: ambizioni limitate prevengono fallimenti e assicurano implementazione pratica e sostenibile.
-> [🔗 Apri Documentazione Originale](https://dev.to/alexander_iwizard/your-first-ai-pilot-should-be-more-boring-than-you-want-3a7c)
+La proposta di pausa globale sull'IA di Anthropic contrasta con gli investimenti infrastrutturali massivi da 7,6 trilioni di dollari nel settore.
+> [🔗 Apri Documentazione Originale](https://dev.to/marcom/anthropic-proposed-a-global-ai-pause-76-trillion-in-committed-infrastructure-makes-it-nearly-4h02)
 
-**4. ⚡ [SIGNAL] Prompt engineering for non-developers**
+**4. ⚡ [SIGNAL] Giving an AI agent live prediction-market data with an MCP server**
 └─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
 YES
 
-L'ingegneria dei prompt efficace richiede semplicità e chiarezza, non verbosità eccessiva, democratizzando l'accesso all'IA per i non sviluppatori.
-> [🔗 Apri Documentazione Originale](https://dev.to/eternalsix/prompt-engineering-for-non-developers-4f05)
+Il Model Context Protocol permette agli agenti AI di accedere a dati real-time durante il ragionamento, risolvendo il problema cruciale dell'obsolescenza informativa nei modelli linguistici.
+> [🔗 Apri Documentazione Originale](https://dev.to/larry_johnson_e014cef9ad9/giving-an-ai-agent-live-prediction-market-data-with-an-mcp-server-40kd)
+
+**5. ⚡ [SIGNAL] What is AEO (Answer Engine Optimization)? A plain-English guide for businesses**
+└─ 🌍 Ambito: *global* | Canale: *AI Development* | Fonte: *Dev.to AI*
+L'ottimizzazione dei contenuti per i sistemi AI trasforma la visibilità digitale, spostando il valore dalla ricerca tradizionale alle citazioni dirette negli agenti intelligenti.
+> [🔗 Apri Documentazione Originale](https://dev.to/bitsaga/what-is-aeo-answer-engine-optimization-a-plain-english-guide-for-businesses-176p)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 *Generato autonomamente dal sistema Graphyte Workflow Engine*
