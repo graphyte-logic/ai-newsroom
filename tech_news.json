@@ -1,54 +1,45 @@
 [
     {
-        "title": "EU AI Act: The 2 August 2026 Deadline Builders Must Plan For",
-        "url": "https://dev.to/rishi_kora/eu-ai-act-the-2-august-2026-deadline-builders-must-plan-for-dbp",
-        "source": "Dev.to AI",
-        "summary": "Il 2 agosto 2026 segna l'applicazione totale dell'AI Act europeo, vincolando fornitori e sviluppatori globali di sistemi di intelligenza artificiale.",
-        "geo": "global",
-        "signal_type": "trend",
-        "sub_category": "AI Development"
-    },
-    {
         "title": "The Complete Open-Source LLM Developer Curriculum (Beginner to Production)",
         "url": "https://dev.to/ruhaankumar2013debug/the-complete-open-source-llm-developer-curriculum-beginner-to-production-2ld4",
         "source": "Dev.to AI",
-        "summary": "Questo curriculum open-source insegna a sviluppatori come costruire applicazioni pratiche con modelli linguistici di grandi dimensioni dalla teoria alla produzione.",
+        "summary": "Questo curriculum open-source democratizza lo sviluppo di LLM insegnando pratiche produttive oltre le API, colmando il divario tra teoria e implementazione.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Twinfolio: deploy your own AI portfolio that answers as you",
-        "url": "https://dev.to/darrenhead/twinfolio-deploy-your-own-ai-portfolio-that-answers-as-you-4ila",
+        "title": "Self-Hosting LiteLLM in 2026: The OpenRouter Alternative You Own",
+        "url": "https://dev.to/vikasprogrammer/self-hosting-litellm-in-2026-the-openrouter-alternative-you-own-32hc",
         "source": "Dev.to AI",
-        "summary": "YES\n\nTwinfolio rappresenta un'innovazione nel personale branding tramite AI, permettendo agli utenti di creare gemelli digitali che rispondono come loro stessi con citazioni verificate.",
+        "summary": "YES\n\nLiteLLM offre un gateway open-source per gestire modelli LLM senza intermediari, riducendo costi e mantenendo il controllo completo dei dati aziendali.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Automated Content Creation — rendereelstudio.ai Jun 2026",
-        "url": "https://dev.to/nirasynthcae26/automated-content-creation-rendereelstudioai-jun-2026-28mo",
+        "title": "Automated Video Creation Software — rendereelstudio.ai Jun 2026",
+        "url": "https://dev.to/nirasynthcae26/automated-video-creation-software-rendereelstudioai-jun-2026-2l6g",
         "source": "Dev.to AI",
-        "summary": "L'intelligenza artificiale per la generazione video automatizzata rivoluziona la creazione di contenuti professionali, eliminando vincoli temporali e qualitativi tradizionali.",
+        "summary": "Il software di creazione video automatizzata utilizza AI generativa per produrre contenuti professionali senza intervento manuale, democratizzando la produzione videomaking.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
         "title": "Text To Video Ai Tools Comparison — rendereelstudio.ai Jun 2026",
-        "url": "https://dev.to/nirasynthcae26/text-to-video-ai-tools-comparison-rendereelstudioai-jun-2026-5aca",
+        "url": "https://dev.to/nirasynthcae26/text-to-video-ai-tools-comparison-rendereelstudioai-jun-2026-487l",
         "source": "Dev.to AI",
-        "summary": "Questo articolo analizza strumenti di intelligenza artificiale generativa per la conversione da testo a video, confrontando soluzioni professionali e ottimizzazioni di rendering.",
+        "summary": "Questo articolo analizza strumenti di generazione video basati su intelligenza artificiale, confrontando soluzioni di sintesi video da testo.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "I built a macOS notch workspace for local AI coding agents",
-        "url": "https://dev.to/lzwglory/i-built-a-macos-notch-workspace-for-local-ai-coding-agents-9h8",
+        "title": "My Coding Agent Asked Permission for Every Tiny Step",
+        "url": "https://dev.to/codekingai/my-coding-agent-asked-permission-for-every-tiny-step-4a07",
         "source": "Dev.to AI",
-        "summary": "L'autore ha sviluppato un'interfaccia nativa macOS per coordinare simultaneamente molteplici agenti AI locali, migliorando l'ergonomia operativa.",
+        "summary": "YES\n\nGli agenti AI con richieste di permesso eccessive riducono l'usabilità pratica nonostante aumentino la sicurezza percepita.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
