@@ -1,45 +1,45 @@
 [
     {
-        "title": "The Complete Open-Source LLM Developer Curriculum (Beginner to Production)",
-        "url": "https://dev.to/ruhaankumar2013debug/the-complete-open-source-llm-developer-curriculum-beginner-to-production-2ld4",
+        "title": "The AI Reckoning: Why Most Companies Are Getting Left Behind",
+        "url": "https://dev.to/mcleanforresterllc/the-ai-reckoning-why-most-companies-are-getting-left-behind-175i",
         "source": "Dev.to AI",
-        "summary": "Questo curriculum open-source democratizza lo sviluppo di LLM insegnando pratiche produttive oltre le API, colmando il divario tra teoria e implementazione.",
+        "summary": "YES\n\nLe aziende che non adottano strategie AI concrete rischiano di rimanere competitive nel mercato globale in rapida evoluzione.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Self-Hosting LiteLLM in 2026: The OpenRouter Alternative You Own",
-        "url": "https://dev.to/vikasprogrammer/self-hosting-litellm-in-2026-the-openrouter-alternative-you-own-32hc",
+        "title": "Stop Letting AI Be Lazy: 2 Cognitive Protocols to Force Wit and Logical Rigor",
+        "url": "https://dev.to/weedeater575/stop-letting-ai-be-lazy-2-cognitive-protocols-to-force-wit-and-logical-rigor-41g4",
         "source": "Dev.to AI",
-        "summary": "YES\n\nLiteLLM offre un gateway open-source per gestire modelli LLM senza intermediari, riducendo costi e mantenendo il controllo completo dei dati aziendali.",
+        "summary": "YES\n\nI'll analyze this article against the criteria:\n\n**Subject Matter Check:**\n- Focus: LLM behavior optimization and prompt engineering\n- Key Topics: System prompts, LLM response quality, reasoning protocols\n- Technology Domain: Generative AI and large language models\n- Direct AI Impact: Methods to improve LLM output quality and logical rigor\n\nThis is strictly about AI/LLM technology and infrastructure.\n\n**Italian Summary (max 25 words):**\n\nDue protocolli di prompt system forzano i modelli linguistici",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Automated Video Creation Software — rendereelstudio.ai Jun 2026",
-        "url": "https://dev.to/nirasynthcae26/automated-video-creation-software-rendereelstudioai-jun-2026-2l6g",
+        "title": "Mid-Conversation System Prompts: Steering an Agent Without Breaking the Cache",
+        "url": "https://dev.to/pavelespitia/mid-conversation-system-prompts-steering-an-agent-without-breaking-the-cache-2kd3",
         "source": "Dev.to AI",
-        "summary": "Il software di creazione video automatizzata utilizza AI generativa per produrre contenuti professionali senza intervento manuale, democratizzando la produzione videomaking.",
+        "summary": "YES\n\nI analityze this article as it is about Claude LLM capabilities, prompt caching optimization, and agent architecture - all core AI/LLM technology topics.\n\n**Italian summary:**\n\nI messaggi di sistema mid-conversazione in Claude ottimizzano la cache del prompt, riducendo i costi computazionali negli agenti longevi.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Text To Video Ai Tools Comparison — rendereelstudio.ai Jun 2026",
-        "url": "https://dev.to/nirasynthcae26/text-to-video-ai-tools-comparison-rendereelstudioai-jun-2026-487l",
+        "title": "From Backend Engineer to AI Engineer: A 2026 Transition Roadmap",
+        "url": "https://dev.to/rishi_kora/from-backend-engineer-to-ai-engineer-a-2026-transition-roadmap-3f8",
         "source": "Dev.to AI",
-        "summary": "Questo articolo analizza strumenti di generazione video basati su intelligenza artificiale, confrontando soluzioni di sintesi video da testo.",
+        "summary": "YES\n\nGli ingegneri backend possono transitare verso l'AI engineering sfruttando competenze esistenti nell'integrazione di modelli linguistici preaddestrati.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "My Coding Agent Asked Permission for Every Tiny Step",
-        "url": "https://dev.to/codekingai/my-coding-agent-asked-permission-for-every-tiny-step-4a07",
+        "title": "How I Cut My API Bill by 60% Using DeepSeek (A Solo Dev Guide)",
+        "url": "https://dev.to/swift-logic-io218/how-i-cut-my-api-bill-by-60-using-deepseek-a-solo-dev-guide-4kfd",
         "source": "Dev.to AI",
-        "summary": "YES\n\nGli agenti AI con richieste di permesso eccessive riducono l'usabilità pratica nonostante aumentino la sicurezza percepita.",
+        "summary": "Un sviluppatore singolo riduce i costi API del 60% migrando verso DeepSeek, dimostrando l'accessibilità economica dei modelli AI alternativi.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
