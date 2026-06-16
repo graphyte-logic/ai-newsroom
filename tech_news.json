@@ -1,45 +1,27 @@
 [
     {
-        "title": "How to Make AI Skill Quality Measurable? Benchmark-Driven Evaluation Framework Design",
-        "url": "https://dev.to/wonderlab/how-to-make-ai-skill-quality-measurable-benchmark-driven-evaluation-framework-design-2728",
+        "title": "The Agentic AI Governance Framework: Balancing Autonomy and Control",
+        "url": "https://dev.to/omnithium/the-agentic-ai-governance-framework-balancing-autonomy-and-control-2occ",
         "source": "Dev.to AI",
-        "summary": "YES\n\nLa misurazione quantitativa delle competenze AI tramite benchmark standardizzati abilita il rilevamento delle regressioni e migliora la qualità iterativa dei sistemi.",
+        "summary": "YES\n\nLa governance dell'IA agenziale richiede il passaggio da controllo manuale a supervisione dinamica per mantenere velocità operativa in ambienti enterprise.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Rio de Janeiro's \"homegrown\" LLM appears to be a merge of an existing model",
-        "url": "https://github.com/nex-agi/Nex-N2/issues/4",
-        "source": "HackerNews",
-        "summary": "Un modello linguistico brasiliano presentato come innovazione locale si rivela essere una fusione di modelli esistenti, sollevando questioni di originalità.",
-        "geo": "global",
-        "signal_type": "weak_signal",
-        "sub_category": "Core Tech"
-    },
-    {
-        "title": "Anthropic Proposed a Global AI Pause. $7.6 Trillion in Committed Infrastructure Makes It Nearly Impossible. Here Is What That Tension Means.",
-        "url": "https://dev.to/marcom/anthropic-proposed-a-global-ai-pause-76-trillion-in-committed-infrastructure-makes-it-nearly-4h02",
+        "title": "Future of IT Support with Agentic AI: Automation, Enterprise Knowledge Management & Integrations",
+        "url": "https://dev.to/mahesh_kumar_7b856e902091/future-of-it-support-with-agentic-ai-automation-enterprise-knowledge-management-integrations-8d6",
         "source": "Dev.to AI",
-        "summary": "YES\n\nLa proposta di pausa globale sull'IA di Anthropic contrasta con gli investimenti infrastrutturali massivi da 7,6 trilioni di dollari nel settore.",
+        "summary": "L'intelligenza artificiale agenziale trasforma il supporto IT automatizzando la risoluzione dei ticket e integrando la gestione della conoscenza aziendale.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
     },
     {
-        "title": "Giving an AI agent live prediction-market data with an MCP server",
-        "url": "https://dev.to/larry_johnson_e014cef9ad9/giving-an-ai-agent-live-prediction-market-data-with-an-mcp-server-40kd",
+        "title": "A3M Router Update: Parallel LLM Routing Insights (HI)",
+        "url": "https://dev.to/megha_mukherjee_5eb776f2b/a3m-router-update-parallel-llm-routing-insights-hi-3j2o",
         "source": "Dev.to AI",
-        "summary": "YES\n\nIl Model Context Protocol permette agli agenti AI di accedere a dati real-time durante il ragionamento, risolvendo il problema cruciale dell'obsolescenza informativa nei modelli linguistici.",
-        "geo": "global",
-        "signal_type": "trend",
-        "sub_category": "AI Development"
-    },
-    {
-        "title": "What is AEO (Answer Engine Optimization)? A plain-English guide for businesses",
-        "url": "https://dev.to/bitsaga/what-is-aeo-answer-engine-optimization-a-plain-english-guide-for-businesses-176p",
-        "source": "Dev.to AI",
-        "summary": "L'ottimizzazione dei contenuti per i sistemi AI trasforma la visibilità digitale, spostando il valore dalla ricerca tradizionale alle citazioni dirette negli agenti intelligenti.",
+        "summary": "Il router A3M ottimizza l'orchestrazione multi-modello attraverso routing parallelo, riducendo costi del 60% e migliorando l'affidabilità enterprise.",
         "geo": "global",
         "signal_type": "trend",
         "sub_category": "AI Development"
