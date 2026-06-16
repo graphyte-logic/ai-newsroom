@@ -5,43 +5,43 @@
 
 **1. 🔴 [REGULATORY] ESAs: primo report DORA sugli incidenti ICT nel settore finanziario**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-Le Autorità di Vigilanza Europee (EBA, EIOPA, ESMA) hanno pubblicato il primo rapporto annuale sugli incidenti ICT rilevanti nel settore finanziario UE, nell'ambito del meccanismo di segnalazione DORA. Il rapporto evidenzia che i rischi ICT sono sempre più transfrontalieri e interconnessi, e che l'evoluzione degli strumenti basati su AI impone alle entità finanziarie un rafforzamento delle misure di cybersecurity e della resilienza operativa digitale.
+Le Autorità di Vigilanza Europee (EBA, EIOPA, ESMA) hanno pubblicato il primo report annuale sugli incidenti ICT rilevanti nel settore finanziario UE, nell'ambito del meccanismo di segnalazione DORA. Il rapporto evidenzia come i rischi ICT siano sempre più transfrontalieri e interconnessi, e sottolinea che l'evoluzione degli strumenti AI avanzati impone agli enti finanziari di rafforzare le misure di cybersecurity per garantire la resilienza operativa digitale.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/esas-publish-first-report-dora-major-ict-related-incidents)
 
 **2. 🔴 [REGULATORY] EBA aggiorna RTS sui pesi di rischio per esposizioni specializzate**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-L'EBA ha avviato una consultazione pubblica sulle modifiche agli RTS relativi all'assegnazione dei pesi di rischio alle esposizioni di prestito specializzato nell'ambito del Supervisory Slotting Criteria Approach. Le modifiche mirano ad allineare gli standard al nuovo CRR 3, migliorando la sensibilità al rischio e la chiarezza normativa. L'impatto riguarda istituti di credito esposti a project finance, real estate e altre forme di finanziamento specializzato.
+L'EBA avvia una consultazione pubblica su modifiche agli RTS relativi all'assegnazione dei pesi di rischio alle esposizioni di prestito specializzato nell'ambito del Supervisory Slotting Criteria Approach (SSCA). Le modifiche recepiscono le novità introdotte dal CRR 3, puntando a migliorare la sensibilità al rischio, la chiarezza normativa e la coerenza del framework prudenziale per le banche esposte a finanziamenti di progetto, immobiliare e asset finance.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-consults-amendments-rts-assignment-risk-weights-specialised-lending-exposures-under-supervisory)
 
-**3. 🔴 [REGULATORY] EBA aggiorna le linee guida sulla definizione di default bancario**
+**3. 🔴 [REGULATORY] EBA aggiorna linee guida sulla definizione di default bancario**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-L'EBA ha pubblicato il report finale che modifica le linee guida sulla definizione di default. Le modifiche riguardano il factoring senza rivalsa e confermano la soglia dell'1% sul valore attuale netto (NPV) nelle ristrutturazioni del debito. Le istituzioni finanziarie devono adeguare i propri modelli di riconoscimento prudenziale del default, con impatti diretti sulla gestione del rischio di credito dei fornitori e delle controparti commerciali.
+L'EBA ha pubblicato il report finale che modifica le linee guida sulla definizione di default, introducendo aggiustamenti mirati per il factoring pro soluto e confermando la soglia dell'1% sul valore attuale netto (NPV) nelle ristrutturazioni del debito. Le modifiche impattano direttamente sui modelli prudenziali delle banche e sui criteri di classificazione del rischio di credito verso fornitori e controparti finanziarie.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-amends-guidelines-definition-default)
 
-**4. 🔴 [REGULATORY] EBA: Nuove Linee Guida sull'Indipendenza dei Supervisori Bancari**
+**4. 🔴 [REGULATORY] EBA: nuove linee guida sull'indipendenza delle autorità di vigilanza**
 └─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
-L'EBA ha pubblicato le linee guida finali sull'indipendenza di vigilanza ai sensi della CRD. Le disposizioni chiariscono i requisiti per le autorità competenti nella gestione dei conflitti di interesse del personale e degli organi di governance, introducendo obblighi su dichiarazioni di interesse, restrizioni al trading di strumenti finanziari e vincoli di cooling-off. L'impatto si estende indirettamente ai processi di compliance e TPRM delle istituzioni finanziarie vigilate.
+L'EBA ha pubblicato le linee guida finali sull'indipendenza della vigilanza nell'ambito della CRD. Le disposizioni chiariscono come le autorità competenti devono prevenire e gestire i conflitti di interesse per il personale e gli organi di governance, includendo dichiarazioni di interesse, limitazioni al trading di strumenti finanziari e restrizioni di "cooling-off". Impatto diretto sui processi di conformità degli istituti finanziari e sui loro fornitori strategici.
 > [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-supervisory-independence)
 
-**5. ⚡ [SIGNAL] Le Banche Adottano SaaS e Cloud per Trasformare i Modelli Operativi**
+**5. 🔴 [REGULATORY] EBA 2027: Stress Test Semplificato con Integrazione Rischio Climatico**
+└─ 🌍 Ambito: *EU* | Canale: *EBA* | Fonte: *EBA News*
+L'EBA ha pubblicato la metodologia preliminare per lo stress test EU-wide 2027, introducendo semplificazioni significative: riduzione dei requisiti di dati, allineamento con il reporting prudenziale armonizzato e integrazione dei rischi climatici. Questo esercizio anticipa un cambiamento strutturale nella valutazione della resilienza bancaria, con impatti diretti sulle catene di fornitura finanziaria e sui processi di due diligence dei fornitori critici soggetti a vigilanza EBA.
+> [🔗 Apri Documentazione Originale](https://www.eba.europa.eu/publications-and-media/press-releases/eba-launches-early-consultation-simplified-eu-wide-stress-test-climate-risk-integration)
+
+**6. ⚡ [SIGNAL] Banche e SaaS: trasformazione cloud tra AWS e Temenos**
 └─ 🌍 Ambito: *global* | Canale: *Procurement Technology* | Fonte: *Finextra Payments / Tech*
-Temenos e AWS evidenziano come le banche stiano accelerando l'adozione di SaaS e cloud per semplificare l'operatività e differenziarsi competitivamente. Il principale ostacolo non è tecnologico né regolatorio, ma culturale e organizzativo. La scelta tra SaaS standardizzato e soluzioni cloud personalizzate riflette diverse strategie di trasformazione digitale, con implicazioni dirette sulla gestione dei fornitori critici, sulla concentrazione del rischio e sulla conformità DORA per gli enti finanziari europei.
+Temenos e AWS illustrano come le banche stiano accelerando l'adozione del cloud, scegliendo tra modelli SaaS chiavi-in-mano e architetture personalizzate. Il vero ostacolo non è tecnologico né regolatorio, ma culturale e organizzativo. Per i responsabili procurement, questo segnala una crescente concentrazione su vendor strategici ad alto impatto sistemico, con implicazioni dirette per TPRM, continuità operativa e conformità DORA.
 > [🔗 Apri Documentazione Originale](https://www.finextra.com/videoarticle/3522/how-banks-are-transforming-their-business-through-saas?utm_medium=rssfinextra&utm_source=finextrafeed)
 
-**6. ⚡ [SIGNAL] National Grid: la procurement guida un piano infrastrutturale da £70 miliardi**
+**7. ⚡ [SIGNAL] National Grid: procurement protagonista in un piano da 70 miliardi**
 └─ 🌍 Ambito: *global* | Canale: *Governance & Operating Model* | Fonte: *Procurement Leaders*
-Simon Harnett di National Grid illustra come la funzione procurement sia diventata leva strategica centrale in un piano di investimenti infrastrutturali da £70 miliardi. Il CPO non opera più come gestore di costi, ma come architetto di supply chain resilienti e abilitatore di capacità industriale. La scalabilità della base fornitori, la gestione del rischio di terze parti e la velocità di esecuzione contrattuale sono i fattori critici in un contesto di pressione temporale estrema.
+National Grid sta mobilitando la funzione procurement come leva strategica centrale per gestire un programma di investimenti infrastrutturali da £70 miliardi. Simon Harnett, CPO del gruppo, descrive un modello in cui il procurement non è più funzione di supporto ma driver operativo e decisionale. La scala dell'intervento impone capacità avanzate di supply chain management, gestione del rischio fornitore e orchestrazione di contratti complessi in contesti regolati.
 > [🔗 Apri Documentazione Originale](https://procurementleaders.com/content/cpo-crunch-procurement-rapid-capex-investment/)
 
-**7. ⚡ [SIGNAL] Qualità dei Dati: La Chiave per Sbloccare il Potenziale del Procurement**
+**8. ⚡ [SIGNAL] CPO sotto pressione: sviluppare leadership efficace nell'incertezza strutturale**
 └─ 🌍 Ambito: *global* | Canale: *Governance & Operating Model* | Fonte: *Procurement Leaders*
-La disponibilità di dati puliti e tempestivi rappresenta il fattore critico per l'evoluzione strategica del procurement. I Chief Procurement Officer affrontano sfide crescenti nella raccolta, governance e analisi dei dati fornitori, di spesa e di rischio. Senza una solida infrastruttura informativa, le decisioni rimangono reattive e inefficienti. La qualità del dato è prerequisito per automazione, compliance normativa (DORA, EBA) e gestione proattiva del rischio di terze parti.
-> [🔗 Apri Documentazione Originale](https://procurementleaders.com/content/cpo-crunch-all-about-data/)
-
-**8. ⚡ [SIGNAL] Automazione vs Giudizio Umano: Il Ruolo Strategico del CPO**
-└─ 🌍 Ambito: *global* | Canale: *Governance & Operating Model* | Fonte: *Procurement Leaders*
-L'articolo esplora la tensione crescente tra automazione basata su AI e il giudizio umano nei processi di procurement. Sebbene l'AI possa ottimizzare decisioni operative, non è in grado di costruire relazioni fiduciarie con i fornitori, elemento cruciale per la gestione del rischio e la resilienza della supply chain. Il CPO deve definire confini chiari tra ciò che può essere delegato all'AI e ciò che richiede discernimento umano e responsabilità strategica.
-> [🔗 Apri Documentazione Originale](https://procurementleaders.com/content/cpo-crunch-reserving-judgement-automation-human-input/)
+L'incertezza è diventata una condizione permanente per i Chief Procurement Officer. Il World Procurement Congress rappresenta un'occasione per confrontarsi su strategie vincenti di leadership. I CPO devono rafforzare le proprie competenze organizzative, sviluppare resilienza decisionale e costruire team capaci di navigare volatilità continua. La funzione procurement non è più solo operativa: è un asset strategico che richiede visione, agilità e capacità di influenzare l'intera organizzazione aziendale.
+> [🔗 Apri Documentazione Originale](https://procurementleaders.com/content/cpo-crunch-building-leadership-muscle/)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 *Generato autonomamente dal sistema Graphyte Workflow Engine*
