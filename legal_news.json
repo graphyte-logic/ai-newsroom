@@ -3,7 +3,7 @@
         "title": "ESAs publish the first report on DORA major ICT-related incidents",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-publish-first-report-dora-major-ict-related-incidents",
         "source": "EBA News",
-        "summary": "Le Autorità di Vigilanza Europee pubblicano il primo rapporto annuale sugli incidenti ICT nel settore finanziario secondo DORA.",
+        "summary": "Le autorità europee pubblicano il primo rapporto annuale su incidenti ICT critici nel settore finanziario secondo DORA.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -12,7 +12,7 @@
         "title": "The EBA consults on amendments to the RTS on the assignment of risk weights to specialised lending exposures under the Supervisory Slotting Criteria Approach",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-consults-amendments-rts-assignment-risk-weights-specialised-lending-exposures-under-supervisory",
         "source": "EBA News",
-        "summary": "This article IS related to regulatory updates and consultation papers relevant to banking/financial regulation.\n\n**Italian Summary:**\n\nL'EBA aggiorna i criteri di ponderazione del rischio per esposizioni creditizie specializzate secondo il nuovo quadro normativo CRR3.",
+        "summary": "# Analysis Result\n\n**ACCEPT** - This article is relevant to regulatory updates and legislative frameworks applied to banking.\n\n**Italian Summary (25 words max):**\n\nL'EBA consulta emendamenti ai RTS sui criteri di assegnazione dei pesi di rischio per le esposizioni creditizie specializzate secondo l'approccio SSCA.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -21,7 +21,7 @@
         "title": "The EBA amends Guidelines on the definition of default",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-amends-guidelines-definition-default",
         "source": "EBA News",
-        "summary": "This article covers regulatory updates relevant to banking and financial regulation.\n\n**Single impactful summary in Italian (max 25 words):**\n\nL'EBA modifica le linee guida sulla definizione di insolvenza, chiarendo il factoring non ricorsivo e confermando la soglia NPV dell'1% per la ristrutturazione del debito.",
+        "summary": "This article covers a regulatory update from the EBA (European Banking Authority), which is a relevant regulatory body issuing guidelines that apply to banking institutions.\n\n**ACCEPT**\n\nL'EBA modifica le linee guida sulla definizione di insolvenza, includendo chiarimenti sul factoring non-ricorsivo e confermando la soglia NPV dell'1% per la ristrutturazione del debito.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -30,7 +30,7 @@
         "title": "The EBA publishes its final Guidelines on supervisory independence",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-supervisory-independence",
         "source": "EBA News",
-        "summary": "This article IS related to regulatory updates and legislative frameworks applied to banking.\n\n**Italian Summary (max 25 words):**\n\nL'EBA pubblica linee guida finali sull'indipendenza dei supervisori bancari, disciplinando conflitti d'interesse, dichiarazioni patrimoniali e limitazioni commerciali.",
+        "summary": "This article covers regulatory updates relevant to banking supervision and governance frameworks under EU law.\n\n**ACCEPT**\n\nL'EBA stabilisce linee guida finali sull'indipendenza dei supervisori per prevenire conflitti di interesse nel settore bancario.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -39,7 +39,7 @@
         "title": "​The EBA launches early consultation on simplified EU-wide stress test, with climate risk integration",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-launches-early-consultation-simplified-eu-wide-stress-test-climate-risk-integration",
         "source": "EBA News",
-        "summary": "**ACCEPT**\n\nL'EBA integra rischi climatici nelle prove di stress bancarie 2027, semplificando requisiti dati e allineando la reportistica supervisoria armonizzata.",
+        "summary": "This article IS related to regulatory updates and consultation papers relevant to banking/fintech regulation.\n\n**Single summary in Italian:**\n\nL'EBA semplifica i test di stress 2027 riducendo requisiti dati e integrando rischi climatici nelle metodologie supervisory.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
@@ -48,7 +48,7 @@
         "title": "The EBA issues an opinion about an Austrian macroprudential measure",
         "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-issues-opinion-about-austrian-macroprudential-measure",
         "source": "EBA News",
-        "summary": "This article covers a regulatory update regarding macroprudential banking measures and systemic risk buffers under EU banking law framework.\n\n**ACCEPT**\n\nL'EBA fornisce parere sulla misura macroprudenziale austriaca di aumento del buffer di rischio sistemico per il mercato immobiliare commerciale.",
+        "summary": "This article covers a regulatory update within the banking supervisory framework.\n\nL'Autorità bancaria europea approva l'aumento del buffer di rischio sistemico settoriale austriaco per il mercato immobiliare commerciale oltre il 5%.",
         "geo": "EU",
         "signal_type": "regulatory",
         "sub_category": "EBA"
